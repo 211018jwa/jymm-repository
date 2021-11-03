@@ -10,9 +10,9 @@ public class ClientsController {
 
 	public ClientsService clientsService;
 
-	public ClientsController(ClientsService clientsService) {
+	public ClientsController() {
 
-		this.clientsService = clientsService;
+		this.clientsService = new ClientsService();
 	}
 
 	public Handler clients = (ctx) -> {
@@ -21,13 +21,13 @@ public class ClientsController {
 		String firstName = ctx.formParam("firstName");
 		String lastName = ctx.formParam("lastName");
 
-		ctx.result(clientsService.addNewClient(firstName, lastName));
+		ctx.result(this.clientsService.addNewClient(firstName, lastName));
 
 	};
 
 	public Handler getAllClients = (ctx) -> {
 
-		ctx.json(clientsService.getAllClients());
+		ctx.json(this.clientsService.getAllClients());
 
 	};
 
@@ -35,7 +35,7 @@ public class ClientsController {
 		
 		String id = ctx.pathParam("client_id");
 
-		ctx.json(clientsService.getClientById(id));
+		ctx.json(this.clientsService.getClientById(id));
 
 	};
 	
@@ -45,11 +45,11 @@ public class ClientsController {
 		String firstName = ctx.formParam("firstName");
 		String lastName = ctx.formParam("lastName");
 		
-		UpdateClientDTO updateClient = new UpdateClientDTO(firstName, lastName);
+		//UpdateClientDTO updateClient = new UpdateClientDTO(firstName, lastName);
 		
 		
-		if (clientsService.modifyClientsById(id, updateClient)) {
-			ctx.result("sucess");
+		if (this.clientsService.modifyClientsById(id, firstName, lastName)) {
+			ctx.result("success");
 		}
 		
 	};
@@ -58,7 +58,7 @@ public class ClientsController {
 		
 		String id = ctx.pathParam("client_id");
 		
-		if (clientsService.removeClientById(id)) {
+		if (this.clientsService.removeClientById(id)) {
 			ctx.result("success");
 		}
 		

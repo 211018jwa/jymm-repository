@@ -21,10 +21,13 @@ public class MainDriver {
 //		System.out.println(client.hashCode());
 		
 		Javalin app = Javalin.create().start(8080);
-
+		
+		ClientsController clientsController = new ClientsController();
+		
+//		ClientsService clientsService = new ClientsService();
 //		ClientsDAO clientsDao = new ClientsDAO();
-//		ClientsService clientsService = new ClientsService(new ClientsDAO());
-		ClientsController clientsController = new ClientsController(new ClientsService(new ClientsDAO()));
+
+		
 				
 //		System.out.println(clientsDao.gettAllClients());	
 //		System.out.println(clientsDao.selectClientsById(1));

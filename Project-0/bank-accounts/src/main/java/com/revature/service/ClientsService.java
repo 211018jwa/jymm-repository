@@ -11,27 +11,27 @@ public class ClientsService {
 	
 	public ClientsDAO clientsDao;
 	
-	public ClientsService (ClientsDAO clientsDao) {
-		this.clientsDao = clientsDao;
+	public ClientsService () {
+		this.clientsDao = new ClientsDAO();
 	}
 
 	public String addNewClient(String firstName, String lastName) throws SQLException {
 				
 		Clients newClient = new Clients(firstName, lastName);
 		
-		return clientsDao.insertClients(newClient);
+		return this.clientsDao.insertClients(newClient);
 	}
 
 	public List<Clients> getAllClients() throws SQLException {
 		
-		return clientsDao.selectAllClients();
+		return this.clientsDao.selectAllClients();
 	}
 
 	public Clients getClientById(String id) throws SQLException {
 		
 		int client_id = Integer.parseInt(id);
 		
-		return clientsDao.selectClientsById(client_id);
+		return this.clientsDao.selectClientsById(client_id);
 	}
 
 	public boolean removeClientById(String id) throws SQLException {
@@ -42,13 +42,14 @@ public class ClientsService {
 		
 	}
 
-	public boolean modifyClientsById(String id, UpdateClientDTO client) throws SQLException {
+	public boolean modifyClientsById(String id, String firstName, String lastName) throws SQLException {
 		
 		int client_id = Integer.parseInt(id);
 		
 		//Clients modifyClient = clientsDao.selectClientsById(client_id);
+		UpdateClientDTO updateClient = new UpdateClientDTO(firstName, lastName);
 		
-		return clientsDao.updateClientsById(client_id, client);
+		return clientsDao.updateClientsById(client_id, updateClient);
 
 	}
 
