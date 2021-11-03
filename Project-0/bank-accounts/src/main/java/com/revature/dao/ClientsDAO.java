@@ -7,35 +7,37 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.dto.UpdateClientDTO;
 import com.revature.models.Clients;
 import com.revature.util.JDBCUtility;
 
 public class ClientsDAO {
 
-	public void insertClients(Clients clients) throws SQLException {
-		
-		//boolean success = false;
+	public String insertClients(Clients clients) throws SQLException {
+		// boolean success = false;
+		String result = "";
 
 		try (Connection con = JDBCUtility.getConnection()) {
-			
-			String sql = "INSERT INTO clients (client_first_name, client_last_name)"
-					+ "VALUES (?,?)";
+
+			String sql = "INSERT INTO clients (client_first_name, client_last_name)" + "VALUES (?,?)";
 			PreparedStatement ps = con.prepareStatement(sql);
-			
+
 			ps.setString(1, clients.getFirstName());
 			ps.setString(2, clients.getLastName());
-			
-			ps.execute();	
-			
-			//success = true;
+
+			ps.execute();
+
+			// success = true;
+
+			result = "success";
 
 		}
-		
-		//return success;
+
+		return result;
 
 	}
 
-	public List<Clients> gettAllClients() throws SQLException {
+	public List<Clients> selectAllClients() throws SQLException {
 
 		List<Clients> listOfClients = new ArrayList<>();
 
@@ -65,7 +67,7 @@ public class ClientsDAO {
 
 	}
 
-	public Clients getClientsById(int id) throws SQLException {
+	public Clients selectClientsById(int id) throws SQLException {
 
 		try (Connection con = JDBCUtility.getConnection()) {
 
@@ -80,9 +82,61 @@ public class ClientsDAO {
 				return new Clients(rs.getInt("client_id"), rs.getString("client_first_name"),
 						rs.getString("client_last_name"));
 			} else {
-				return null;
+				throw new SQLException("Client does not exist!");
 			}
 		}
+	}
+
+	public boolean updateClientsById(int id, UpdateClientDTO clients) throws SQLException {
+
+		boolean success = false;
+
+		try (Connection con = JDBCUtility.getConnection()) {
+
+			String sql = "UPDATE clients\r\n"
+					+ "SET client_first_name = ?, client_last_name = ?\r\n"
+					+ "WHERE\r\n"
+					+ "client_id = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setString(1, clients.getFirstName());
+			ps.setString(2, clients.getLastName());
+			ps.setInt(3, id);
+
+			int i = ps.executeUpdate();
+
+			if (i != 1) {
+				throw new SQLException("Update unsuccessful!");
+			} else {
+				success = true;
+			}
+
+		}
+		return success;
+	}
+
+	public boolean deleteClientsById(int id) throws SQLException {
+
+		boolean success = false;
+
+		try (Connection con = JDBCUtility.getConnection()) {
+
+			String sql = "DELETE FROM clients WHERE client_id = ?;";
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, id);
+
+			int i = ps.executeUpdate();
+
+			if (i != 1) {
+				throw new SQLException("Delete unsuccessful!");
+			} else {
+				success = true;
+			}
+
+		}
+
+		return success;
 	}
 
 }

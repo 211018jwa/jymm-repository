@@ -6,7 +6,6 @@ import java.sql.SQLException;
 
 import org.postgresql.Driver;
 
-// import org.postgresql.Driver;
 
 public class JDBCUtility {
 	
