@@ -1,10 +1,9 @@
-package com.revature.models;
+package com.revature.dto;
 
 import java.util.Objects;
 
-public class Clients {
-	
-	private int id;
+public class AddOrUpdateClientDTO {
+
 	private String firstName;
 	private String lastName;
 	private String streetNo;
@@ -13,22 +12,15 @@ public class Clients {
 	private String state;
 	private String zipCode;
 	private String email;
-	private String phone_number;
+	private String phoneNumber;
 	
-	public Clients() {
+	public AddOrUpdateClientDTO() {
 		super();
 	}
 
-//	public Clients(String firstName, String lastName) {
-//		this.firstName = firstName;
-//		this.lastName = lastName;
-//	}
-
-
-	public Clients(int id, String firstName, String lastName, String streetNo, String streetName, String city,
-			String state, String zipCode, String email, String phone_number) {
+	public AddOrUpdateClientDTO(String firstName, String lastName, String streetNo, String streetName, String city,
+			String state, String zipCode, String email, String phoneNumber) {
 		super();
-		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.streetNo = streetNo;
@@ -37,15 +29,7 @@ public class Clients {
 		this.state = state;
 		this.zipCode = zipCode;
 		this.email = email;
-		this.phone_number = phone_number;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getFirstName() {
@@ -112,17 +96,17 @@ public class Clients {
 		this.email = email;
 	}
 
-	public String getPhone_number() {
-		return phone_number;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setPhone_number(String phone_number) {
-		this.phone_number = phone_number;
+	public void setPhoneNumber(String phone_number) {
+		this.phoneNumber = phone_number;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(firstName, id, lastName);
+		return Objects.hash(firstName, lastName);
 	}
 
 	@Override
@@ -133,16 +117,15 @@ public class Clients {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Clients other = (Clients) obj;
-		return Objects.equals(firstName, other.firstName) && id == other.id && Objects.equals(lastName, other.lastName);
+		AddOrUpdateClientDTO other = (AddOrUpdateClientDTO) obj;
+		return Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName);
 	}
 
 	@Override
 	public String toString() {
-		return "Clients [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+		return "UpdateClientDTO [firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
 	
 	
 	
-
 }

@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.revature.dao.ClientsDAO;
-import com.revature.dto.UpdateClientDTO;
+import com.revature.dto.AddOrUpdateClientDTO;
 import com.revature.models.Clients;
 
 public class ClientsService {
@@ -15,11 +15,10 @@ public class ClientsService {
 		this.clientsDao = new ClientsDAO();
 	}
 
-	public String addNewClient(String firstName, String lastName) throws SQLException {
-				
-		Clients newClient = new Clients(firstName, lastName);
+	public String addNewClient(AddOrUpdateClientDTO addDto) throws SQLException {
 		
-		return this.clientsDao.insertClients(newClient);
+	
+		return this.clientsDao.insertClients(addDto);
 	}
 
 	public List<Clients> getAllClients() throws SQLException {
@@ -42,14 +41,20 @@ public class ClientsService {
 		
 	}
 
-	public boolean modifyClientsById(String id, String firstName, String lastName) throws SQLException {
+	public boolean modifyClientsById(int clientId, AddOrUpdateClientDTO dto) throws SQLException {
 		
-		int client_id = Integer.parseInt(id);
+		//int client_id = Integer.parseInt(id);
 		
+		Clients id = this.clientsDao.selectClientsById(clientId);
+		
+		if (id == null) {
+			throw new SQLException("Client id of " +id+ " does not exist!");
+		}
+	
 		//Clients modifyClient = clientsDao.selectClientsById(client_id);
-		UpdateClientDTO updateClient = new UpdateClientDTO(firstName, lastName);
+		//AddOrUpdateClientDTO updateClient = new AddOrUpdateClientDTO(firstName, lastName);
 		
-		return clientsDao.updateClientsById(client_id, updateClient);
+		return clientsDao.updateClientsById(clientId, dto);
 
 	}
 

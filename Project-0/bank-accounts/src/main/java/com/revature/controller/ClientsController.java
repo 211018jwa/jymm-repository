@@ -1,6 +1,6 @@
 package com.revature.controller;
 
-import com.revature.dto.UpdateClientDTO;
+import com.revature.dto.AddOrUpdateClientDTO;
 import com.revature.service.ClientsService;
 
 import io.javalin.Javalin;
@@ -18,10 +18,12 @@ public class ClientsController {
 	public Handler clients = (ctx) -> {
 		// ctx.result("cleints lambda invoke");
 
-		String firstName = ctx.formParam("firstName");
-		String lastName = ctx.formParam("lastName");
+//		String firstName = ctx.formParam("firstName");
+//		String lastName = ctx.formParam("lastName");
+//		
+		AddOrUpdateClientDTO addDto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
 
-		ctx.result(this.clientsService.addNewClient(firstName, lastName));
+		ctx.result(this.clientsService.addNewClient(addDto));
 
 	};
 
@@ -42,14 +44,21 @@ public class ClientsController {
 	public Handler updateClientsById = (ctx) -> {
 		
 		String id = ctx.pathParam("client_id");
-		String firstName = ctx.formParam("firstName");
-		String lastName = ctx.formParam("lastName");
 		
-		//UpdateClientDTO updateClient = new UpdateClientDTO(firstName, lastName);
+		int clients_id = Integer.parseInt(id);
 		
+//		String firstName = ctx.formParam("firstName");
+//		String lastName = ctx.formParam("lastName");
 		
-		if (this.clientsService.modifyClientsById(id, firstName, lastName)) {
+		AddOrUpdateClientDTO dto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
+		
+//		if (this.clientsService.modifyClientsById(clients_id, firstName, lastName) {
+//			ctx.result("success");
+//		}
+		if (this.clientsService.modifyClientsById(clients_id, dto)) {
 			ctx.result("success");
+		} else {
+			ctx.status(404);
 		}
 		
 	};

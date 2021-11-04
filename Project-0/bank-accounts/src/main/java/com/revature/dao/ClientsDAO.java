@@ -7,23 +7,34 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.dto.UpdateClientDTO;
+import com.revature.dto.AddOrUpdateClientDTO;
 import com.revature.models.Clients;
 import com.revature.util.JDBCUtility;
 
 public class ClientsDAO {
 
-	public String insertClients(Clients clients) throws SQLException {
+	public String insertClients(AddOrUpdateClientDTO dto) throws SQLException {
 		// boolean success = false;
 		String result = "";
 
 		try (Connection con = JDBCUtility.getConnection()) {
 
-			String sql = "INSERT INTO clients (client_first_name, client_last_name)" + "VALUES (?,?)";
+			String sql = "INSERT INTO \r\n"
+					+ "	clients (client_first_name, client_last_name, street_no, street_name, city, state, zip_code, email, phone_number)\r\n"
+					+ "VALUES"
+					+ "(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setString(1, clients.getFirstName());
-			ps.setString(2, clients.getLastName());
+			ps.setString(1, dto.getFirstName());
+			ps.setString(2, dto.getLastName());
+			ps.setString(3, dto.getStreetNo());
+			ps.setString(4, dto.getStreetName());
+			ps.setString(5, dto.getCity());
+			ps.setString(6, dto.getState());
+			ps.setString(7, dto.getZipCode());
+			ps.setString(8, dto.getEmail());
+			ps.setString(9, dto.getPhoneNumber());
+			
 
 			ps.execute();
 
@@ -51,7 +62,9 @@ public class ClientsDAO {
 			while (rs.next()) {
 
 				listOfClients.add(new Clients(rs.getInt("client_id"), rs.getString("client_first_name"),
-						rs.getString("client_last_name")));
+						rs.getString("client_last_name"), rs.getString("street_no"), rs.getString("street_name"),
+						rs.getString("city"), rs.getString("state"), rs.getString("zip_code"), rs.getString("email"),
+						rs.getString("phone_number")));
 
 //				int id = rs.getInt("client_id");
 //				String firstName = rs.getString("client_first_name");
@@ -80,28 +93,38 @@ public class ClientsDAO {
 
 			if (rs.next()) {
 				return new Clients(rs.getInt("client_id"), rs.getString("client_first_name"),
-						rs.getString("client_last_name"));
+						rs.getString("client_last_name"), rs.getString("street_no"), rs.getString("street_name"),
+						rs.getString("city"), rs.getString("state"), rs.getString("zip_code"), rs.getString("email"),
+						rs.getString("phone_number"));
 			} else {
-				throw new SQLException("Client does not exist!");
+				return null;
 			}
 		}
 	}
 
-	public boolean updateClientsById(int id, UpdateClientDTO clients) throws SQLException {
+	public boolean updateClientsById(int id, AddOrUpdateClientDTO clients) throws SQLException {
 
 		boolean success = false;
 
 		try (Connection con = JDBCUtility.getConnection()) {
 
 			String sql = "UPDATE clients\r\n"
-					+ "SET client_first_name = ?, client_last_name = ?\r\n"
+					+ "SET client_first_name = ?, client_last_name = ?, street_no = ?, street_name = ?, "
+					+ "city = ?, state = ?, zip_code = ?, email = ?, phone_number = ?\r\n"
 					+ "WHERE\r\n"
 					+ "client_id = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			
 			ps.setString(1, clients.getFirstName());
 			ps.setString(2, clients.getLastName());
-			ps.setInt(3, id);
+			ps.setString(3, clients.getStreetNo());
+			ps.setString(4, clients.getStreetName());
+			ps.setString(5, clients.getCity());
+			ps.setString(6, clients.getState());
+			ps.setString(7, clients.getZipCode());
+			ps.setString(8, clients.getEmail());
+			ps.setString(9, clients.getPhoneNumber());
+			ps.setInt(10, id);
 
 			int i = ps.executeUpdate();
 
