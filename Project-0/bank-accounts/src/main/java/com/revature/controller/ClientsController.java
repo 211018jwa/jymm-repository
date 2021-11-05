@@ -1,6 +1,9 @@
 package com.revature.controller;
 
 import com.revature.dto.AddOrUpdateClientDTO;
+import com.revature.exceptions.ClientNotFoundException;
+import com.revature.exceptions.InvalidInputException;
+import com.revature.models.Clients;
 import com.revature.service.ClientsService;
 
 import io.javalin.Javalin;
@@ -22,6 +25,11 @@ public class ClientsController {
 //		String lastName = ctx.formParam("lastName");
 //		
 		AddOrUpdateClientDTO addDto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
+		/*
+		 * { 
+		 * 		"firstName": "Jymm"
+		 * }
+		 */
 
 		ctx.result(this.clientsService.addNewClient(addDto));
 
@@ -36,16 +44,25 @@ public class ClientsController {
 	public Handler getClientById = (ctx) -> {
 		
 		String id = ctx.pathParam("client_id");
-
-		ctx.json(this.clientsService.getClientById(id));
+		
+		try {
+				
+			Clients c = this.clientsService.getClientById(id);			
+			ctx.json(c);			
+		
+		} catch (InvalidInputException e) {
+			ctx.status(400);	
+			ctx.json(e);
+		} catch (ClientNotFoundException e) {
+			ctx.status(404);	
+			ctx.json(e);
+		}
 
 	};
 	
 	public Handler updateClientsById = (ctx) -> {
 		
-		String id = ctx.pathParam("client_id");
-		
-		int clients_id = Integer.parseInt(id);
+		String id = ctx.pathParam("client_id");		
 		
 //		String firstName = ctx.formParam("firstName");
 //		String lastName = ctx.formParam("lastName");
@@ -55,7 +72,7 @@ public class ClientsController {
 //		if (this.clientsService.modifyClientsById(clients_id, firstName, lastName) {
 //			ctx.result("success");
 //		}
-		if (this.clientsService.modifyClientsById(clients_id, dto)) {
+		if (this.clientsService.modifyClientsById(id, dto)) {
 			ctx.result("success");
 		} else {
 			ctx.status(404);

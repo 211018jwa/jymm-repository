@@ -20,22 +20,21 @@ public class ClientsDAO {
 		try (Connection con = JDBCUtility.getConnection()) {
 
 			String sql = "INSERT INTO \r\n"
-					+ "	clients (client_first_name, client_last_name, street_no, street_name, city, state, zip_code, email, phone_number)\r\n"
-					+ "VALUES"
-					+ "(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+					+ "	clients (client_first_name, client_last_name, "
+					+ "street_address, city, state, zip_code, email, phone_number)\r\n"
+					+ "VALUES\r\n"
+					+ "(?, ?, ?, ?, ?, ?, ?, ?);";
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, dto.getFirstName());
 			ps.setString(2, dto.getLastName());
-			ps.setString(3, dto.getStreetNo());
-			ps.setString(4, dto.getStreetName());
-			ps.setString(5, dto.getCity());
-			ps.setString(6, dto.getState());
-			ps.setString(7, dto.getZipCode());
-			ps.setString(8, dto.getEmail());
-			ps.setString(9, dto.getPhoneNumber());
+			ps.setString(3, dto.getStreetAddress());
+			ps.setString(4, dto.getCity());
+			ps.setString(5, dto.getState());
+			ps.setString(6, dto.getZipCode());
+			ps.setString(7, dto.getEmail());
+			ps.setString(8, dto.getPhoneNumber());
 			
-
 			ps.execute();
 
 			// success = true;
@@ -62,7 +61,7 @@ public class ClientsDAO {
 			while (rs.next()) {
 
 				listOfClients.add(new Clients(rs.getInt("client_id"), rs.getString("client_first_name"),
-						rs.getString("client_last_name"), rs.getString("street_no"), rs.getString("street_name"),
+						rs.getString("client_last_name"), rs.getString("street_address"),
 						rs.getString("city"), rs.getString("state"), rs.getString("zip_code"), rs.getString("email"),
 						rs.getString("phone_number")));
 
@@ -93,7 +92,7 @@ public class ClientsDAO {
 
 			if (rs.next()) {
 				return new Clients(rs.getInt("client_id"), rs.getString("client_first_name"),
-						rs.getString("client_last_name"), rs.getString("street_no"), rs.getString("street_name"),
+						rs.getString("client_last_name"), rs.getString("street_address"),
 						rs.getString("city"), rs.getString("state"), rs.getString("zip_code"), rs.getString("email"),
 						rs.getString("phone_number"));
 			} else {
@@ -109,7 +108,7 @@ public class ClientsDAO {
 		try (Connection con = JDBCUtility.getConnection()) {
 
 			String sql = "UPDATE clients\r\n"
-					+ "SET client_first_name = ?, client_last_name = ?, street_no = ?, street_name = ?, "
+					+ "SET client_first_name = ?, client_last_name = ?, street_address ?, "
 					+ "city = ?, state = ?, zip_code = ?, email = ?, phone_number = ?\r\n"
 					+ "WHERE\r\n"
 					+ "client_id = ?";
@@ -117,14 +116,13 @@ public class ClientsDAO {
 			
 			ps.setString(1, clients.getFirstName());
 			ps.setString(2, clients.getLastName());
-			ps.setString(3, clients.getStreetNo());
-			ps.setString(4, clients.getStreetName());
-			ps.setString(5, clients.getCity());
-			ps.setString(6, clients.getState());
-			ps.setString(7, clients.getZipCode());
-			ps.setString(8, clients.getEmail());
-			ps.setString(9, clients.getPhoneNumber());
-			ps.setInt(10, id);
+			ps.setString(3, clients.getStreetAddress());
+			ps.setString(4, clients.getCity());
+			ps.setString(5, clients.getState());
+			ps.setString(6, clients.getZipCode());
+			ps.setString(7, clients.getEmail());
+			ps.setString(8, clients.getPhoneNumber());
+			ps.setInt(9, id);
 
 			int i = ps.executeUpdate();
 

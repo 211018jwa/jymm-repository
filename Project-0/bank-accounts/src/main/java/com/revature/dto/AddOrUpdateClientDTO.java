@@ -6,8 +6,7 @@ public class AddOrUpdateClientDTO {
 
 	private String firstName;
 	private String lastName;
-	private String streetNo;
-	private String streetName;
+	private String streetAddress;
 	private String city;
 	private String state;
 	private String zipCode;
@@ -18,13 +17,12 @@ public class AddOrUpdateClientDTO {
 		super();
 	}
 
-	public AddOrUpdateClientDTO(String firstName, String lastName, String streetNo, String streetName, String city,
+	public AddOrUpdateClientDTO(String firstName, String lastName, String streetAddress, String city,
 			String state, String zipCode, String email, String phoneNumber) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.streetNo = streetNo;
-		this.streetName = streetName;
+		this.streetAddress = streetAddress;
 		this.city = city;
 		this.state = state;
 		this.zipCode = zipCode;
@@ -48,20 +46,12 @@ public class AddOrUpdateClientDTO {
 		this.lastName = lastName;
 	}
 	
-	public String getStreetNo() {
-		return streetNo;
+	public String getStreetAddress() {
+		return streetAddress;
 	}
 
-	public void setStreetNo(String streetNo) {
-		this.streetNo = streetNo;
-	}
-
-	public String getStreetName() {
-		return streetName;
-	}
-
-	public void setStreetName(String streetName) {
-		this.streetName = streetName;
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
 	}
 
 	public String getCity() {

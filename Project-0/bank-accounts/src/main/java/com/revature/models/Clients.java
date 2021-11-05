@@ -7,8 +7,7 @@ public class Clients {
 	private int id;
 	private String firstName;
 	private String lastName;
-	private String streetNo;
-	private String streetName;
+	private String streetAddress;
 	private String city;
 	private String state;
 	private String zipCode;
@@ -25,14 +24,13 @@ public class Clients {
 //	}
 
 
-	public Clients(int id, String firstName, String lastName, String streetNo, String streetName, String city,
+	public Clients(int id, String firstName, String lastName, String streetAddress, String city,
 			String state, String zipCode, String email, String phone_number) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.streetNo = streetNo;
-		this.streetName = streetName;
+		this.streetAddress = streetAddress;
 		this.city = city;
 		this.state = state;
 		this.zipCode = zipCode;
@@ -64,21 +62,14 @@ public class Clients {
 		this.lastName = lastName;
 	}
 	
-	public String getStreetNo() {
-		return streetNo;
+	public String getStreetAddress() {
+		return streetAddress;
 	}
 
-	public void setStreetNo(String streetNo) {
-		this.streetNo = streetNo;
+	public void setStreetNo(String streetAddress) {
+		this.streetAddress = streetAddress;
 	}
 
-	public String getStreetName() {
-		return streetName;
-	}
-
-	public void setStreetName(String streetName) {
-		this.streetName = streetName;
-	}
 
 	public String getCity() {
 		return city;
@@ -122,7 +113,7 @@ public class Clients {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(firstName, id, lastName);
+		return Objects.hash(city, email, firstName, id, lastName, phone_number, state, streetAddress, zipCode);
 	}
 
 	@Override
@@ -134,15 +125,20 @@ public class Clients {
 		if (getClass() != obj.getClass())
 			return false;
 		Clients other = (Clients) obj;
-		return Objects.equals(firstName, other.firstName) && id == other.id && Objects.equals(lastName, other.lastName);
+		return Objects.equals(city, other.city) && Objects.equals(email, other.email)
+				&& Objects.equals(firstName, other.firstName) && id == other.id
+				&& Objects.equals(lastName, other.lastName) && Objects.equals(phone_number, other.phone_number)
+				&& Objects.equals(state, other.state) && Objects.equals(streetAddress, other.streetAddress)
+				&& Objects.equals(zipCode, other.zipCode);
 	}
 
 	@Override
 	public String toString() {
-		return "Clients [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+		return "Clients [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", streetAddress="
+				+ streetAddress + ", city=" + city + ", state=" + state + ", zipCode=" + zipCode + ", email=" + email
+				+ ", phone_number=" + phone_number + "]";
 	}
-	
-	
+
 	
 
 }
