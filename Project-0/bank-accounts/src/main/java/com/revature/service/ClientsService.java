@@ -4,9 +4,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.revature.dao.ClientsDAO;
+import com.revature.dto.AddOrUpdateBankAccountDTO;
 import com.revature.dto.AddOrUpdateClientDTO;
 import com.revature.exceptions.ClientNotFoundException;
 import com.revature.exceptions.InvalidInputException;
+import com.revature.models.BankAccounts;
 import com.revature.models.Clients;
 
 public class ClientsService {
@@ -18,13 +20,14 @@ public class ClientsService {
 	}
 
 	public Clients addNewClient(AddOrUpdateClientDTO addDto) throws SQLException, InvalidInputException {
-		
-		if (addDto.getFirstName().trim().equals("") || addDto.getLastName().trim().equals("") || addDto.getStreetAddress().trim().equals("") ||
-				addDto.getCity().trim().equals("") || addDto.getState().trim().equals("") || addDto.getZipCode().trim().equals("") || 
-				addDto.getEmail().trim().equals("") || addDto.getPhoneNumber().trim().equals("")) {
-			throw new InvalidInputException ("All fields cannot be empty!");
+
+		if (addDto.getFirstName().trim().equals("") || addDto.getLastName().trim().equals("")
+				|| addDto.getStreetAddress().trim().equals("") || addDto.getCity().trim().equals("")
+				|| addDto.getState().trim().equals("") || addDto.getZipCode().trim().equals("")
+				|| addDto.getEmail().trim().equals("") || addDto.getPhoneNumber().trim().equals("")) {
+			throw new InvalidInputException("All fields cannot be empty!");
 		}
-	
+
 		Clients insertClients = this.clientsDao.insertClients(addDto);
 
 		return insertClients;
@@ -54,26 +57,27 @@ public class ClientsService {
 	}
 
 	public boolean removeClientById(String id) throws SQLException, ClientNotFoundException, InvalidInputException {
-		
+
 		try {
 			int clientsId = Integer.parseInt(id);
-			
+
 			Clients c = this.clientsDao.selectClientsById(clientsId);
 
 			if (c == null) {
-				throw new ClientNotFoundException("Can't delete a client with a client id of " +id+ " because the client does not exist");
+				throw new ClientNotFoundException(
+						"Can't delete a client with a client id of " + id + " because the client does not exist");
 			}
-			
+
 			return (this.clientsDao.deleteClientsById(clientsId));
 
 		} catch (NumberFormatException e) {
 			throw new InvalidInputException("Entered id cannot be converted to int value! ");
 		}
 
-
 	}
 
-	public Clients modifyClientsById(String cId, AddOrUpdateClientDTO dto) throws SQLException, InvalidInputException, ClientNotFoundException {
+	public Clients modifyClientsById(String cId, AddOrUpdateClientDTO dto)
+			throws SQLException, InvalidInputException, ClientNotFoundException {
 
 		try {
 			int clientsId = Integer.parseInt(cId);
@@ -83,11 +87,11 @@ public class ClientsService {
 			if (id == null) {
 				throw new ClientNotFoundException("Client id of " + clientsId + " does not exist!");
 			}
-			
+
 			Clients updateClients = this.clientsDao.updateClientsById(clientsId, dto);
 
 			return updateClients;
-			
+
 		} catch (NumberFormatException e) {
 			throw new InvalidInputException("Entered id cannot be converted to int value!");
 		}
@@ -97,5 +101,5 @@ public class ClientsService {
 		// lastName);
 
 	}
-
+	
 }

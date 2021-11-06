@@ -3,9 +3,6 @@ package com.revature;
 import java.sql.SQLException;
 
 import com.revature.controller.ClientsController;
-import com.revature.dao.ClientsDAO;
-//import com.revature.models.Clients;
-import com.revature.service.ClientsService;
 
 import io.javalin.Javalin;
 
@@ -20,10 +17,6 @@ public class MainDriver {
 //		System.out.println(client.equals(client2));
 //		System.out.println(client.hashCode());
 		
-		Javalin app = Javalin.create().start(8080);
-		
-		ClientsController clientsController = new ClientsController();
-		
 //		ClientsService clientsService = new ClientsService();
 //		ClientsDAO clientsDao = new ClientsDAO();
 
@@ -33,9 +26,16 @@ public class MainDriver {
 //		System.out.println(clientsDao.selectClientsById(1));
 //		
 //		clientsDao.insertClients(new Clients("Jymm", "Enriquez"));
-//		System.out.println(clientsDao.gettAllClients());
+//		System.out.println(clientsDao.gettAllClients());		
 		
+		Javalin app = Javalin.create();
+		
+		ClientsController clientsController = new ClientsController();
+				
 		clientsController.registerEndpoint(app);
+
+		app.start(8080);
+		
 	}
 
 }
