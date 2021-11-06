@@ -58,4 +58,13 @@ public class BankAccountsService {
 		return this.bankAccountsDao.selectAccountsById(clientsId);
 	}
 
+	public List<JoinTableForClientAndBankAccountDTO> getAccountsWithSpecificAmount(String clientId, String amountGreaterThan, String amountLessThan) {
+		
+		int clientsId = Integer.parseInt(clientId);
+		int amountGreater = Integer.parseInt(amountGreaterThan);
+		int amountLess = Integer.parseInt(amountLessThan);
+		
+		return this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, amountGreater, amountLess);
+	}
+
 }

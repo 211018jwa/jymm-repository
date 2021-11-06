@@ -146,6 +146,21 @@ public class ClientsController {
 
 	};
 
+	public Handler getAllAccountsWithSpecificAmount = (ctx) -> {
+		
+		String clientId = ctx.pathParam("client_id");
+		
+		String amountGreaterThan = ctx.queryParam("amountGreaterThan");
+		String amountLessThan = ctx.queryParam("amountLessThan");
+		
+		if (this.clientsService.getClientById(clientId) != null) {
+			
+			ctx.json(this.bankAccountsService.getAccountsWithSpecificAmount(clientId, amountGreaterThan, amountLessThan));
+		}
+		
+		
+	};
+	
 	public void registerEndpoint(Javalin app) {
 		// --------------- Client Information Related -----------------
 		app.post("/clients", clients);
@@ -156,5 +171,7 @@ public class ClientsController {
 		// ------------------ Bank Account Related --------------------
 		app.post("/clients/{client_id}/accounts", newAccountForAClient);
 		app.get("/clients/{client_id}/accounts", viewAccountOfAClient);
+		app.get("GET /clients/{client_id}/accounts?"
+				+ "amountLessThan=2000&amountGreaterThan=400", getAllAccountsWithSpecificAmount);
 	}
 }
