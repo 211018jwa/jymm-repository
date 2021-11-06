@@ -15,8 +15,6 @@ import com.revature.util.JDBCUtility;
 public class ClientsDAO {
 
 	public Clients insertClients(AddOrUpdateClientDTO clients) throws SQLException {
-		// boolean success = false;
-		
 
 		try (Connection con = JDBCUtility.getConnection()) {
 
@@ -139,7 +137,7 @@ public class ClientsDAO {
 	}
 
 	public boolean deleteClientsById(int id) throws SQLException {
-
+		
 		boolean success = false;
 
 		try (Connection con = JDBCUtility.getConnection()) {
@@ -152,14 +150,11 @@ public class ClientsDAO {
 			int i = ps.executeUpdate();
 
 			if (i != 1) {
-				throw new SQLException("Delete unsuccessful!");
-			} else {
-				success = true;
+				throw new SQLException("Delete unsuccessful! CLient does not exist");
 			}
-
+			success = true;
 		}
-
 		return success;
 	}
-
+	
 }

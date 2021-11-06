@@ -53,11 +53,23 @@ public class ClientsService {
 
 	}
 
-	public boolean removeClientById(String id) throws SQLException {
+	public boolean removeClientById(String id) throws SQLException, ClientNotFoundException, InvalidInputException {
+		
+		try {
+			int clientsId = Integer.parseInt(id);
+			
+			Clients c = this.clientsDao.selectClientsById(clientsId);
 
-		int client_id = Integer.parseInt(id);
+			if (c == null) {
+				throw new ClientNotFoundException("Can't delete a client with a client id of " +id+ " because the client does not exist");
+			}
+			
+			return (this.clientsDao.deleteClientsById(clientsId));
 
-		return clientsDao.deleteClientsById(client_id);
+		} catch (NumberFormatException e) {
+			throw new InvalidInputException("Entered id cannot be converted to int value! ");
+		}
+
 
 	}
 

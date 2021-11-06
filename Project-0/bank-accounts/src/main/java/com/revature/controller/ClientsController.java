@@ -44,9 +44,9 @@ public class ClientsController {
 
 	public Handler getClientById = (ctx) -> {
 
-		String id = ctx.pathParam("client_id");
-
 		try {
+			String id = ctx.pathParam("client_id");
+			
 			Clients c = this.clientsService.getClientById(id);
 			ctx.json(c);
 
@@ -62,11 +62,8 @@ public class ClientsController {
 
 	public Handler updateClientsById = (ctx) -> {
 
-		String id = ctx.pathParam("client_id");
-
-//		String firstName = ctx.formParam("firstName");
-//		String lastName = ctx.formParam("lastName");
 		try {
+			String id = ctx.pathParam("client_id");
 			AddOrUpdateClientDTO dto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
 
 			Clients clientThatNeedsToBeUpdated = this.clientsService.modifyClientsById(id, dto);
@@ -81,19 +78,26 @@ public class ClientsController {
 			ctx.json(e);
 		}
 
-//		if (this.clientsService.modifyClientsById(clients_id, firstName, lastName) {
-//			ctx.result("success");
-//		}
-
 	};
 
 	public Handler deleteClientById = (ctx) -> {
-
-		String id = ctx.pathParam("client_id");
-
+		
+		try {
+		String id = ctx.pathParam("client_id");		
 		if (this.clientsService.removeClientById(id)) {
-			ctx.result("success");
+			ctx.result("Client with an id of " + id + " has been deleted");
 		}
+		
+		} catch (InvalidInputException e) {
+			ctx.status(400);
+			ctx.json(e);
+		} catch (ClientNotFoundException e) {
+			ctx.status(404);
+			ctx.json(e);
+		}
+		
+
+	
 
 	};
 
