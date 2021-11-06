@@ -17,9 +17,17 @@ public class ClientsService {
 		this.clientsDao = new ClientsDAO();
 	}
 
-	public String addNewClient(AddOrUpdateClientDTO addDto) throws SQLException {
+	public Clients addNewClient(AddOrUpdateClientDTO addDto) throws SQLException, InvalidInputException {
+		
+		if (addDto.getFirstName().trim().equals("") || addDto.getLastName().trim().equals("") || addDto.getStreetAddress().trim().equals("") ||
+				addDto.getCity().trim().equals("") || addDto.getState().trim().equals("") || addDto.getZipCode().trim().equals("") || 
+				addDto.getEmail().trim().equals("") || addDto.getPhoneNumber().trim().equals("")) {
+			throw new InvalidInputException ("All fields cannot be empty!");
+		}
+	
+		Clients insertClients = this.clientsDao.insertClients(addDto);
 
-		return this.clientsDao.insertClients(addDto);
+		return insertClients;
 	}
 
 	public List<Clients> getAllClients() throws SQLException {
@@ -53,7 +61,7 @@ public class ClientsService {
 
 	}
 
-	public boolean modifyClientsById(String cId, AddOrUpdateClientDTO dto) throws SQLException, InvalidInputException {
+	public Clients modifyClientsById(String cId, AddOrUpdateClientDTO dto) throws SQLException, InvalidInputException, ClientNotFoundException {
 
 		try {
 			int clientsId = Integer.parseInt(cId);
@@ -61,12 +69,15 @@ public class ClientsService {
 			Clients id = this.clientsDao.selectClientsById(clientsId);
 
 			if (id == null) {
-				throw new SQLException("Client id of " + id + " does not exist!");
+				throw new ClientNotFoundException("Client id of " + clientsId + " does not exist!");
 			}
+			
+			Clients updateClients = this.clientsDao.updateClientsById(clientsId, dto);
 
-			return clientsDao.updateClientsById(clientsId, dto);
+			return updateClients;
+			
 		} catch (NumberFormatException e) {
-			throw new InvalidInputException("Entered id is of not a value of int! ");
+			throw new InvalidInputException("Entered id cannot be converted to int value!");
 		}
 
 		// Clients modifyClient = clientsDao.selectClientsById(client_id);

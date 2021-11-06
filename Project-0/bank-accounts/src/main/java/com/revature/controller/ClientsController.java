@@ -19,19 +19,20 @@ public class ClientsController {
 	}
 
 	public Handler clients = (ctx) -> {
-		// ctx.result("cleints lambda invoke");
 
 //		String firstName = ctx.formParam("firstName");
 //		String lastName = ctx.formParam("lastName");
-//		
-		AddOrUpdateClientDTO addDto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
-		/*
-		 * { 
-		 * 		"firstName": "Jymm"
-		 * }
-		 */
+		try {
+			AddOrUpdateClientDTO addDto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
 
-		ctx.result(this.clientsService.addNewClient(addDto));
+			Clients c = this.clientsService.addNewClient(addDto);
+
+			ctx.json(c);
+			ctx.status(201);
+		} catch (InvalidInputException e) {
+			ctx.status(400);
+			ctx.json(e);
+		}
 
 	};
 
@@ -42,52 +43,58 @@ public class ClientsController {
 	};
 
 	public Handler getClientById = (ctx) -> {
-		
+
 		String id = ctx.pathParam("client_id");
-		
+
 		try {
-				
-			Clients c = this.clientsService.getClientById(id);			
-			ctx.json(c);			
-		
+			Clients c = this.clientsService.getClientById(id);
+			ctx.json(c);
+
 		} catch (InvalidInputException e) {
-			ctx.status(400);	
+			ctx.status(400);
 			ctx.json(e);
 		} catch (ClientNotFoundException e) {
-			ctx.status(404);	
+			ctx.status(404);
 			ctx.json(e);
 		}
 
 	};
-	
+
 	public Handler updateClientsById = (ctx) -> {
-		
-		String id = ctx.pathParam("client_id");		
-		
+
+		String id = ctx.pathParam("client_id");
+
 //		String firstName = ctx.formParam("firstName");
 //		String lastName = ctx.formParam("lastName");
-		
-		AddOrUpdateClientDTO dto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
-		
+		try {
+			AddOrUpdateClientDTO dto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
+
+			Clients clientThatNeedsToBeUpdated = this.clientsService.modifyClientsById(id, dto);
+
+			ctx.json(clientThatNeedsToBeUpdated);
+
+		} catch (InvalidInputException e) {
+			ctx.status(400);
+			ctx.json(e);
+		} catch (ClientNotFoundException e) {
+			ctx.status(404);
+			ctx.json(e);
+		}
+
 //		if (this.clientsService.modifyClientsById(clients_id, firstName, lastName) {
 //			ctx.result("success");
 //		}
-		if (this.clientsService.modifyClientsById(id, dto)) {
-			ctx.result("success");
-		} else {
-			ctx.status(404);
-		}
-		
+
 	};
-	
+
 	public Handler deleteClientById = (ctx) -> {
-		
+
 		String id = ctx.pathParam("client_id");
-		
+
 		if (this.clientsService.removeClientById(id)) {
 			ctx.result("success");
 		}
-		
+
 	};
 
 	public void registerEndpoint(Javalin app) {
