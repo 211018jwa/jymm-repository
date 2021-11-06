@@ -2,6 +2,7 @@ package com.revature.controller;
 
 import com.revature.dto.AddOrUpdateBankAccountDTO;
 import com.revature.dto.AddOrUpdateClientDTO;
+import com.revature.dto.JoinTableForClientAndBankAccountDTO;
 import com.revature.exceptions.ClientNotFoundException;
 import com.revature.exceptions.InvalidInputException;
 import com.revature.models.BankAccounts;
@@ -22,6 +23,9 @@ public class ClientsController {
 		this.clientsService = new ClientsService();
 		this.bankAccountsService = new BankAccountsService();
 	}
+
+	// ----------------------------------- Client Information Related
+	// ----------------------------------
 
 	public Handler clients = (ctx) -> {
 
@@ -49,7 +53,7 @@ public class ClientsController {
 
 		try {
 			String id = ctx.pathParam("client_id");
-			
+
 			Clients c = this.clientsService.getClientById(id);
 			ctx.json(c);
 
@@ -84,13 +88,13 @@ public class ClientsController {
 	};
 
 	public Handler deleteClientById = (ctx) -> {
-		
+
 		try {
-		String id = ctx.pathParam("client_id");		
-		if (this.clientsService.removeClientById(id)) {
-			ctx.result("Client with an id of " + id + " has been deleted");
-		}
-		
+			String id = ctx.pathParam("client_id");
+			if (this.clientsService.removeClientById(id)) {
+				ctx.result("Client with an id of " + id + " has been deleted");
+			}
+
 		} catch (InvalidInputException e) {
 			ctx.status(400);
 			ctx.json(e);
@@ -101,18 +105,21 @@ public class ClientsController {
 
 	};
 
+	// -------------------------------------- Bank Account Related
+	// -----------------------------------
+
 	public Handler newAccountForAClient = (ctx) -> {
-		
+
 		String id = ctx.pathParam("client_id");
-			
+
 		if (this.clientsService.getClientById(id) != null) {
 			try {
-			AddOrUpdateBankAccountDTO bankDto = ctx.bodyAsClass(AddOrUpdateBankAccountDTO.class);
-			
-			BankAccounts bankAccount = this.bankAccountsService.addBankAccount(id, bankDto);
-			
-			ctx.json(bankAccount);
-			
+				AddOrUpdateBankAccountDTO bankDto = ctx.bodyAsClass(AddOrUpdateBankAccountDTO.class);
+
+				BankAccounts bankAccount = this.bankAccountsService.addBankAccount(id, bankDto);
+
+				ctx.json(bankAccount);
+
 			} catch (NumberFormatException e) {
 				ctx.status(400);
 				ctx.json(e);
@@ -121,15 +128,33 @@ public class ClientsController {
 				ctx.json(e);
 			}
 		}
-		
+
 	};
-	
+
+	public Handler viewAccountOfAClient = (ctx) -> {
+		try {
+			String clientId = ctx.pathParam("client_id");
+
+			if (this.clientsService.getClientById(clientId) != null) {
+				ctx.json(this.bankAccountsService.getAccountsById(clientId));
+			}
+
+		} catch (ClientNotFoundException e) {
+			ctx.status(404);
+			ctx.json(e);
+		}
+
+	};
+
 	public void registerEndpoint(Javalin app) {
+		// --------------- Client Information Related -----------------
 		app.post("/clients", clients);
 		app.get("/clients", getAllClients);
 		app.get("/clients/{client_id}", getClientById);
 		app.put("/clients/{client_id}", updateClientsById);
 		app.delete("/clients/{client_id}", deleteClientById);
+		// ------------------ Bank Account Related --------------------
 		app.post("/clients/{client_id}/accounts", newAccountForAClient);
+		app.get("/clients/{client_id}/accounts", viewAccountOfAClient);
 	}
 }

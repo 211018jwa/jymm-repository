@@ -2,10 +2,12 @@ package com.revature.service;
 
 import java.sql.SQLException;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.revature.dao.BankAccountsDAO;
 import com.revature.dto.AddOrUpdateBankAccountDTO;
+import com.revature.dto.JoinTableForClientAndBankAccountDTO;
 import com.revature.exceptions.InvalidInputException;
 import com.revature.models.BankAccounts;
 
@@ -38,15 +40,22 @@ public class BankAccountsService {
 
 		try {
 			int clientsId = Integer.parseInt(id);
-			
+
 			BankAccounts bankAccounts = this.bankAccountsDao.insertBankAccount(clientsId, bankDto);
 
 			return bankAccounts;
-			
+
 		} catch (NumberFormatException e) {
 			throw new InvalidInputException("Amount can only be of int or double value!");
 		}
 
+	}
+
+	public List<JoinTableForClientAndBankAccountDTO> getAccountsById(String clientId) throws SQLException {
+
+		int clientsId = Integer.parseInt(clientId);
+
+		return this.bankAccountsDao.selectAccountsById(clientsId);
 	}
 
 }
