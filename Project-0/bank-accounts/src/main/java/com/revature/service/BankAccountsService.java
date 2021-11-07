@@ -47,7 +47,7 @@ public class BankAccountsService {
 
 		} catch (NumberFormatException e) {
 			throw new InvalidInputException("Amount can only be of int or double value!");
-		}
+		} 
 
 	}
 
@@ -58,13 +58,19 @@ public class BankAccountsService {
 		return this.bankAccountsDao.selectAccountsById(clientsId);
 	}
 
-	public List<JoinTableForClientAndBankAccountDTO> getAccountsWithSpecificAmount(String clientId, String amountGreaterThan, String amountLessThan) {
+	public List<JoinTableForClientAndBankAccountDTO> getAccountsWithSpecificAmount(String clientId,
+			String amountGreaterThan, String amountLessThan) throws SQLException {
 		
 		int clientsId = Integer.parseInt(clientId);
 		int amountGreater = Integer.parseInt(amountGreaterThan);
 		int amountLess = Integer.parseInt(amountLessThan);
 		
-		return this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, amountGreater, amountLess);
+		if (amountGreaterThan != null && amountLessThan != null) {
+			return this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, amountGreater, amountLess);
+		} else {
+			return this.bankAccountsDao.selectAccountsById(clientsId);
+		}
+	
 	}
 
 }

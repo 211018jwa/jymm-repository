@@ -110,23 +110,24 @@ public class ClientsController {
 
 	public Handler newAccountForAClient = (ctx) -> {
 
-		String id = ctx.pathParam("client_id");
+		try {
+			String id = ctx.pathParam("client_id");
 
-		if (this.clientsService.getClientById(id) != null) {
-			try {
+			if (this.clientsService.getClientById(id) != null) {
+
 				AddOrUpdateBankAccountDTO bankDto = ctx.bodyAsClass(AddOrUpdateBankAccountDTO.class);
 
 				BankAccounts bankAccount = this.bankAccountsService.addBankAccount(id, bankDto);
-
 				ctx.json(bankAccount);
 
-			} catch (NumberFormatException e) {
-				ctx.status(400);
-				ctx.json(e);
-			} catch (InvalidInputException e) {
-				ctx.status(400);
-				ctx.json(e);
 			}
+
+		} catch (InvalidInputException e) {
+			ctx.status(400);
+			ctx.json(e);
+		} catch (ClientNotFoundException e) {
+			ctx.status(404);
+			ctx.json(e);
 		}
 
 	};
@@ -147,20 +148,28 @@ public class ClientsController {
 	};
 
 	public Handler getAllAccountsWithSpecificAmount = (ctx) -> {
-		
+
 		String clientId = ctx.pathParam("client_id");
-		
+
 		String amountGreaterThan = ctx.queryParam("amountGreaterThan");
 		String amountLessThan = ctx.queryParam("amountLessThan");
-		
+
+		System.out.println("amount greater" + amountGreaterThan);
+		System.out.println("amount less" + amountLessThan);
+
 		if (this.clientsService.getClientById(clientId) != null) {
-			
-			ctx.json(this.bankAccountsService.getAccountsWithSpecificAmount(clientId, amountGreaterThan, amountLessThan));
+
+			if (amountGreaterThan != null && amountLessThan != null) {
+				ctx.json(this.bankAccountsService.getAccountsWithSpecificAmount(clientId, amountGreaterThan,
+						amountLessThan));
+			} else {
+				ctx.json(this.bankAccountsService.getAccountsById(clientId));
+			}
+
 		}
-		
-		
+
 	};
-	
+
 	public void registerEndpoint(Javalin app) {
 		// --------------- Client Information Related -----------------
 		app.post("/clients", clients);
@@ -170,8 +179,8 @@ public class ClientsController {
 		app.delete("/clients/{client_id}", deleteClientById);
 		// ------------------ Bank Account Related --------------------
 		app.post("/clients/{client_id}/accounts", newAccountForAClient);
-		app.get("/clients/{client_id}/accounts", viewAccountOfAClient);
-		app.get("GET /clients/{client_id}/accounts?"
-				+ "amountLessThan=2000&amountGreaterThan=400", getAllAccountsWithSpecificAmount);
+		// app.get("/clients/{client_id}/accounts", viewAccountOfAClient);
+		app.get("/clients/{client_id}/accounts", getAllAccountsWithSpecificAmount);
+
 	}
 }
