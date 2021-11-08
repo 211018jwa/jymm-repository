@@ -129,4 +129,9 @@ public class BankAccountsDAO {
 
 	}
 
+	public BankAccounts updateBankAccount(int clientId, int accountId, AddOrUpdateBankAccountDTO bankDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

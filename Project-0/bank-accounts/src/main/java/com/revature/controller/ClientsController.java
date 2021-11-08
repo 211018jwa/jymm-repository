@@ -199,7 +199,21 @@ public class ClientsController {
 		}
 	};
 	
-	
+	public Handler updateBankAccountByClientAndAccountId = (ctx) -> {
+		
+		String clientId = ctx.pathParam("client_id");
+		String accountId = ctx.pathParam("account_id");
+		
+		if (this.bankAccountsService.getBankAccount(clientId, accountId) != null) {	
+			
+			AddOrUpdateBankAccountDTO bankDto = ctx.bodyAsClass(AddOrUpdateBankAccountDTO.class);
+			
+			BankAccounts updatedBankAccount = this.bankAccountsService.editBankAccount(clientId, accountId, bankDto);
+			
+			ctx.json(updatedBankAccount);			
+		}
+		
+	};
 	
 	
 	public void registerEndpoint(Javalin app) {
@@ -214,7 +228,7 @@ public class ClientsController {
 		// app.get("/clients/{client_id}/accounts", viewAccountOfAClient);
 		app.get("/clients/{client_id}/accounts", getAllAccountsWithSpecificAmountOrAllAccounts);
 		app.get("/clients/{client_id}/accounts/{account_id}",getASpecificAccountOfAClient);
-		app.put("/clients/{client_id}/accounts/{account_id}", clients);
+		app.put("/clients/{client_id}/accounts/{account_id}", updateBankAccountByClientAndAccountId);
 
 	}
 }

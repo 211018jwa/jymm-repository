@@ -19,10 +19,9 @@ public class BankAccountsService {
 	public BankAccountsService() {
 		this.bankAccountsDao = new BankAccountsDAO();
 	}
-
-	public BankAccounts addBankAccount(String id, AddOrUpdateBankAccountDTO bankDto)
-			throws SQLException, InvalidInputException {
-
+	
+	public void validateFields(AddOrUpdateBankAccountDTO bankDto) throws InvalidInputException {
+		
 		if (bankDto.getBankAccountNo().trim().equals("") || bankDto.getBankAccountType().trim().equals("")) {
 			throw new InvalidInputException("Bank Account No/Bank Account Type cannot be empty!");
 		}
@@ -38,6 +37,13 @@ public class BankAccountsService {
 		if (Integer.parseInt(bankDto.getAmount()) <= 0) {
 			throw new InvalidInputException("Amount must greater than 0 only!");
 		}
+		
+	}
+
+	public BankAccounts addBankAccount(String id, AddOrUpdateBankAccountDTO bankDto)
+			throws SQLException, InvalidInputException {
+
+		validateFields(bankDto);
 
 		try {
 			int clientsId = Integer.parseInt(id);
@@ -52,11 +58,11 @@ public class BankAccountsService {
 
 	}
 
-	public BankAccounts getBankAccount(String cid, String aid) throws SQLException, BankAccountNotFoundException, InvalidInputException {
+	public BankAccounts getBankAccount(String cid, String accId) throws SQLException, BankAccountNotFoundException, InvalidInputException {
 		
 		try {
 		
-		int bankId = Integer.parseInt(aid);
+		int bankId = Integer.parseInt(accId);
 		int clientId = Integer.parseInt(cid);
 		
 		BankAccounts getBankAccountByIds = this.bankAccountsDao.selectBankAccountsById(clientId, bankId);
@@ -81,6 +87,7 @@ public class BankAccountsService {
 		return this.bankAccountsDao.selectAccountsById(clientsId);
 	}
 
+	
 	public List<JoinTableForClientAndBankAccountDTO> getAccountsWithSpecificAmount(String clientId,
 			String amountGreaterThan, String amountLessThan) throws SQLException {
 		
@@ -94,6 +101,20 @@ public class BankAccountsService {
 			return this.bankAccountsDao.selectAccountsById(clientsId);
 		}
 	
+	}
+
+	
+	
+	public BankAccounts editBankAccount(String cId, String accId, AddOrUpdateBankAccountDTO bankDto) throws InvalidInputException {
+		
+		int clientId = Integer.parseInt(cId);
+		int accountId = Integer.parseInt(accId);
+		
+		validateFields(bankDto);
+		
+		BankAccounts bankAccounts = this.bankAccountsDao.updateBankAccount(clientId, accountId, bankDto);
+		
+		return bankAccounts;
 	}
 
 }
