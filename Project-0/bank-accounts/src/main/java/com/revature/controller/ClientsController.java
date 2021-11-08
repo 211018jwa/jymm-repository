@@ -2,7 +2,7 @@ package com.revature.controller;
 
 import com.revature.dto.AddOrUpdateBankAccountDTO;
 import com.revature.dto.AddOrUpdateClientDTO;
-import com.revature.dto.JoinTableForClientAndBankAccountDTO;
+import com.revature.exceptions.BankAccountNotFoundException;
 import com.revature.exceptions.ClientNotFoundException;
 import com.revature.exceptions.InvalidInputException;
 import com.revature.models.BankAccounts;
@@ -132,30 +132,31 @@ public class ClientsController {
 
 	};
 
-	public Handler viewAccountOfAClient = (ctx) -> {
+//	public Handler viewAccountOfAClient = (ctx) -> {
+//		try {
+//			String clientId = ctx.pathParam("client_id");
+//
+//			if (this.clientsService.getClientById(clientId) != null) {
+//				ctx.json(this.bankAccountsService.getAccountsById(clientId));
+//			}
+//
+//		} catch (ClientNotFoundException e) {
+//			ctx.status(404);
+//			ctx.json(e);
+//		}
+//
+//	};
+
+	public Handler getAllAccountsWithSpecificAmountOrAllAccounts = (ctx) -> {
+
 		try {
-			String clientId = ctx.pathParam("client_id");
-
-			if (this.clientsService.getClientById(clientId) != null) {
-				ctx.json(this.bankAccountsService.getAccountsById(clientId));
-			}
-
-		} catch (ClientNotFoundException e) {
-			ctx.status(404);
-			ctx.json(e);
-		}
-
-	};
-
-	public Handler getAllAccountsWithSpecificAmount = (ctx) -> {
-
 		String clientId = ctx.pathParam("client_id");
 
 		String amountGreaterThan = ctx.queryParam("amountGreaterThan");
 		String amountLessThan = ctx.queryParam("amountLessThan");
 
-		System.out.println("amount greater" + amountGreaterThan);
-		System.out.println("amount less" + amountLessThan);
+//		System.out.println("amount greater" + amountGreaterThan);
+//		System.out.println("amount less" + amountLessThan);
 
 		if (this.clientsService.getClientById(clientId) != null) {
 
@@ -164,12 +165,43 @@ public class ClientsController {
 						amountLessThan));
 			} else {
 				ctx.json(this.bankAccountsService.getAccountsById(clientId));
-			}
-
+			}		
+		}
+		} catch (InvalidInputException e) {
+			ctx.status(400);
+			ctx.json(e);
+		} catch (ClientNotFoundException e) {
+			ctx.status(404);
+			ctx.json(e);
 		}
 
 	};
 
+	public Handler getASpecificAccountOfAClient = (ctx) -> {
+		
+		try {
+		String clientId = ctx.pathParam("client_id");
+		String accountId = ctx.pathParam("account_id");
+		
+		if (this.clientsService.getClientById(clientId) != null) {			
+			ctx.json(this.bankAccountsService.getBankAccount(clientId, accountId));
+			
+		}
+		} catch (InvalidInputException e) {
+			ctx.status(400);
+			ctx.json(e);
+		} catch (ClientNotFoundException e) {
+			ctx.status(404);
+			ctx.json(e);
+		} catch (BankAccountNotFoundException e) {
+			ctx.status(404);
+			ctx.json(e);
+		}
+	};
+	
+	
+	
+	
 	public void registerEndpoint(Javalin app) {
 		// --------------- Client Information Related -----------------
 		app.post("/clients", clients);
@@ -180,7 +212,9 @@ public class ClientsController {
 		// ------------------ Bank Account Related --------------------
 		app.post("/clients/{client_id}/accounts", newAccountForAClient);
 		// app.get("/clients/{client_id}/accounts", viewAccountOfAClient);
-		app.get("/clients/{client_id}/accounts", getAllAccountsWithSpecificAmount);
+		app.get("/clients/{client_id}/accounts", getAllAccountsWithSpecificAmountOrAllAccounts);
+		app.get("/clients/{client_id}/accounts/{account_id}",getASpecificAccountOfAClient);
+		app.put("/clients/{client_id}/accounts/{account_id}", clients);
 
 	}
 }

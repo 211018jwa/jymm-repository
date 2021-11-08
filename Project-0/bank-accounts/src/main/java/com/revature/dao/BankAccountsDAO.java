@@ -103,4 +103,30 @@ public class BankAccountsDAO {
 		return bankAccountsList;
 	}
 
+	public BankAccounts selectBankAccountsById(int clientId, int bankId) throws SQLException {
+		
+		try (Connection con = JDBCUtility.getConnection()) {
+			
+			String sql = "SELECT *\r\n"
+					+ "FROM bank_accounts\r\n"
+					+ "WHERE\r\n"
+					+ "bank_id = ? AND client_id = ?;";
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, bankId);
+			ps.setInt(2, clientId);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				return new BankAccounts(rs.getInt("bank_id"), rs.getInt("client_id"), rs.getString("bank_account_no"), rs.getString("bank_account_type"),
+						rs.getString("amount"));
+			}
+			return null;
+		}
+
+
+
+	}
+
 }

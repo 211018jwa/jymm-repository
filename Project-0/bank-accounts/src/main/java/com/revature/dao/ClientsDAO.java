@@ -74,7 +74,7 @@ public class ClientsDAO {
 //				
 //				listOfClients.add(clients);
 			}
-
+			
 		}
 		return listOfClients;
 
@@ -128,7 +128,7 @@ public class ClientsDAO {
 			int i = ps.executeUpdate();
 
 			if (i != 1) {
-				throw new SQLException("Unable to update a client with a client id of "+ id);
+				throw new SQLException("Unable to update a client with a client id of "+ id);		
 			} 
 
 		}
