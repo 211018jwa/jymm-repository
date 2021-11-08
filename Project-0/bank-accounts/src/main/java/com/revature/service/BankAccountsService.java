@@ -105,7 +105,7 @@ public class BankAccountsService {
 
 	
 	
-	public BankAccounts editBankAccount(String cId, String accId, AddOrUpdateBankAccountDTO bankDto) throws InvalidInputException {
+	public BankAccounts editBankAccount(String cId, String accId, AddOrUpdateBankAccountDTO bankDto) throws InvalidInputException, SQLException {
 		
 		int clientId = Integer.parseInt(cId);
 		int accountId = Integer.parseInt(accId);

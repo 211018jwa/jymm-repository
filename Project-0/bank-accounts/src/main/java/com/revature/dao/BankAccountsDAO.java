@@ -125,13 +125,32 @@ public class BankAccountsDAO {
 			return null;
 		}
 
-
-
 	}
 
-	public BankAccounts updateBankAccount(int clientId, int accountId, AddOrUpdateBankAccountDTO bankDto) {
-		// TODO Auto-generated method stub
-		return null;
+	public BankAccounts updateBankAccount(int clientId, int accountId, AddOrUpdateBankAccountDTO bankDto) throws SQLException {
+		
+		try (Connection con = JDBCUtility.getConnection()) {
+			String sql = "UPDATE bank_accounts\r\n"
+					+ "SET bank_account_no = ?, bank_account_type = ?, amount = ?\r\n"
+					+ "WHERE\r\n"
+					+ "client_id = ? AND bank_id = ?;";
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setString(1, bankDto.getBankAccountNo());
+			ps.setString(2, bankDto.getBankAccountType());
+			ps.setDouble(3, Double.parseDouble(bankDto.getAmount()));
+			ps.setInt(4, clientId);
+			ps.setInt(5, accountId);
+			
+			int i = ps.executeUpdate();
+
+			if (i != 1) {
+				throw new SQLException("Unable to update a client with a client id of "+ clientId + " and account id of " +accountId);	
+			} 
+			
+		}
+		
+		return new BankAccounts(accountId, clientId, bankDto.getBankAccountNo(), bankDto.getBankAccountType(), bankDto.getAmount());
 	}
 
 }
