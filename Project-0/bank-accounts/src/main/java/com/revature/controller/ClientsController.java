@@ -214,21 +214,27 @@ public class ClientsController {
 		}
 		
 	};
+
+	public Handler removeBankAccountByClientAndAccountId = (ctx) -> {
+		
+	};
 	
 	
 	public void registerEndpoint(Javalin app) {
-		// --------------- Client Information Related -----------------
+		// ------------------------------ Client Information Related -----------------------------------
 		app.post("/clients", clients);
 		app.get("/clients", getAllClients);
 		app.get("/clients/{client_id}", getClientById);
 		app.put("/clients/{client_id}", updateClientsById);
 		app.delete("/clients/{client_id}", deleteClientById);
-		// ------------------ Bank Account Related --------------------
+		
+		// --------------------------------- Bank Account Related --------------------------------------
 		app.post("/clients/{client_id}/accounts", newAccountForAClient);
 		// app.get("/clients/{client_id}/accounts", viewAccountOfAClient);
 		app.get("/clients/{client_id}/accounts", getAllAccountsWithSpecificAmountOrAllAccounts);
 		app.get("/clients/{client_id}/accounts/{account_id}",getASpecificAccountOfAClient);
 		app.put("/clients/{client_id}/accounts/{account_id}", updateBankAccountByClientAndAccountId);
+		app.delete("/clients/{client_id}/accounts/{account_id}", removeBankAccountByClientAndAccountId);
 
 	}
 }
