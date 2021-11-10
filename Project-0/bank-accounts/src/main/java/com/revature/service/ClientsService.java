@@ -65,15 +65,13 @@ public class ClientsService {
 
 			if (c == null) {
 				throw new ClientNotFoundException(
-						"Can't delete a client with a client id of " + id + " because the client does not exist");
+						"Can't delete a client with the id of " + id + " because the client does not exist");
 			}
-
 			return (this.clientsDao.deleteClientsById(clientsId));
 
 		} catch (NumberFormatException e) {
 			throw new InvalidInputException("Entered id cannot be converted to int value! ");
 		}
-
 	}
 
 	public Clients modifyClientsById(String cId, AddOrUpdateClientDTO dto)

@@ -2,9 +2,9 @@ package com.revature.controller;
 
 import com.revature.dto.AddOrUpdateBankAccountDTO;
 import com.revature.dto.AddOrUpdateClientDTO;
-import com.revature.exceptions.BankAccountNotFoundException;
-import com.revature.exceptions.ClientNotFoundException;
-import com.revature.exceptions.InvalidInputException;
+//import com.revature.exceptions.BankAccountNotFoundException;
+//import com.revature.exceptions.ClientNotFoundException;
+//import com.revature.exceptions.InvalidInputException;
 import com.revature.models.BankAccounts;
 import com.revature.models.Clients;
 import com.revature.service.BankAccountsService;
@@ -29,17 +29,17 @@ public class ClientsController {
 
 	public Handler clients = (ctx) -> {
 
-		try {
+		//try {
 			AddOrUpdateClientDTO addDto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
 
 			Clients c = this.clientsService.addNewClient(addDto);
-
-			ctx.json(c);
 			ctx.status(201);
-		} catch (InvalidInputException e) {
-			ctx.status(400);
-			ctx.json(e);
-		}
+			ctx.json(c);
+			
+//		} catch (InvalidInputException e) {
+//			ctx.status(400);
+//			ctx.json(e);
+//		}
 
 	};
 
@@ -51,25 +51,25 @@ public class ClientsController {
 
 	public Handler getClientById = (ctx) -> {
 
-		try {
+//		try {
 			String id = ctx.pathParam("client_id");
 
 			Clients c = this.clientsService.getClientById(id);
 			ctx.json(c);
 
-		} catch (InvalidInputException e) {
-			ctx.status(400);
-			ctx.json(e);
-		} catch (ClientNotFoundException e) {
-			ctx.status(404);
-			ctx.json(e);
-		}
+//		} catch (InvalidInputException e) {
+//			ctx.status(400);
+//			ctx.json(e);
+//		} catch (ClientNotFoundException e) {
+//			ctx.status(404);
+//			ctx.json(e);
+//		}
 
 	};
 
 	public Handler updateClientsById = (ctx) -> {
 
-		try {
+//		try {
 			String id = ctx.pathParam("client_id");
 			AddOrUpdateClientDTO dto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
 
@@ -77,31 +77,31 @@ public class ClientsController {
 
 			ctx.json(clientThatNeedsToBeUpdated);
 
-		} catch (InvalidInputException e) {
-			ctx.status(400);
-			ctx.json(e);
-		} catch (ClientNotFoundException e) {
-			ctx.status(404);
-			ctx.json(e);
-		}
+//		} catch (InvalidInputException e) {
+//			ctx.status(400);
+//			ctx.json(e);
+//		} catch (ClientNotFoundException e) {
+//			ctx.status(404);
+//			ctx.json(e);
+//		}
 
 	};
 
 	public Handler deleteClientById = (ctx) -> {
 
-		try {
+//		try {
 			String id = ctx.pathParam("client_id");
 			if (this.clientsService.removeClientById(id)) {
 				ctx.result("Client with an id of " + id + " has been deleted");
 			}
 
-		} catch (InvalidInputException e) {
-			ctx.status(400);
-			ctx.json(e);
-		} catch (ClientNotFoundException e) {
-			ctx.status(404);
-			ctx.json(e);
-		}
+//		} catch (InvalidInputException e) {
+//			ctx.status(400);
+//			ctx.json(e);
+//		} catch (ClientNotFoundException e) {
+//			ctx.status(404);
+//			ctx.json(e);
+//		}
 
 	};
 
@@ -110,7 +110,7 @@ public class ClientsController {
 
 	public Handler newAccountForAClient = (ctx) -> {
 
-		try {
+//		try {
 			String id = ctx.pathParam("client_id");
 
 			if (this.clientsService.getClientById(id) != null) {
@@ -122,13 +122,13 @@ public class ClientsController {
 
 			}
 
-		} catch (InvalidInputException e) {
-			ctx.status(400);
-			ctx.json(e);
-		} catch (ClientNotFoundException e) {
-			ctx.status(404);
-			ctx.json(e);
-		}
+//		} catch (InvalidInputException e) {
+//			ctx.status(400);
+//			ctx.json(e);
+//		} catch (ClientNotFoundException e) {
+//			ctx.status(404);
+//			ctx.json(e);
+//		}
 
 	};
 
@@ -149,7 +149,7 @@ public class ClientsController {
 
 	public Handler getAllAccountsWithSpecificAmountOrAllAccounts = (ctx) -> {
 
-		try {
+//		try {
 			String clientId = ctx.pathParam("client_id");
 
 			String amountGreaterThan = ctx.queryParam("amountGreaterThan");
@@ -167,19 +167,19 @@ public class ClientsController {
 					ctx.json(this.bankAccountsService.getAccountsById(clientId));
 				}
 			}
-		} catch (InvalidInputException e) {
-			ctx.status(400);
-			ctx.json(e);
-		} catch (ClientNotFoundException e) {
-			ctx.status(404);
-			ctx.json(e);
-		}
+//		} catch (InvalidInputException e) {
+//			ctx.status(400);
+//			ctx.json(e);
+//		} catch (ClientNotFoundException e) {
+//			ctx.status(404);
+//			ctx.json(e);
+//		}
 
 	};
 
 	public Handler getASpecificAccountOfAClient = (ctx) -> {
 
-		try {
+//		try {
 			String clientId = ctx.pathParam("client_id");
 			String accountId = ctx.pathParam("account_id");
 
@@ -187,23 +187,23 @@ public class ClientsController {
 				ctx.json(this.bankAccountsService.getBankAccount(clientId, accountId));
 
 			}
-		} catch (InvalidInputException e) {
-			ctx.status(400);
-			ctx.json(e);
-		} catch (ClientNotFoundException e) {
-			ctx.status(404);
-			ctx.json(e);
-		} catch (BankAccountNotFoundException e) {
-			ctx.status(404);
-			ctx.json(e);
-		}
+//		} catch (InvalidInputException e) {
+//			ctx.status(400);
+//			ctx.json(e);
+//		} catch (ClientNotFoundException e) {
+//			ctx.status(404);
+//			ctx.json(e);
+//		} catch (BankAccountNotFoundException e) {
+//			ctx.status(404);
+//			ctx.json(e);
+//		}
 	};
 
 	public Handler updateBankAccountByClientAndAccountId = (ctx) -> {
 
 		String clientId = ctx.pathParam("client_id");
 		String accountId = ctx.pathParam("account_id");
-
+	
 		if (this.clientsService.getClientById(clientId) != null) {
 			if (this.bankAccountsService.getBankAccount(clientId, accountId) != null) {
 

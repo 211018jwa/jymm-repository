@@ -33,11 +33,16 @@ public class BankAccountsService {
 		if (!validBankAccountTypes.contains(bankDto.getBankAccountType())) {
 			throw new InvalidInputException("Bank Account Type must be either 'Checkings' OR 'Savings'!");
 		}
+		
+		if (bankDto.getAmount().matches("[a-zA-Z]+")) {
+			throw new InvalidInputException("Amount can only be of int or double value!");
+			
+		}		
 
 		if (Integer.parseInt(bankDto.getAmount()) <= 0) {
-			throw new InvalidInputException("Amount must greater than 0 only!");
+			throw new InvalidInputException("Amount must be greater than 0 only!");
 		}
-		
+			
 	}
 
 	public BankAccounts addBankAccount(String id, AddOrUpdateBankAccountDTO bankDto)
@@ -91,7 +96,7 @@ public class BankAccountsService {
 	public List<JoinTableForClientAndBankAccountDTO> getAccountsWithSpecificAmount(String clientId,
 			String amountGreaterThan, String amountLessThan) throws SQLException, InvalidInputException {
 		
-//		try {
+		try {
 			
 		int clientsId = Integer.parseInt(clientId);
 		int amountGreater = Integer.parseInt(amountGreaterThan);
@@ -103,31 +108,35 @@ public class BankAccountsService {
 			return this.bankAccountsDao.selectAccountsById(clientsId);
 		}
 		
-//		} catch (NumberFormatException e) {
-//			throw new InvalidInputException ("Amount Greater Than or Amount Less Than must be a convertable int type!");
-//		}
+		} catch (NumberFormatException e) {
+			throw new InvalidInputException ("Amount Greater Than or Amount Less Than must be a convertable int type!");
+		}
 	}
 
-	
-	
 	public BankAccounts editBankAccount(String cId, String accId, AddOrUpdateBankAccountDTO bankDto) throws InvalidInputException, SQLException {
-		
-		int clientId = Integer.parseInt(cId);
-		int accountId = Integer.parseInt(accId);
 		
 		validateFields(bankDto);
 		
+		int clientId = Integer.parseInt(cId);
+		int accountId = Integer.parseInt(accId);
+				
 		BankAccounts bankAccounts = this.bankAccountsDao.updateBankAccount(clientId, accountId, bankDto);
 		
 		return bankAccounts;
 	}
 
-	public void removeBankAccount(String cId, String accId) throws SQLException {
+	public void removeBankAccount(String cId, String accId) throws SQLException, InvalidInputException {
+		
+		try {
+		
 		int clientId = Integer.parseInt(cId);
 		int accountId = Integer.parseInt(accId);
 		
 		this.bankAccountsDao.deleteBankAccount(clientId, accountId);
 		
+		} catch (NumberFormatException e) {
+			throw new InvalidInputException("Amount can only be of int or double value!");
+		} 
 	}
 
 }

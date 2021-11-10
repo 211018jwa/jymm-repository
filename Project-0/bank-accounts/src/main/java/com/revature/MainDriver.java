@@ -3,6 +3,7 @@ package com.revature;
 import java.sql.SQLException;
 
 import com.revature.controller.ClientsController;
+import com.revature.controller.ExceptionMappingController;
 
 import io.javalin.Javalin;
 
@@ -33,6 +34,10 @@ public class MainDriver {
 		ClientsController clientsController = new ClientsController();
 				
 		clientsController.registerEndpoint(app);
+		
+		ExceptionMappingController exceptionController = new ExceptionMappingController();
+		
+		exceptionController.mapExceptions(app);
 
 		app.start(8080);
 		
