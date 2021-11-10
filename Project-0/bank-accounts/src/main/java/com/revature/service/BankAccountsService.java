@@ -122,11 +122,11 @@ public class BankAccountsService {
 		return bankAccounts;
 	}
 
-	public void removeBankAccount(String cId, String accId) {
+	public void removeBankAccount(String cId, String accId) throws SQLException {
 		int clientId = Integer.parseInt(cId);
 		int accountId = Integer.parseInt(accId);
 		
-		
+		this.bankAccountsDao.deleteBankAccount(clientId, accountId);
 		
 	}
 

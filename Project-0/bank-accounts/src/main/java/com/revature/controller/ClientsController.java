@@ -225,6 +225,7 @@ public class ClientsController {
 		if (this.clientsService.getClientById(clientId) != null) {
 			if (this.bankAccountsService.getBankAccount(clientId, accountId) != null) {
 				this.bankAccountsService.removeBankAccount(clientId, accountId);
+				ctx.result("The account with an id of "+accountId + " that belongs to client " +clientId+ " has been deleted.");
 			}
 		}
 

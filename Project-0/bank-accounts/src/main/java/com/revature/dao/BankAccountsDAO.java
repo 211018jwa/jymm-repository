@@ -153,4 +153,18 @@ public class BankAccountsDAO {
 		return new BankAccounts(accountId, clientId, bankDto.getBankAccountNo(), bankDto.getBankAccountType(), bankDto.getAmount());
 	}
 
+	public void deleteBankAccount(int clientId, int accountId) throws SQLException {
+
+		try (Connection con = JDBCUtility.getConnection()) {
+			String sql = "DELETE FROM bank_accounts \r\n"
+					+ "WHERE client_id = ? AND bank_id = ?;";
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, clientId);
+			ps.setInt(2, accountId);
+			
+			
+		}
+	}
+
 }
