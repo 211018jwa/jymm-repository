@@ -89,18 +89,23 @@ public class BankAccountsService {
 
 	
 	public List<JoinTableForClientAndBankAccountDTO> getAccountsWithSpecificAmount(String clientId,
-			String amountGreaterThan, String amountLessThan) throws SQLException {
+			String amountGreaterThan, String amountLessThan) throws SQLException, InvalidInputException {
 		
+//		try {
+			
 		int clientsId = Integer.parseInt(clientId);
 		int amountGreater = Integer.parseInt(amountGreaterThan);
 		int amountLess = Integer.parseInt(amountLessThan);
-		
+	
 		if (amountGreaterThan != null && amountLessThan != null) {
 			return this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, amountGreater, amountLess);
 		} else {
 			return this.bankAccountsDao.selectAccountsById(clientsId);
 		}
-	
+		
+//		} catch (NumberFormatException e) {
+//			throw new InvalidInputException ("Amount Greater Than or Amount Less Than must be a convertable int type!");
+//		}
 	}
 
 	
@@ -115,6 +120,14 @@ public class BankAccountsService {
 		BankAccounts bankAccounts = this.bankAccountsDao.updateBankAccount(clientId, accountId, bankDto);
 		
 		return bankAccounts;
+	}
+
+	public void removeBankAccount(String cId, String accId) {
+		int clientId = Integer.parseInt(cId);
+		int accountId = Integer.parseInt(accId);
+		
+		
+		
 	}
 
 }

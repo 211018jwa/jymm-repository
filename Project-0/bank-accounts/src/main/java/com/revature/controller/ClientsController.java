@@ -150,23 +150,23 @@ public class ClientsController {
 	public Handler getAllAccountsWithSpecificAmountOrAllAccounts = (ctx) -> {
 
 		try {
-		String clientId = ctx.pathParam("client_id");
+			String clientId = ctx.pathParam("client_id");
 
-		String amountGreaterThan = ctx.queryParam("amountGreaterThan");
-		String amountLessThan = ctx.queryParam("amountLessThan");
+			String amountGreaterThan = ctx.queryParam("amountGreaterThan");
+			String amountLessThan = ctx.queryParam("amountLessThan");
 
 //		System.out.println("amount greater" + amountGreaterThan);
 //		System.out.println("amount less" + amountLessThan);
 
-		if (this.clientsService.getClientById(clientId) != null) {
+			if (this.clientsService.getClientById(clientId) != null) {
 
-			if (amountGreaterThan != null && amountLessThan != null) {
-				ctx.json(this.bankAccountsService.getAccountsWithSpecificAmount(clientId, amountGreaterThan,
-						amountLessThan));
-			} else {
-				ctx.json(this.bankAccountsService.getAccountsById(clientId));
-			}		
-		}
+				if (amountGreaterThan != null && amountLessThan != null) {
+					ctx.json(this.bankAccountsService.getAccountsWithSpecificAmount(clientId, amountGreaterThan,
+							amountLessThan));
+				} else {
+					ctx.json(this.bankAccountsService.getAccountsById(clientId));
+				}
+			}
 		} catch (InvalidInputException e) {
 			ctx.status(400);
 			ctx.json(e);
@@ -178,15 +178,15 @@ public class ClientsController {
 	};
 
 	public Handler getASpecificAccountOfAClient = (ctx) -> {
-		
+
 		try {
-		String clientId = ctx.pathParam("client_id");
-		String accountId = ctx.pathParam("account_id");
-		
-		if (this.clientsService.getClientById(clientId) != null) {			
-			ctx.json(this.bankAccountsService.getBankAccount(clientId, accountId));
-			
-		}
+			String clientId = ctx.pathParam("client_id");
+			String accountId = ctx.pathParam("account_id");
+
+			if (this.clientsService.getClientById(clientId) != null) {
+				ctx.json(this.bankAccountsService.getBankAccount(clientId, accountId));
+
+			}
 		} catch (InvalidInputException e) {
 			ctx.status(400);
 			ctx.json(e);
@@ -198,41 +198,53 @@ public class ClientsController {
 			ctx.json(e);
 		}
 	};
-	
+
 	public Handler updateBankAccountByClientAndAccountId = (ctx) -> {
-		
+
 		String clientId = ctx.pathParam("client_id");
 		String accountId = ctx.pathParam("account_id");
-		
-		if (this.bankAccountsService.getBankAccount(clientId, accountId) != null) {	
-			
-			AddOrUpdateBankAccountDTO bankDto = ctx.bodyAsClass(AddOrUpdateBankAccountDTO.class);
-			
-			BankAccounts updatedBankAccount = this.bankAccountsService.editBankAccount(clientId, accountId, bankDto);
-			
-			ctx.json(updatedBankAccount);			
+
+		if (this.clientsService.getClientById(clientId) != null) {
+			if (this.bankAccountsService.getBankAccount(clientId, accountId) != null) {
+
+				AddOrUpdateBankAccountDTO bankDto = ctx.bodyAsClass(AddOrUpdateBankAccountDTO.class);
+
+				BankAccounts updatedBankAccount = this.bankAccountsService.editBankAccount(clientId, accountId,
+						bankDto);
+
+				ctx.json(updatedBankAccount);
+			}
 		}
-		
 	};
 
 	public Handler removeBankAccountByClientAndAccountId = (ctx) -> {
+
+		String clientId = ctx.pathParam("client_id");
+		String accountId = ctx.pathParam("account_id");
 		
+		if (this.clientsService.getClientById(clientId) != null) {
+			if (this.bankAccountsService.getBankAccount(clientId, accountId) != null) {
+				this.bankAccountsService.removeBankAccount(clientId, accountId);
+			}
+		}
+
 	};
-	
-	
+
 	public void registerEndpoint(Javalin app) {
-		// ------------------------------ Client Information Related -----------------------------------
+		// ------------------------------ Client Information Related
+		// -----------------------------------
 		app.post("/clients", clients);
 		app.get("/clients", getAllClients);
 		app.get("/clients/{client_id}", getClientById);
 		app.put("/clients/{client_id}", updateClientsById);
 		app.delete("/clients/{client_id}", deleteClientById);
-		
-		// --------------------------------- Bank Account Related --------------------------------------
+
+		// --------------------------------- Bank Account Related
+		// --------------------------------------
 		app.post("/clients/{client_id}/accounts", newAccountForAClient);
 		// app.get("/clients/{client_id}/accounts", viewAccountOfAClient);
 		app.get("/clients/{client_id}/accounts", getAllAccountsWithSpecificAmountOrAllAccounts);
-		app.get("/clients/{client_id}/accounts/{account_id}",getASpecificAccountOfAClient);
+		app.get("/clients/{client_id}/accounts/{account_id}", getASpecificAccountOfAClient);
 		app.put("/clients/{client_id}/accounts/{account_id}", updateBankAccountByClientAndAccountId);
 		app.delete("/clients/{client_id}/accounts/{account_id}", removeBankAccountByClientAndAccountId);
 
