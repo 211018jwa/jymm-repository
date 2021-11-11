@@ -18,6 +18,10 @@ public class ClientsService {
 	public ClientsService() {
 		this.clientsDao = new ClientsDAO();
 	}
+	
+	public ClientsService (ClientsDAO clientsDao) {
+		this.clientsDao = clientsDao;
+	}
 
 	public Clients addNewClient(AddOrUpdateClientDTO addDto) throws SQLException, InvalidInputException {
 
