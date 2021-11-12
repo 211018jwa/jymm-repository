@@ -29,17 +29,11 @@ public class ClientsController {
 
 	public Handler clients = (ctx) -> {
 
-		//try {
-			AddOrUpdateClientDTO addDto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
+		AddOrUpdateClientDTO addDto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
 
-			Clients c = this.clientsService.addNewClient(addDto);
-			ctx.status(201);
-			ctx.json(c);
-			
-//		} catch (InvalidInputException e) {
-//			ctx.status(400);
-//			ctx.json(e);
-//		}
+		Clients c = this.clientsService.addNewClient(addDto);
+		ctx.status(201);
+		ctx.json(c);
 
 	};
 
@@ -51,58 +45,29 @@ public class ClientsController {
 
 	public Handler getClientById = (ctx) -> {
 
-//		try {
-			String id = ctx.pathParam("client_id");
+		String id = ctx.pathParam("client_id");
 
-			Clients c = this.clientsService.getClientById(id);
-			ctx.json(c);
-
-//		} catch (InvalidInputException e) {
-//			ctx.status(400);
-//			ctx.json(e);
-//		} catch (ClientNotFoundException e) {
-//			ctx.status(404);
-//			ctx.json(e);
-//		}
-
+		Clients c = this.clientsService.getClientById(id);
+		ctx.json(c);
 	};
 
 	public Handler updateClientsById = (ctx) -> {
 
-//		try {
-			String id = ctx.pathParam("client_id");
-			
-			AddOrUpdateClientDTO dto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
+		String id = ctx.pathParam("client_id");
 
-			Clients clientThatNeedsToBeUpdated = this.clientsService.modifyClientsById(id, dto);
+		AddOrUpdateClientDTO dto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
 
-			ctx.json(clientThatNeedsToBeUpdated);
+		Clients clientThatNeedsToBeUpdated = this.clientsService.modifyClientsById(id, dto);
 
-//		} catch (InvalidInputException e) {
-//			ctx.status(400);
-//			ctx.json(e);
-//		} catch (ClientNotFoundException e) {
-//			ctx.status(404);
-//			ctx.json(e);
-//		}
-
+		ctx.json(clientThatNeedsToBeUpdated);
 	};
 
 	public Handler deleteClientById = (ctx) -> {
 
-//		try {
-			String id = ctx.pathParam("client_id");
-			if (this.clientsService.removeClientById(id)) {
-				ctx.result("Client with an id of " + id + " has been deleted");
-			}
-
-//		} catch (InvalidInputException e) {
-//			ctx.status(400);
-//			ctx.json(e);
-//		} catch (ClientNotFoundException e) {
-//			ctx.status(404);
-//			ctx.json(e);
-//		}
+		String id = ctx.pathParam("client_id");
+		if (this.clientsService.removeClientById(id)) {
+			ctx.result("Client with an id of " + id + " has been deleted");
+		}
 
 	};
 
@@ -111,97 +76,51 @@ public class ClientsController {
 
 	public Handler newAccountForAClient = (ctx) -> {
 
-//		try {
-			String id = ctx.pathParam("client_id");
+		String id = ctx.pathParam("client_id");
 
-			if (this.clientsService.getClientById(id) != null) {
+		if (this.clientsService.getClientById(id) != null) {
 
-				AddOrUpdateBankAccountDTO bankDto = ctx.bodyAsClass(AddOrUpdateBankAccountDTO.class);
+			AddOrUpdateBankAccountDTO bankDto = ctx.bodyAsClass(AddOrUpdateBankAccountDTO.class);
 
-				BankAccounts bankAccount = this.bankAccountsService.addBankAccount(id, bankDto);
-				ctx.json(bankAccount);
-
-			}
-
-//		} catch (InvalidInputException e) {
-//			ctx.status(400);
-//			ctx.json(e);
-//		} catch (ClientNotFoundException e) {
-//			ctx.status(404);
-//			ctx.json(e);
-//		}
-
+			BankAccounts bankAccount = this.bankAccountsService.addBankAccount(id, bankDto);
+			
+			ctx.json(bankAccount);
+		}
 	};
-
-//	public Handler viewAccountOfAClient = (ctx) -> {
-//		try {
-//			String clientId = ctx.pathParam("client_id");
-//
-//			if (this.clientsService.getClientById(clientId) != null) {
-//				ctx.json(this.bankAccountsService.getAccountsById(clientId));
-//			}
-//
-//		} catch (ClientNotFoundException e) {
-//			ctx.status(404);
-//			ctx.json(e);
-//		}
-//
-//	};
 
 	public Handler getAllAccountsWithSpecificAmountOrAllAccounts = (ctx) -> {
 
-//		try {
-			String clientId = ctx.pathParam("client_id");
+		String clientId = ctx.pathParam("client_id");
 
-			String amountGreaterThan = ctx.queryParam("amountGreaterThan");
-			String amountLessThan = ctx.queryParam("amountLessThan");
+		String amountGreaterThan = ctx.queryParam("amountGreaterThan");
+		String amountLessThan = ctx.queryParam("amountLessThan");
 
-			if (this.clientsService.getClientById(clientId) != null) {
+		if (this.clientsService.getClientById(clientId) != null) {
 
-				if (amountGreaterThan != null && amountLessThan != null) {
-					ctx.json(this.bankAccountsService.getAccountsWithSpecificAmount(clientId, amountGreaterThan,
-							amountLessThan));
-				} else {
-					ctx.json(this.bankAccountsService.getAccountsById(clientId));
-				}
+			if (amountGreaterThan != null && amountLessThan != null) {
+				ctx.json(this.bankAccountsService.getAccountsWithSpecificAmount(clientId, amountGreaterThan,
+						amountLessThan));
+			} else {
+				ctx.json(this.bankAccountsService.getAccountsById(clientId));
 			}
-//		} catch (InvalidInputException e) {
-//			ctx.status(400);
-//			ctx.json(e);
-//		} catch (ClientNotFoundException e) {
-//			ctx.status(404);
-//			ctx.json(e);
-//		}
-
+		}
 	};
 
 	public Handler getASpecificAccountOfAClient = (ctx) -> {
 
-//		try {
-			String clientId = ctx.pathParam("client_id");
-			String accountId = ctx.pathParam("account_id");
+		String clientId = ctx.pathParam("client_id");
+		String accountId = ctx.pathParam("account_id");
 
-			if (this.clientsService.getClientById(clientId) != null) {
-				ctx.json(this.bankAccountsService.getBankAccount(clientId, accountId));
-
-			}
-//		} catch (InvalidInputException e) {
-//			ctx.status(400);
-//			ctx.json(e);
-//		} catch (ClientNotFoundException e) {
-//			ctx.status(404);
-//			ctx.json(e);
-//		} catch (BankAccountNotFoundException e) {
-//			ctx.status(404);
-//			ctx.json(e);
-//		}
+		if (this.clientsService.getClientById(clientId) != null) {
+			ctx.json(this.bankAccountsService.getBankAccount(clientId, accountId));
+		}
 	};
 
 	public Handler updateBankAccountByClientAndAccountId = (ctx) -> {
 
 		String clientId = ctx.pathParam("client_id");
 		String accountId = ctx.pathParam("account_id");
-	
+
 		if (this.clientsService.getClientById(clientId) != null) {
 			if (this.bankAccountsService.getBankAccount(clientId, accountId) != null) {
 
@@ -219,11 +138,12 @@ public class ClientsController {
 
 		String clientId = ctx.pathParam("client_id");
 		String accountId = ctx.pathParam("account_id");
-		
+
 		if (this.clientsService.getClientById(clientId) != null) {
 			if (this.bankAccountsService.getBankAccount(clientId, accountId) != null) {
 				this.bankAccountsService.removeBankAccount(clientId, accountId);
-				ctx.result("The account with an id of "+accountId + " that belongs to client " +clientId+ " has been deleted.");
+				ctx.result("The account with an id of " + accountId + " that belongs to client " + clientId
+						+ " has been deleted.");
 			}
 		}
 

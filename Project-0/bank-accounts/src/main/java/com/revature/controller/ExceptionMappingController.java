@@ -21,7 +21,7 @@ public class ExceptionMappingController {
 		});
 
 		app.exception(InvalidInputException.class, (e, ctx) -> {
-			ctx.status(404);
+			ctx.status(400);
 			ctx.json(new ExceptionMessageDTO(e));
 		});
 	}

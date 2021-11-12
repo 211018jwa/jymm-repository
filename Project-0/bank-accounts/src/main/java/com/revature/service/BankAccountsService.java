@@ -19,11 +19,19 @@ public class BankAccountsService {
 	public BankAccountsService() {
 		this.bankAccountsDao = new BankAccountsDAO();
 	}
-	
-	public void validateFields(AddOrUpdateBankAccountDTO bankDto) throws InvalidInputException {
-		
-		if (bankDto.getBankAccountNo().trim().equals("") || bankDto.getBankAccountType().trim().equals("")) {
-			throw new InvalidInputException("Bank Account No/Bank Account Type cannot be empty!");
+
+	public BankAccountsService(BankAccountsDAO bankAccountsDao) {
+		this.bankAccountsDao = bankAccountsDao;
+	}
+
+	public boolean validateFields(AddOrUpdateBankAccountDTO bankDto) throws InvalidInputException {
+
+		boolean success = true;
+
+		if (bankDto.getBankAccountNo().trim().equals("") || bankDto.getBankAccountType().trim().equals("")
+				|| bankDto.getAmount().trim().equals("")) {
+			success = false;
+			throw new InvalidInputException("Bank Account No/Bank Account Type/Amount cannot be empty!");
 		}
 
 		Set<String> validBankAccountTypes = new HashSet<>();
@@ -31,59 +39,56 @@ public class BankAccountsService {
 		validBankAccountTypes.add("Savings");
 
 		if (!validBankAccountTypes.contains(bankDto.getBankAccountType())) {
+			success = false;
 			throw new InvalidInputException("Bank Account Type must be either 'Checkings' OR 'Savings'!");
 		}
-		
 		if (bankDto.getAmount().matches("[a-zA-Z]+")) {
+			success = false;
 			throw new InvalidInputException("Amount can only be of int or double value!");
-			
-		}		
-
-		if (Integer.parseInt(bankDto.getAmount()) <= 0) {
+		}
+		if (Double.parseDouble(bankDto.getAmount()) <= 0) {
+			success = false;
 			throw new InvalidInputException("Amount must be greater than 0 only!");
 		}
-			
+
+		return success;
 	}
 
 	public BankAccounts addBankAccount(String id, AddOrUpdateBankAccountDTO bankDto)
 			throws SQLException, InvalidInputException {
 
-		validateFields(bankDto);
+		if (validateFields(bankDto)) {
 
-		try {
 			int clientsId = Integer.parseInt(id);
-
 			BankAccounts bankAccounts = this.bankAccountsDao.insertBankAccount(clientsId, bankDto);
-
+			
 			return bankAccounts;
-
-		} catch (NumberFormatException e) {
-			throw new InvalidInputException("Amount can only be of int or double value!");
-		} 
-
+		}
+		return null;
+		
 	}
 
-	public BankAccounts getBankAccount(String cid, String accId) throws SQLException, BankAccountNotFoundException, InvalidInputException {
-		
+	public BankAccounts getBankAccount(String cid, String accId)
+			throws SQLException, BankAccountNotFoundException, InvalidInputException {
+
 		try {
-		
-		int bankId = Integer.parseInt(accId);
-		int clientId = Integer.parseInt(cid);
-		
-		BankAccounts getBankAccountByIds = this.bankAccountsDao.selectBankAccountsById(clientId, bankId);
-		
-		if (getBankAccountByIds == null) {
-			throw new BankAccountNotFoundException ("Client " +clientId+ " doesn't have any existing bank account id of " +bankId);
-		}
-				
-		return getBankAccountByIds;
-		
+			int bankId = Integer.parseInt(accId);
+			int clientId = Integer.parseInt(cid);
+
+			BankAccounts getBankAccountByIds = this.bankAccountsDao.selectBankAccountsById(clientId, bankId);
+
+			if (getBankAccountByIds == null) {
+				throw new BankAccountNotFoundException(
+						"Client " + clientId + " doesn't have any existing bank account id of " + bankId);
+			}
+
+			return getBankAccountByIds;
+
 		} catch (NumberFormatException e) {
 			throw new InvalidInputException("Entered id cannot be converted to int value! ");
 		}
-			
+
 	}
-	
 
 	public List<JoinTableForClientAndBankAccountDTO> getAccountsById(String clientId) throws SQLException {
 
@@ -92,52 +97,55 @@ public class BankAccountsService {
 		return this.bankAccountsDao.selectAccountsById(clientsId);
 	}
 
-	
 	public List<JoinTableForClientAndBankAccountDTO> getAccountsWithSpecificAmount(String clientId,
 			String amountGreaterThan, String amountLessThan) throws SQLException, InvalidInputException {
-		
+
 		try {
-			
-		int clientsId = Integer.parseInt(clientId);
-		
-		int amountGreater = Integer.parseInt(amountGreaterThan);
-		int amountLess = Integer.parseInt(amountLessThan);
-	
-		if (amountGreaterThan != null && amountLessThan != null) {
-			return this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, amountGreater, amountLess);
-		} else {
-			return this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId,0, 10000000);
-		}
-		
+
+			int clientsId = Integer.parseInt(clientId);
+
+			int amountGreater = Integer.parseInt(amountGreaterThan);
+			int amountLess = Integer.parseInt(amountLessThan);
+
+			if (amountGreaterThan != null && amountLessThan != null) {
+				return this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, amountGreater, amountLess);
+			} else {
+				return this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, 0, 10000000);
+			}
+
 		} catch (NumberFormatException e) {
-			throw new InvalidInputException ("Amount Greater Than or Amount Less Than must be a convertable int type!");
+			throw new InvalidInputException("Amount Greater Than or Amount Less Than must be a convertable int type!");
 		}
 	}
 
-	public BankAccounts editBankAccount(String cId, String accId, AddOrUpdateBankAccountDTO bankDto) throws InvalidInputException, SQLException {
-		
-		validateFields(bankDto);
-		
-		int clientId = Integer.parseInt(cId);
-		int accountId = Integer.parseInt(accId);
-				
-		BankAccounts bankAccounts = this.bankAccountsDao.updateBankAccount(clientId, accountId, bankDto);
-		
-		return bankAccounts;
+	public BankAccounts editBankAccount(String cId, String accId, AddOrUpdateBankAccountDTO bankDto)
+			throws InvalidInputException, SQLException {
+
+		if (validateFields(bankDto)) {
+
+			int clientId = Integer.parseInt(cId);
+			int accountId = Integer.parseInt(accId);
+
+			BankAccounts bankAccounts = this.bankAccountsDao.updateBankAccount(clientId, accountId, bankDto);
+
+			return bankAccounts;
+		} else {
+			return null;
+		}
 	}
 
 	public void removeBankAccount(String cId, String accId) throws SQLException, InvalidInputException {
-		
+
 		try {
-		
-		int clientId = Integer.parseInt(cId);
-		int accountId = Integer.parseInt(accId);
-		
-		this.bankAccountsDao.deleteBankAccount(clientId, accountId);
-		
+
+			int clientId = Integer.parseInt(cId);
+			int accountId = Integer.parseInt(accId);
+
+			this.bankAccountsDao.deleteBankAccount(clientId, accountId);
+
 		} catch (NumberFormatException e) {
 			throw new InvalidInputException("Amount can only be of int or double value!");
-		} 
+		}
 	}
 
 }

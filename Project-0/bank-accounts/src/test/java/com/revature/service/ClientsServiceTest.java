@@ -52,6 +52,25 @@ public class ClientsServiceTest {
 
 	}
 
+	// Sad Path (Negative Test)
+	@Test
+	public void testAddNewClientInDTOAllFieldsEmpty() throws InvalidInputException {
+		
+		//ARRANGE
+		ClientsDAO mockClientsDao = mock(ClientsDAO.class);
+		
+		ClientsService clientsService = new ClientsService(mockClientsDao);
+		
+		//ACT AND ASSERT
+		AddOrUpdateClientDTO addDto = new AddOrUpdateClientDTO(" ", " ", " ", " ",
+				" ", " ", " ", " ");
+		
+		Assertions.assertThrows(InvalidInputException.class, () -> {
+			clientsService.addNewClient(addDto);
+		});
+		
+	}
+		
 	/*
 	 * ClientsService's getAllClients() test
 	 */
@@ -92,11 +111,10 @@ public class ClientsServiceTest {
 		Assertions.assertEquals(expected, actual);
 
 	}
-
 	/*
 	 * ClientsService's getClientById test
 	 */
-
+	
 	// Happy Path
 	@Test
 	public void testGetClientByIdValid() throws SQLException, InvalidInputException, ClientNotFoundException {
@@ -200,7 +218,7 @@ public class ClientsServiceTest {
 
 		// ACT AND ASSERT
 		Assertions.assertThrows(InvalidInputException.class, () -> {
-			clientsService.getClientById("abc");
+			clientsService.removeClientById("abc");
 		});
 	}
 
@@ -239,5 +257,34 @@ public class ClientsServiceTest {
 		Assertions.assertEquals(expected, actual);	
 	}
 	
+	// Sad Path (Negative Test)
+	@Test
+	public void testModifyClientByIdClientDoesNotExist() throws ClientNotFoundException {
+		
+		//ARRANGE
+		ClientsDAO mockClientsDao = mock(ClientsDAO.class);
+		
+		ClientsService clientsService = new ClientsService(mockClientsDao);
+		
+		//ACT AND ASSERT
+		Assertions.assertThrows(ClientNotFoundException.class, () -> {
+			clientsService.modifyClientsById("1", null);
+		});
+	}
 	
+	// Sad Path (Negative Test)
+	@Test
+	public void testModifyClientByIdNotOfIntType() throws InvalidInputException {
+		
+		//ARRANGE
+		ClientsDAO mockClientsDao = mock(ClientsDAO.class);
+		
+		ClientsService clientsService = new ClientsService(mockClientsDao);
+		
+		//ACT AND ASSERT
+		Assertions.assertThrows(InvalidInputException.class, () -> {
+			clientsService.modifyClientsById("abc", null);
+			
+		});
+	}
 }
