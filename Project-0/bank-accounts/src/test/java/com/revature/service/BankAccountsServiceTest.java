@@ -5,17 +5,15 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.sql.SQLException;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import com.revature.dao.BankAccountsDAO;
 import com.revature.dto.AddOrUpdateBankAccountDTO;
+import com.revature.exceptions.BankAccountNotFoundException;
 import com.revature.exceptions.InvalidInputException;
 import com.revature.models.BankAccounts;
-import com.revature.models.Clients;
 
 public class BankAccountsServiceTest {
 
@@ -160,37 +158,143 @@ public class BankAccountsServiceTest {
 		// ASSERT
 		BankAccounts expected = (new BankAccounts(1, 1, "1234567890", "Checkings", "2000"));
 		Assertions.assertEquals(expected, actual);
-		
+
 	}
-	
+
 	// Sad Path
 	@Test
-	public void testAddBankAccountValidateFieldsReturnsNull() {
-		
-		//ARRANGE
+	public void testAddBankAccountValidateFieldsReturnsNull() throws NullPointerException {
+
+		// ARRANGE
 		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
 		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
-		
-		//ACT AND ASSERT
+
+		// ACT AND ASSERT
 		AddOrUpdateBankAccountDTO addToDto = null;
 		Assertions.assertThrows(NullPointerException.class, () -> {
 			bankAccountsService.addBankAccount("1", addToDto);
-		});	
+		});
 	}
-	
+
 	/*
 	 * BankAccountsService's getBankAccount() test
 	 */
-	
+
 	// Happy Path
 	@Test
-	public void testGetBankAccountByIdPositive() {
-		
-		//ARRANGE
+	public void testGetBankAccountPositive() throws SQLException, BankAccountNotFoundException, InvalidInputException {
+
+		// ARRANGE
 		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
-		
+
+		when(mockBankAccountsDao.selectBankAccountsById(eq(1), eq(4)))
+				.thenReturn(new BankAccounts(4, 1, "1234567890", "Savings", "2890"));
+
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+
+		// ACT
+		BankAccounts actual = bankAccountsService.getBankAccount("1", "4");
+
+		// ASSERT
+		Assertions.assertEquals(new BankAccounts(4, 1, "1234567890", "Savings", "2890"), actual);
+	}
+
+	// Sad Path
+	@Test
+	public void testGetBankAccountClientIdIsNotValidAccountIdIsValid() throws InvalidInputException {
+
+		// ARRANGE
+		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+
+		// ACT AND ASSERT
+		Assertions.assertThrows(InvalidInputException.class, () -> {
+			bankAccountsService.getBankAccount("ab", "1");
+		});
+	}
+
+	// Sad Path
+	@Test
+	public void testGetBankAccountClientIdIsValidAccountIdIsNotValid() throws InvalidInputException {
+
+		// ARRANGE
+		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+
+		// ACT AND ASSERT
+		Assertions.assertThrows(InvalidInputException.class, () -> {
+			bankAccountsService.getBankAccount("1", "abc");
+		});
+	}
+
+	// Sad Path
+	@Test
+	public void testGetBankAccountClientIdAndAccountIdIsNotValid() throws InvalidInputException {
+
+		// ARRANGE
+		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+
+		// ACT AND ASSERT
+		Assertions.assertThrows(InvalidInputException.class, () -> {
+			bankAccountsService.getBankAccount("abd", "abc");
+		});
+	}
+
+	// Sad Path
+	@Test
+	public void testGetBankAccountClientIdContainsWhiteSpaceAccountIdIsValid() throws InvalidInputException {
+
+		// ARRANGE
+		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+
+		// ACT AND ASSERT
+		Assertions.assertThrows(InvalidInputException.class, () -> {
+			bankAccountsService.getBankAccount(" ", "abc");
+		});
+	}
+
+	// Sad Path
+	@Test
+	public void testGetBankAccountClientIdIsValidAccountIdContainsWhiteSpace() throws InvalidInputException {
+
+		// ARRANGE
+		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+
+		// ACT AND ASSERT
+		Assertions.assertThrows(InvalidInputException.class, () -> {
+			bankAccountsService.getBankAccount("1", " ");
+		});
+	}
+
+	// Sad Path
+	@Test
+	public void testGetBankAccountClientIdAndAccountIdContainsWhiteSpace() throws InvalidInputException {
+
+		// ARRANGE
+		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+
+		// ACT AND ASSERT
+		Assertions.assertThrows(InvalidInputException.class, () -> {
+			bankAccountsService.getBankAccount(" ", " ");
+		});
+	}
+
+	// Sad Path
+	@Test
+	public void testGetBankAccountClientIdFoundButNoExistingBankAccount() throws BankAccountNotFoundException {
+
+		// ARRANGE
+		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+
+		// ACT AND ASSERT
+		Assertions.assertThrows(BankAccountNotFoundException.class, () -> {
+			bankAccountsService.getBankAccount("1", "1");
+		});
 	}
 	
-	
-
 }

@@ -96,13 +96,9 @@ public class ClientsController {
 		String amountLessThan = ctx.queryParam("amountLessThan");
 
 		if (this.clientsService.getClientById(clientId) != null) {
-
-			if (amountGreaterThan != null && amountLessThan != null) {
+			
 				ctx.json(this.bankAccountsService.getAccountsWithSpecificAmount(clientId, amountGreaterThan,
 						amountLessThan));
-			} else {
-				ctx.json(this.bankAccountsService.getAccountsById(clientId));
-			}
 		}
 	};
 
@@ -161,7 +157,6 @@ public class ClientsController {
 		// --------------------------------- Bank Account Related
 		// --------------------------------------
 		app.post("/clients/{client_id}/accounts", newAccountForAClient);
-		// app.get("/clients/{client_id}/accounts", viewAccountOfAClient);
 		app.get("/clients/{client_id}/accounts", getAllAccountsWithSpecificAmountOrAllAccounts);
 		app.get("/clients/{client_id}/accounts/{account_id}", getASpecificAccountOfAClient);
 		app.put("/clients/{client_id}/accounts/{account_id}", updateBankAccountByClientAndAccountId);

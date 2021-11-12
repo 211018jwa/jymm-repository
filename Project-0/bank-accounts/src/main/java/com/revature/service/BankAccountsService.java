@@ -72,6 +72,7 @@ public class BankAccountsService {
 			throws SQLException, BankAccountNotFoundException, InvalidInputException {
 
 		try {
+			
 			int bankId = Integer.parseInt(accId);
 			int clientId = Integer.parseInt(cid);
 
@@ -90,12 +91,12 @@ public class BankAccountsService {
 
 	}
 
-	public List<JoinTableForClientAndBankAccountDTO> getAccountsById(String clientId) throws SQLException {
-
-		int clientsId = Integer.parseInt(clientId);
-
-		return this.bankAccountsDao.selectAccountsById(clientsId);
-	}
+//	public List<JoinTableForClientAndBankAccountDTO> getAccountsById(String clientId) throws SQLException {
+//
+//		int clientsId = Integer.parseInt(clientId);
+//
+//		return this.bankAccountsDao.selectAccountsById(clientsId);
+//	}
 
 	public List<JoinTableForClientAndBankAccountDTO> getAccountsWithSpecificAmount(String clientId,
 			String amountGreaterThan, String amountLessThan) throws SQLException, InvalidInputException {
@@ -103,16 +104,17 @@ public class BankAccountsService {
 		try {
 
 			int clientsId = Integer.parseInt(clientId);
-
-			int amountGreater = Integer.parseInt(amountGreaterThan);
-			int amountLess = Integer.parseInt(amountLessThan);
+	
+			List<JoinTableForClientAndBankAccountDTO> bankAccount;
 
 			if (amountGreaterThan != null && amountLessThan != null) {
-				return this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, amountGreater, amountLess);
+				int amountGreater = Integer.parseInt(amountGreaterThan);
+				int amountLess = Integer.parseInt(amountLessThan);
+				bankAccount = this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, amountGreater, amountLess);
 			} else {
-				return this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, 0, 10000000);
+				bankAccount = this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, 0, 1000000);
 			}
-
+			return bankAccount;
 		} catch (NumberFormatException e) {
 			throw new InvalidInputException("Amount Greater Than or Amount Less Than must be a convertable int type!");
 		}

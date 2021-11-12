@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class JoinTableForClientAndBankAccountDTO {
 	
-	private int clientId;
+	private int bankId;
 	private String firstName;
 	private String lastName;
 	private String bankAccountNo;
@@ -15,10 +15,10 @@ public class JoinTableForClientAndBankAccountDTO {
 		super();
 	}
 
-	public JoinTableForClientAndBankAccountDTO(int clientId, String firstName, String lastName, String bankAccountNo,
+	public JoinTableForClientAndBankAccountDTO(int bankId, String firstName, String lastName, String bankAccountNo,
 			String bankAccountType, String amount) {
 		super();
-		this.clientId = clientId;
+		this.bankId = bankId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.bankAccountNo = bankAccountNo;
@@ -26,12 +26,12 @@ public class JoinTableForClientAndBankAccountDTO {
 		this.amount = amount;
 	}
 
-	public int getClientId() {
-		return clientId;
+	public int getBankId() {
+		return bankId;
 	}
 
-	public void setClientId(int clientId) {
-		this.clientId = clientId;
+	public void setBankId(int clientId) {
+		this.bankId = clientId;
 	}
 
 	public String getFirstName() {
@@ -76,7 +76,7 @@ public class JoinTableForClientAndBankAccountDTO {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(amount, bankAccountNo, bankAccountType, clientId, firstName, lastName);
+		return Objects.hash(amount, bankAccountNo, bankAccountType, bankId, firstName, lastName);
 	}
 
 	@Override
@@ -89,13 +89,13 @@ public class JoinTableForClientAndBankAccountDTO {
 			return false;
 		JoinTableForClientAndBankAccountDTO other = (JoinTableForClientAndBankAccountDTO) obj;
 		return Objects.equals(amount, other.amount) && Objects.equals(bankAccountNo, other.bankAccountNo)
-				&& Objects.equals(bankAccountType, other.bankAccountType) && clientId == other.clientId
+				&& Objects.equals(bankAccountType, other.bankAccountType) && bankId == other.bankId
 				&& Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName);
 	}
 
 	@Override
 	public String toString() {
-		return "JoinTableForClientAndBankAccountDTO [clientId=" + clientId + ", firstName=" + firstName + ", lastName="
+		return "JoinTableForClientAndBankAccountDTO [bankId=" + bankId + ", firstName=" + firstName + ", lastName="
 				+ lastName + ", bankAccountNo=" + bankAccountNo + ", bankAccountType=" + bankAccountType + ", amount="
 				+ amount + "]";
 	}	

@@ -41,33 +41,33 @@ public class BankAccountsDAO {
 		} 		
 	}
 	//Remember to add account_id column
-	public List<JoinTableForClientAndBankAccountDTO> selectAccountsById(int clientsId) throws SQLException {
-		
-		List<JoinTableForClientAndBankAccountDTO> bankAccountsList = new ArrayList<>();
-		
-		try (Connection con = JDBCUtility.getConnection()) {
-			String sql = "SELECT c.client_id, c.client_first_name, c.client_last_name, b.bank_account_no, b.bank_account_type, b.amount\r\n"
-					+ "FROM clients c\r\n"
-					+ "INNER JOIN bank_accounts b\r\n"
-					+ "ON c.client_id = b.client_id\r\n"
-					+ "WHERE\r\n"
-					+ "c.client_id = ?;";
-			PreparedStatement ps = con.prepareStatement(sql);
-			
-			ps.setInt(1, clientsId);
-			
-			ResultSet rs = ps.executeQuery();
-			
-			while (rs.next()) {
-				bankAccountsList.add(new JoinTableForClientAndBankAccountDTO(rs.getInt("client_id"), rs.getString("client_first_name"),
-						rs.getString("client_last_name"), rs.getString("bank_account_no"), rs.getString("bank_account_type"),
-						rs.getString("amount")));
-			} 
-			
-			return bankAccountsList;
-		}
-	
-	}
+//	public List<JoinTableForClientAndBankAccountDTO> selectAccountsById(int clientsId) throws SQLException {
+//		
+//		List<JoinTableForClientAndBankAccountDTO> bankAccountsList = new ArrayList<>();
+//		
+//		try (Connection con = JDBCUtility.getConnection()) {
+//			String sql = "SELECT c.client_id, c.client_first_name, c.client_last_name, b.bank_account_no, b.bank_account_type, b.amount\r\n"
+//					+ "FROM clients c\r\n"
+//					+ "INNER JOIN bank_accounts b\r\n"
+//					+ "ON c.client_id = b.client_id\r\n"
+//					+ "WHERE\r\n"
+//					+ "c.client_id = ?;";
+//			PreparedStatement ps = con.prepareStatement(sql);
+//			
+//			ps.setInt(1, clientsId);
+//			
+//			ResultSet rs = ps.executeQuery();
+//			
+//			while (rs.next()) {
+//				bankAccountsList.add(new JoinTableForClientAndBankAccountDTO(rs.getInt("client_id"), rs.getString("client_first_name"),
+//						rs.getString("client_last_name"), rs.getString("bank_account_no"), rs.getString("bank_account_type"),
+//						rs.getString("amount")));
+//			} 
+//			
+//			return bankAccountsList;
+//		}
+//	
+//	}
 
 	//Remember to add account_id column
 	public List<JoinTableForClientAndBankAccountDTO> selectAccountsWithSpecificAmount(int clientsId, int amountGreater,
@@ -76,12 +76,14 @@ public class BankAccountsDAO {
 		List<JoinTableForClientAndBankAccountDTO> bankAccountsList = new ArrayList<>();
 		
 		try(Connection con = JDBCUtility.getConnection()) {
-			String sql = "SELECT c.client_id, c.client_first_name, c.client_last_name, b.bank_account_no, b.bank_account_type, b.amount\r\n"
+			String sql = "SELECT b.bank_id, c.client_first_name, c.client_last_name, \r\n"
+					+ "b.bank_account_no, b.bank_account_type, b.amount\r\n"
 					+ "FROM clients c\r\n"
 					+ "INNER JOIN bank_accounts b\r\n"
 					+ "ON c.client_id = b.client_id\r\n"
 					+ "WHERE\r\n"
-					+ "c.client_id = ? AND b.amount BETWEEN ? AND ?;";
+					+ "c.client_id = ? AND b.amount BETWEEN ? AND ?;\r\n"
+					+ "";
 			PreparedStatement ps = con.prepareStatement(sql);
 			
 			ps.setInt(1, clientsId);
@@ -91,13 +93,12 @@ public class BankAccountsDAO {
 			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				bankAccountsList.add(new JoinTableForClientAndBankAccountDTO(rs.getInt("client_id"), rs.getString("client_first_name"),
+				bankAccountsList.add(new JoinTableForClientAndBankAccountDTO(rs.getInt("bank_id"), rs.getString("client_first_name"),
 						rs.getString("client_last_name"), rs.getString("bank_account_no"), rs.getString("bank_account_type"),
 						rs.getString("amount")));
 			} 
 			
 		}
-
 		return bankAccountsList;
 	}
 
