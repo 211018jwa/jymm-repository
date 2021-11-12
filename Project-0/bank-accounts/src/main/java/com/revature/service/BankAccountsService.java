@@ -99,13 +99,14 @@ public class BankAccountsService {
 		try {
 			
 		int clientsId = Integer.parseInt(clientId);
+		
 		int amountGreater = Integer.parseInt(amountGreaterThan);
 		int amountLess = Integer.parseInt(amountLessThan);
 	
 		if (amountGreaterThan != null && amountLessThan != null) {
 			return this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, amountGreater, amountLess);
 		} else {
-			return this.bankAccountsDao.selectAccountsById(clientsId);
+			return this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId,0, 10000000);
 		}
 		
 		} catch (NumberFormatException e) {

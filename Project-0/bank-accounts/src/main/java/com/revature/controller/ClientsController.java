@@ -71,6 +71,7 @@ public class ClientsController {
 
 //		try {
 			String id = ctx.pathParam("client_id");
+			
 			AddOrUpdateClientDTO dto = ctx.bodyAsClass(AddOrUpdateClientDTO.class);
 
 			Clients clientThatNeedsToBeUpdated = this.clientsService.modifyClientsById(id, dto);
@@ -154,9 +155,6 @@ public class ClientsController {
 
 			String amountGreaterThan = ctx.queryParam("amountGreaterThan");
 			String amountLessThan = ctx.queryParam("amountLessThan");
-
-//		System.out.println("amount greater" + amountGreaterThan);
-//		System.out.println("amount less" + amountLessThan);
 
 			if (this.clientsService.getClientById(clientId) != null) {
 

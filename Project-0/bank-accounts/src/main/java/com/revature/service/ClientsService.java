@@ -51,7 +51,7 @@ public class ClientsService {
 
 			if (c == null) {
 				throw new ClientNotFoundException("Client id of " + id + " does not exist!");
-			}
+			}			
 			return c;
 
 		} catch (NumberFormatException e) {
@@ -71,6 +71,7 @@ public class ClientsService {
 				throw new ClientNotFoundException(
 						"Can't delete a client with the id of " + id + " because the client does not exist");
 			}
+			
 			return (this.clientsDao.deleteClientsById(clientsId));
 
 		} catch (NumberFormatException e) {
