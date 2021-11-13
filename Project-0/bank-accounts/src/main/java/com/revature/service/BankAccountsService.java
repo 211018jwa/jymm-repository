@@ -5,6 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.dao.BankAccountsDAO;
 import com.revature.dto.AddOrUpdateBankAccountDTO;
 import com.revature.dto.JoinTableForClientAndBankAccountDTO;
@@ -13,6 +16,8 @@ import com.revature.exceptions.InvalidInputException;
 import com.revature.models.BankAccounts;
 
 public class BankAccountsService {
+
+	Logger logger = LoggerFactory.getLogger(BankAccountsService.class);
 
 	private BankAccountsDAO bankAccountsDao;
 
@@ -26,11 +31,15 @@ public class BankAccountsService {
 
 	public boolean validateFields(AddOrUpdateBankAccountDTO bankDto) throws InvalidInputException {
 
+		logger.info("invoked validateFields() method");
+
 		boolean success = true;
 
 		if (bankDto.getBankAccountNo().trim().equals("") || bankDto.getBankAccountType().trim().equals("")
 				|| bankDto.getAmount().trim().equals("")) {
 			success = false;
+			logger.warn(
+					"InvalidInputException was thrown: " + "Bank Account No/Bank Account Type/Amount cannot be empty!");
 			throw new InvalidInputException("Bank Account No/Bank Account Type/Amount cannot be empty!");
 		}
 
@@ -40,14 +49,18 @@ public class BankAccountsService {
 
 		if (!validBankAccountTypes.contains(bankDto.getBankAccountType())) {
 			success = false;
+			logger.warn("InvalidInputException was thrown: "
+					+ "Bank Account Type must be either 'Checkings' OR 'Savings'!");
 			throw new InvalidInputException("Bank Account Type must be either 'Checkings' OR 'Savings'!");
 		}
 		if (bankDto.getAmount().matches("[a-zA-Z]+")) {
 			success = false;
+			logger.warn("InvalidInputException was thrown: " + "Amount can only be of int or double value!");
 			throw new InvalidInputException("Amount can only be of int or double value!");
 		}
 		if (Double.parseDouble(bankDto.getAmount()) <= 0) {
 			success = false;
+			logger.warn("InvalidInputException was thrown: " + "Amount must be greater than 0 only!");
 			throw new InvalidInputException("Amount must be greater than 0 only!");
 		}
 
@@ -58,6 +71,8 @@ public class BankAccountsService {
 			throws SQLException, InvalidInputException {
 
 		if (validateFields(bankDto)) {
+
+			logger.info("invoked addBankAccount() method");
 
 			int clientsId = Integer.parseInt(id);
 			BankAccounts bankAccounts = this.bankAccountsDao.insertBankAccount(clientsId, bankDto);
@@ -71,6 +86,8 @@ public class BankAccountsService {
 	public BankAccounts getBankAccount(String cid, String accId)
 			throws SQLException, BankAccountNotFoundException, InvalidInputException {
 
+		logger.info("invoked getBankAccount() method");
+
 		try {
 
 			int bankId = Integer.parseInt(accId);
@@ -79,6 +96,8 @@ public class BankAccountsService {
 			BankAccounts getBankAccountByIds = this.bankAccountsDao.selectBankAccountsById(clientId, bankId);
 
 			if (getBankAccountByIds == null) {
+				logger.warn("BankAccountNotFoundException was thrown: "
+						+ "Client doesn't have any existing bank account id");
 				throw new BankAccountNotFoundException(
 						"Client " + clientId + " doesn't have any existing bank account id of " + bankId);
 			}
@@ -86,6 +105,7 @@ public class BankAccountsService {
 			return getBankAccountByIds;
 
 		} catch (NumberFormatException e) {
+			logger.warn("InvalidInputException was thrown: " + "Entered id cannot be converted to int value!");
 			throw new InvalidInputException("Entered id cannot be converted to int value! ");
 		}
 
@@ -100,6 +120,8 @@ public class BankAccountsService {
 
 	public List<JoinTableForClientAndBankAccountDTO> getAccountsWithSpecificAmount(String clientId,
 			String amountGreaterThan, String amountLessThan) throws SQLException, InvalidInputException {
+
+		logger.info("invoked getAccountsWithSpecificAmount() method");
 
 		try {
 
@@ -117,6 +139,8 @@ public class BankAccountsService {
 			}
 			return bankAccount;
 		} catch (NumberFormatException e) {
+			logger.warn("InvalidInputException was thrown: "
+					+ "Amount Greater Than or Amount Less Than must be a convertable int type!");
 			throw new InvalidInputException("Amount Greater Than or Amount Less Than must be a convertable int type!");
 		}
 	}
@@ -124,7 +148,10 @@ public class BankAccountsService {
 	public BankAccounts editBankAccount(String cId, String accId, AddOrUpdateBankAccountDTO bankDto)
 			throws InvalidInputException, SQLException {
 
+		logger.info("invoked editBankAccount() method");
+
 		try {
+
 			BankAccounts bankAccounts = new BankAccounts();
 			if (validateFields(bankDto)) {
 
@@ -136,16 +163,19 @@ public class BankAccountsService {
 			return bankAccounts;
 
 		} catch (NumberFormatException e) {
+			logger.warn("InvalidInputException was thrown: " + "Entered id cannot be converted to int value!");
 			throw new InvalidInputException("Entered id cannot be converted to int value! ");
 		}
 	}
+
 	public void removeBankAccount(String cId, String accId) throws SQLException {
 
-			int clientId = Integer.parseInt(cId);
-			int accountId = Integer.parseInt(accId);
+		logger.info("invoked removeBankAccount() method");
+		
+		int clientId = Integer.parseInt(cId);
+		int accountId = Integer.parseInt(accId);
 
-			this.bankAccountsDao.deleteBankAccount(clientId, accountId);
-		}
-
+		this.bankAccountsDao.deleteBankAccount(clientId, accountId);
+	}
 
 }

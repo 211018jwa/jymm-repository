@@ -30,8 +30,8 @@ public class JoinTableForClientAndBankAccountDTO {
 		return bankId;
 	}
 
-	public void setBankId(int clientId) {
-		this.bankId = clientId;
+	public void setBankId(int bankId) {
+		this.bankId = bankId;
 	}
 
 	public String getFirstName() {

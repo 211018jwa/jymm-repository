@@ -1,0 +1,14 @@
+13 Nov 2021 - 14:42:01.478 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13 Nov 2021 - 14:42:01.487 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @384ms to org.eclipse.jetty.util.log.Slf4jLog
+13 Nov 2021 - 14:42:01.488 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13 Nov 2021 - 14:42:01.505 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+13 Nov 2021 - 14:42:01.844 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+13 Nov 2021 - 14:42:01.844 [main] INFO  io.javalin.Javalin - Javalin started in 356ms \o/

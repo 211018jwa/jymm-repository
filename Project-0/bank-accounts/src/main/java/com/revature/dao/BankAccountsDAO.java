@@ -8,14 +8,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.dto.AddOrUpdateBankAccountDTO;
 import com.revature.dto.JoinTableForClientAndBankAccountDTO;
 import com.revature.models.BankAccounts;
 import com.revature.util.JDBCUtility;
 
 public class BankAccountsDAO {
+	
+	Logger logger = LoggerFactory.getLogger(BankAccountsDAO.class);
 
 	public BankAccounts insertBankAccount(int clientsId, AddOrUpdateBankAccountDTO bankDto) throws SQLException {
+		
+		logger.info("insertBankAccount() invoked");
 		
 		try (Connection con = JDBCUtility.getConnection()) {
 			
@@ -73,6 +80,8 @@ public class BankAccountsDAO {
 	public List<JoinTableForClientAndBankAccountDTO> selectAccountsWithSpecificAmount(int clientsId, int amountGreater,
 			int amountLess) throws SQLException {
 		
+		logger.info("selectAccountsWithSpecificAmount() invoked");
+		
 		List<JoinTableForClientAndBankAccountDTO> bankAccountsList = new ArrayList<>();
 		
 		try(Connection con = JDBCUtility.getConnection()) {
@@ -104,6 +113,8 @@ public class BankAccountsDAO {
 
 	public BankAccounts selectBankAccountsById(int clientId, int bankId) throws SQLException {
 		
+		logger.info("selectBankAccountsById() invoked");
+		
 		try (Connection con = JDBCUtility.getConnection()) {
 			
 			String sql = "SELECT *\r\n"
@@ -127,6 +138,8 @@ public class BankAccountsDAO {
 	}
 
 	public BankAccounts updateBankAccount(int clientId, int accountId, AddOrUpdateBankAccountDTO bankDto) throws SQLException {
+		
+		logger.info("updateBankAccount() invoked");
 		
 		try (Connection con = JDBCUtility.getConnection()) {
 			String sql = "UPDATE bank_accounts\r\n"
@@ -152,6 +165,8 @@ public class BankAccountsDAO {
 
 	public void deleteBankAccount(int clientId, int accountId) throws SQLException {
 
+		logger.info("deleteBankAccount() invoked");
+		
 		try (Connection con = JDBCUtility.getConnection()) {
 			String sql = "DELETE FROM bank_accounts \r\n"
 					+ "WHERE client_id = ? AND bank_id = ?;";
