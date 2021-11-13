@@ -1,5 +1,8 @@
 package com.revature.controller;
 
+import java.sql.SQLException;
+
+import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import com.revature.dto.ExceptionMessageDTO;
 import com.revature.exceptions.BankAccountNotFoundException;
 import com.revature.exceptions.ClientNotFoundException;
@@ -21,6 +24,16 @@ public class ExceptionMappingController {
 		});
 
 		app.exception(InvalidInputException.class, (e, ctx) -> {
+			ctx.status(400);
+			ctx.json(new ExceptionMessageDTO(e));
+		});
+		
+		app.exception(MismatchedInputException.class, (e, ctx) -> {
+			ctx.status(400);
+			ctx.json(new ExceptionMessageDTO(e));
+		});
+		
+		app.exception(SQLException.class, (e, ctx) -> {
 			ctx.status(400);
 			ctx.json(new ExceptionMessageDTO(e));
 		});

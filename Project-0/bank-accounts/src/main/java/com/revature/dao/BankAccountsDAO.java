@@ -145,10 +145,8 @@ public class BankAccountsDAO {
 
 			if (i != 1) {
 				throw new SQLException("Unable to update a client with a client id of "+ clientId + " and account id of " +accountId);	
-			} 
-			
-		}
-		
+			} 		
+		}		
 		return new BankAccounts(accountId, clientId, bankDto.getBankAccountNo(), bankDto.getBankAccountType(), bankDto.getAmount());
 	}
 

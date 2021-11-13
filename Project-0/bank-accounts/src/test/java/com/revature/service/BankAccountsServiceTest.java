@@ -1,6 +1,8 @@
 package com.revature.service;
 
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -143,7 +145,6 @@ public class BankAccountsServiceTest {
 	public void testAddBankAccountPositive() throws SQLException, InvalidInputException {
 		// ARRANGE
 		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
-
 		AddOrUpdateBankAccountDTO addDto = new AddOrUpdateBankAccountDTO("1234567890", "Checkings", "2000");
 
 		when(mockBankAccountsDao.insertBankAccount(eq(1), eq(addDto)))
@@ -296,5 +297,116 @@ public class BankAccountsServiceTest {
 			bankAccountsService.getBankAccount("1", "1");
 		});
 	}
+
+	/*
+	 * BankAccountsService's editBankAccount() test
+	 */
+
+	// Happy Path
+	@Test
+	public void testEditBankAccountPositive() throws SQLException, InvalidInputException {
+
+		// ARRANGE
+		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
+
+		AddOrUpdateBankAccountDTO addDto = new AddOrUpdateBankAccountDTO("1234567890", "Checkings", "2000");
+
+		when(mockBankAccountsDao.updateBankAccount(eq(1), eq(1), eq(addDto)))
+				.thenReturn(new BankAccounts(1, 1, "1234567890", "Checkings", "2000"));
+
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+
+		// ACT
+		AddOrUpdateBankAccountDTO updateDto = new AddOrUpdateBankAccountDTO("1234567890", "Checkings", "2000");
+		BankAccounts actual = bankAccountsService.editBankAccount("1", "1", updateDto);
+
+		// ASSERT
+		BankAccounts expected = new BankAccounts(1, 1, "1234567890", "Checkings", "2000");
+		Assertions.assertEquals(expected, actual);
+
+	}
+
+	// Sad Path
+	@Test
+	public void testEditBankAccountClientIdNotValidAccountIdValid() throws InvalidInputException {
+
+		// ARRANGE
+		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+
+		// ACT AND ASSERT
+		AddOrUpdateBankAccountDTO updateDto = new AddOrUpdateBankAccountDTO("1234567890", "Checkings", "2000");
+		Assertions.assertThrows(InvalidInputException.class, () -> {
+			bankAccountsService.editBankAccount("abc", "1", updateDto);
+		});
+	}
+
+	// Sad Path
+	@Test
+	public void testEditBankAccountClientIdValidAccountIdNotValid() throws InvalidInputException {
+
+		// ARRANGE
+		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+
+		// ACT AND ASSERT
+		AddOrUpdateBankAccountDTO updateDto = new AddOrUpdateBankAccountDTO("1234567890", "Checkings", "2000");
+		Assertions.assertThrows(InvalidInputException.class, () -> {
+			bankAccountsService.editBankAccount("1", "abc", updateDto);
+		});
+	}
+
+	// Sad Path
+	@Test
+	public void testEditBankAccountBothClientIdAndAccountIdNotValid() throws InvalidInputException {
+
+		// ARRANGE
+		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+
+		// ACT AND ASSERT
+		AddOrUpdateBankAccountDTO updateDto = new AddOrUpdateBankAccountDTO("1234567890", "Checkings", "2000");
+		Assertions.assertThrows(InvalidInputException.class, () -> {
+			bankAccountsService.editBankAccount("abc", "abc", updateDto);
+		});
+	}
+
+	// Sad Path
+	@Test
+	public void testEditBankAccountUpdateDTOIsNullEverythingIsValid() throws NullPointerException {
+
+		// ARRANGE
+		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+
+		// ACT AND ASSERT
+		AddOrUpdateBankAccountDTO updateDto = null;
+		Assertions.assertThrows(NullPointerException.class, () -> {
+			bankAccountsService.editBankAccount("1", "1", updateDto);
+		});
+	}
+	
+//	/*
+//	 * BankAccountsService's removeBankAccount() test
+//	 */
+//	
+//	// Happy Path
+//	@Test	
+//	 public void testRemoveBankAccountPositive() throws InvalidInputException, SQLException {
+//		
+//		//ARRANGE
+//		BankAccountsService bankAccountsService = mock (BankAccountsService.class);
+//		
+//		doThrow(NumberFormatException.class).when(bankAccountsService).removeBankAccount(eq("0"), eq("0"));
+//		doAnswer((i) -> {
+//			i.getArgument(0);
+//			Assertions.assertTrue();
+//			return null;
+//		}).when(bankAccountsService).removeBankAccount(eq("1"), eq("1"));
+//		
+//		
+//
+//	}
+	
 	
 }
