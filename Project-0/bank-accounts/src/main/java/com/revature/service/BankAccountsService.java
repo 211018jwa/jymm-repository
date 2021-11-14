@@ -69,10 +69,10 @@ public class BankAccountsService {
 
 	public BankAccounts addBankAccount(String id, AddOrUpdateBankAccountDTO bankDto)
 			throws SQLException, InvalidInputException {
+		
+		logger.info("invoked addBankAccount() method");
 
 		if (validateFields(bankDto)) {
-
-			logger.info("invoked addBankAccount() method");
 
 			int clientsId = Integer.parseInt(id);
 			BankAccounts bankAccounts = this.bankAccountsDao.insertBankAccount(clientsId, bankDto);

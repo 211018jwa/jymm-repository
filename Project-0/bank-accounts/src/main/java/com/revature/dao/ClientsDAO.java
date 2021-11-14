@@ -8,13 +8,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.dto.AddOrUpdateClientDTO;
 import com.revature.models.Clients;
+import com.revature.service.ClientsService;
 import com.revature.util.JDBCUtility;
 
 public class ClientsDAO {
+	
+	Logger logger = LoggerFactory.getLogger(ClientsDAO.class);
 
 	public Clients insertClients(AddOrUpdateClientDTO clients) throws SQLException {
+		
+		logger.info("invoked inserClients() method");
 
 		try (Connection con = JDBCUtility.getConnection()) {
 
@@ -49,6 +57,8 @@ public class ClientsDAO {
 	}
 
 	public List<Clients> selectAllClients() throws SQLException {
+		
+		logger.info("invoked selectAllClients() method");
 
 		List<Clients> listOfClients = new ArrayList<>();
 
@@ -81,6 +91,8 @@ public class ClientsDAO {
 	}
 
 	public Clients selectClientsById(int id) throws SQLException {
+		
+		logger.info("invoked selectClientsById() method");
 
 		try (Connection con = JDBCUtility.getConnection()) {
 
@@ -104,7 +116,7 @@ public class ClientsDAO {
 
 	public Clients updateClientsById(int id, AddOrUpdateClientDTO clients) throws SQLException {
 
-	
+		logger.info("invoked updateClientsById() method");
 
 		try (Connection con = JDBCUtility.getConnection()) {
 
@@ -137,6 +149,8 @@ public class ClientsDAO {
 	}
 
 	public boolean deleteClientsById(int id) throws SQLException {
+		
+		logger.info("invoked deleteClientsById() method");
 		
 		boolean success = false;
 

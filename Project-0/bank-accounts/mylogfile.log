@@ -12,3 +12,315 @@
 13 Nov 2021 - 14:42:01.505 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
 13 Nov 2021 - 14:42:01.844 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
 13 Nov 2021 - 14:42:01.844 [main] INFO  io.javalin.Javalin - Javalin started in 356ms \o/
+14 Nov 2021 - 12:42:18.527 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+14 Nov 2021 - 12:42:18.545 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @558ms to org.eclipse.jetty.util.log.Slf4jLog
+14 Nov 2021 - 12:42:18.546 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+14 Nov 2021 - 12:42:18.590 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+14 Nov 2021 - 12:42:19.034 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+14 Nov 2021 - 12:42:19.035 [main] INFO  io.javalin.Javalin - Javalin started in 490ms \o/
+14 Nov 2021 - 12:42:32.071 [qtp1883840933-26] INFO  com.revature.MainDriver - POST request received to the /clients endpoint
+14 Nov 2021 - 12:42:32.831 [qtp1883840933-26] INFO  com.revature.service.ClientsService - invoked addNewClient() method
+14 Nov 2021 - 12:42:32.831 [qtp1883840933-26] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: All fields cannot be empty!
+14 Nov 2021 - 12:42:42.410 [qtp1883840933-16] INFO  com.revature.MainDriver - POST request received to the /clients endpoint
+14 Nov 2021 - 12:42:42.410 [qtp1883840933-16] INFO  com.revature.service.ClientsService - invoked addNewClient() method
+14 Nov 2021 - 12:42:42.410 [qtp1883840933-16] INFO  com.revature.dao.ClientsDAO - invoked inserClients() method
+14 Nov 2021 - 12:42:52.281 [qtp1883840933-25] INFO  com.revature.MainDriver - GET request received to the /clients endpoint
+14 Nov 2021 - 12:42:52.281 [qtp1883840933-25] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+14 Nov 2021 - 12:42:52.281 [qtp1883840933-25] INFO  com.revature.dao.ClientsDAO - invoked selectAllClients() method
+14 Nov 2021 - 12:43:09.435 [qtp1883840933-15] INFO  com.revature.MainDriver - GET request received to the /clients/a endpoint
+14 Nov 2021 - 12:43:09.436 [qtp1883840933-15] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+14 Nov 2021 - 12:43:09.436 [qtp1883840933-15] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Client id does not exist!
+14 Nov 2021 - 12:43:57.647 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+14 Nov 2021 - 12:43:57.658 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @399ms to org.eclipse.jetty.util.log.Slf4jLog
+14 Nov 2021 - 12:43:57.658 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+14 Nov 2021 - 12:43:57.675 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+14 Nov 2021 - 12:43:58.007 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+14 Nov 2021 - 12:43:58.007 [main] INFO  io.javalin.Javalin - Javalin started in 349ms \o/
+14 Nov 2021 - 12:44:00.065 [qtp385337537-26] INFO  com.revature.MainDriver - GET request received to the /clients/a endpoint
+14 Nov 2021 - 12:44:00.066 [qtp385337537-26] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:44:00.066 [qtp385337537-26] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Client id does not exist!
+14 Nov 2021 - 12:44:30.111 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+14 Nov 2021 - 12:44:30.123 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @391ms to org.eclipse.jetty.util.log.Slf4jLog
+14 Nov 2021 - 12:44:30.125 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+14 Nov 2021 - 12:44:30.156 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+14 Nov 2021 - 12:44:30.551 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+14 Nov 2021 - 12:44:30.551 [main] INFO  io.javalin.Javalin - Javalin started in 427ms \o/
+14 Nov 2021 - 12:44:31.594 [qtp385337537-25] INFO  com.revature.MainDriver - GET request received to the /clients/a endpoint
+14 Nov 2021 - 12:44:31.594 [qtp385337537-25] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:44:31.594 [qtp385337537-25] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+14 Nov 2021 - 12:44:39.677 [qtp385337537-14] INFO  com.revature.MainDriver - GET request received to the /clients/100 endpoint
+14 Nov 2021 - 12:44:39.678 [qtp385337537-14] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:44:39.678 [qtp385337537-14] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:44:39.796 [qtp385337537-14] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Client id does not exist!
+14 Nov 2021 - 12:44:49.518 [qtp385337537-23] INFO  com.revature.MainDriver - GET request received to the /clients/1 endpoint
+14 Nov 2021 - 12:44:49.519 [qtp385337537-23] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:44:49.519 [qtp385337537-23] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:45:01.927 [qtp385337537-19] INFO  com.revature.MainDriver - PUT request received to the /clients/1111 endpoint
+14 Nov 2021 - 12:45:01.981 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked modifyClientById() method
+14 Nov 2021 - 12:45:01.982 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:45:02.014 [qtp385337537-19] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Can't delete a client because the client does not exist
+14 Nov 2021 - 12:47:17.532 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+14 Nov 2021 - 12:47:17.544 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @383ms to org.eclipse.jetty.util.log.Slf4jLog
+14 Nov 2021 - 12:47:17.544 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+14 Nov 2021 - 12:47:17.560 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+14 Nov 2021 - 12:47:17.945 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+14 Nov 2021 - 12:47:17.945 [main] INFO  io.javalin.Javalin - Javalin started in 401ms \o/
+14 Nov 2021 - 12:47:18.021 [qtp385337537-26] INFO  com.revature.MainDriver - PUT request received to the /clients/1111 endpoint
+14 Nov 2021 - 12:47:18.232 [qtp385337537-26] INFO  com.revature.service.ClientsService - invoked modifyClientById() method
+14 Nov 2021 - 12:47:18.233 [qtp385337537-26] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:47:18.347 [qtp385337537-26] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Can't modify a client because the client does not exist
+14 Nov 2021 - 12:47:41.050 [qtp385337537-15] INFO  com.revature.MainDriver - PUT request received to the /clients/a endpoint
+14 Nov 2021 - 12:47:41.051 [qtp385337537-15] INFO  com.revature.service.ClientsService - invoked modifyClientById() method
+14 Nov 2021 - 12:47:41.051 [qtp385337537-15] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+14 Nov 2021 - 12:47:48.913 [qtp385337537-23] INFO  com.revature.MainDriver - PUT request received to the /clients/1 endpoint
+14 Nov 2021 - 12:47:48.913 [qtp385337537-23] INFO  com.revature.service.ClientsService - invoked modifyClientById() method
+14 Nov 2021 - 12:47:48.913 [qtp385337537-23] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:47:48.950 [qtp385337537-23] INFO  com.revature.dao.ClientsDAO - invoked updateClientsById() method
+14 Nov 2021 - 12:48:05.096 [qtp385337537-19] INFO  com.revature.MainDriver - DELETE request received to the /clients/1111 endpoint
+14 Nov 2021 - 12:48:05.096 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked removeClientById() method
+14 Nov 2021 - 12:48:05.096 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:48:05.131 [qtp385337537-19] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Can't delete a client because the client does not exist
+14 Nov 2021 - 12:48:14.328 [qtp385337537-23] INFO  com.revature.MainDriver - DELETE request received to the /clients/a endpoint
+14 Nov 2021 - 12:48:14.328 [qtp385337537-23] INFO  com.revature.service.ClientsService - invoked removeClientById() method
+14 Nov 2021 - 12:48:14.328 [qtp385337537-23] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+14 Nov 2021 - 12:48:19.013 [qtp385337537-19] INFO  com.revature.MainDriver - GET request received to the /clients endpoint
+14 Nov 2021 - 12:48:19.013 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+14 Nov 2021 - 12:48:19.013 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectAllClients() method
+14 Nov 2021 - 12:48:31.534 [qtp385337537-23] INFO  com.revature.MainDriver - DELETE request received to the /clients/3 endpoint
+14 Nov 2021 - 12:48:31.535 [qtp385337537-23] INFO  com.revature.service.ClientsService - invoked removeClientById() method
+14 Nov 2021 - 12:48:31.536 [qtp385337537-23] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:48:31.574 [qtp385337537-23] INFO  com.revature.dao.ClientsDAO - invoked deleteClientsById() method
+14 Nov 2021 - 12:48:38.640 [qtp385337537-19] INFO  com.revature.MainDriver - GET request received to the /clients/1/accounts endpoint
+14 Nov 2021 - 12:48:38.641 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:48:38.641 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:48:38.678 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+14 Nov 2021 - 12:48:38.679 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+14 Nov 2021 - 12:49:28.882 [qtp385337537-17] INFO  com.revature.MainDriver - GET request received to the /clients/a/accounts endpoint
+14 Nov 2021 - 12:49:28.882 [qtp385337537-17] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:49:28.882 [qtp385337537-17] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+14 Nov 2021 - 12:49:36.838 [qtp385337537-26] INFO  com.revature.MainDriver - GET request received to the /clients/10000/accounts endpoint
+14 Nov 2021 - 12:49:36.840 [qtp385337537-26] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:49:36.840 [qtp385337537-26] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:49:36.875 [qtp385337537-26] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Client id does not exist!
+14 Nov 2021 - 12:49:46.989 [qtp385337537-15] INFO  com.revature.MainDriver - POST request received to the /clients/1/accounts endpoint
+14 Nov 2021 - 12:49:46.989 [qtp385337537-15] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:49:46.989 [qtp385337537-15] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:49:47.029 [qtp385337537-15] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:49:47.029 [qtp385337537-15] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account No/Bank Account Type/Amount cannot be empty!
+14 Nov 2021 - 12:50:17.033 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+14 Nov 2021 - 12:50:17.045 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @401ms to org.eclipse.jetty.util.log.Slf4jLog
+14 Nov 2021 - 12:50:17.046 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+14 Nov 2021 - 12:50:17.064 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+14 Nov 2021 - 12:50:17.403 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+14 Nov 2021 - 12:50:17.403 [main] INFO  io.javalin.Javalin - Javalin started in 357ms \o/
+14 Nov 2021 - 12:50:20.291 [qtp385337537-26] INFO  com.revature.MainDriver - POST request received to the /clients/1/accounts endpoint
+14 Nov 2021 - 12:50:20.292 [qtp385337537-26] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:50:20.292 [qtp385337537-26] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:50:20.715 [qtp385337537-26] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+14 Nov 2021 - 12:50:20.715 [qtp385337537-26] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:50:20.715 [qtp385337537-26] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account No/Bank Account Type/Amount cannot be empty!
+14 Nov 2021 - 12:50:31.870 [qtp385337537-17] INFO  com.revature.MainDriver - POST request received to the /clients/1/accounts endpoint
+14 Nov 2021 - 12:50:31.871 [qtp385337537-17] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:50:31.871 [qtp385337537-17] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:50:31.921 [qtp385337537-17] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+14 Nov 2021 - 12:50:31.923 [qtp385337537-17] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:50:31.923 [qtp385337537-17] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account No/Bank Account Type/Amount cannot be empty!
+14 Nov 2021 - 12:50:36.499 [qtp385337537-25] INFO  com.revature.MainDriver - POST request received to the /clients/1/accounts endpoint
+14 Nov 2021 - 12:50:36.499 [qtp385337537-25] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:50:36.499 [qtp385337537-25] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:50:36.540 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+14 Nov 2021 - 12:50:36.540 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:50:36.540 [qtp385337537-25] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account No/Bank Account Type/Amount cannot be empty!
+14 Nov 2021 - 12:50:43.443 [qtp385337537-23] INFO  com.revature.MainDriver - POST request received to the /clients/1/accounts endpoint
+14 Nov 2021 - 12:50:43.443 [qtp385337537-23] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:50:43.443 [qtp385337537-23] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:50:43.481 [qtp385337537-23] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+14 Nov 2021 - 12:50:43.481 [qtp385337537-23] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:50:43.481 [qtp385337537-23] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account No/Bank Account Type/Amount cannot be empty!
+14 Nov 2021 - 12:50:53.758 [qtp385337537-25] INFO  com.revature.MainDriver - POST request received to the /clients/1/accounts endpoint
+14 Nov 2021 - 12:50:53.759 [qtp385337537-25] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:50:53.759 [qtp385337537-25] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:50:53.797 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+14 Nov 2021 - 12:50:53.797 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:50:53.797 [qtp385337537-25] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account Type must be either 'Checkings' OR 'Savings'!
+14 Nov 2021 - 12:51:03.901 [qtp385337537-23] INFO  com.revature.MainDriver - POST request received to the /clients/1/accounts endpoint
+14 Nov 2021 - 12:51:03.901 [qtp385337537-23] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:51:03.901 [qtp385337537-23] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:51:03.936 [qtp385337537-23] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+14 Nov 2021 - 12:51:03.936 [qtp385337537-23] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:51:03.936 [qtp385337537-23] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Amount must be greater than 0 only!
+14 Nov 2021 - 12:51:08.178 [qtp385337537-25] INFO  com.revature.MainDriver - POST request received to the /clients/1/accounts endpoint
+14 Nov 2021 - 12:51:08.178 [qtp385337537-25] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:51:08.178 [qtp385337537-25] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:51:08.213 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+14 Nov 2021 - 12:51:08.213 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:51:08.213 [qtp385337537-25] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Amount can only be of int or double value!
+14 Nov 2021 - 12:51:16.374 [qtp385337537-23] INFO  com.revature.MainDriver - POST request received to the /clients/1/accounts endpoint
+14 Nov 2021 - 12:51:16.374 [qtp385337537-23] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:51:16.375 [qtp385337537-23] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:51:16.409 [qtp385337537-23] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+14 Nov 2021 - 12:51:16.409 [qtp385337537-23] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:51:16.409 [qtp385337537-23] INFO  com.revature.dao.BankAccountsDAO - insertBankAccount() invoked
+14 Nov 2021 - 12:51:24.527 [qtp385337537-25] INFO  com.revature.MainDriver - GET request received to the /clients/a/accounts endpoint
+14 Nov 2021 - 12:51:24.527 [qtp385337537-25] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:51:24.528 [qtp385337537-25] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+14 Nov 2021 - 12:52:08.098 [qtp385337537-19] INFO  com.revature.MainDriver - GET request received to the /clients/11111/accounts endpoint
+14 Nov 2021 - 12:52:08.100 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:52:08.100 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:52:08.234 [qtp385337537-19] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Client id does not exist!
+14 Nov 2021 - 12:52:19.074 [qtp385337537-26] INFO  com.revature.MainDriver - GET request received to the /clients/1/accounts endpoint
+14 Nov 2021 - 12:52:19.075 [qtp385337537-26] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:52:19.075 [qtp385337537-26] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:52:19.110 [qtp385337537-26] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+14 Nov 2021 - 12:52:19.110 [qtp385337537-26] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+14 Nov 2021 - 12:52:39.830 [qtp385337537-17] INFO  com.revature.MainDriver - GET request received to the /clients/1/accounts/10 endpoint
+14 Nov 2021 - 12:52:39.831 [qtp385337537-17] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:52:39.831 [qtp385337537-17] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:52:39.866 [qtp385337537-17] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+14 Nov 2021 - 12:52:39.866 [qtp385337537-17] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+14 Nov 2021 - 12:52:39.898 [qtp385337537-17] WARN  c.r.service.BankAccountsService - BankAccountNotFoundException was thrown: Client doesn't have any existing bank account id
+14 Nov 2021 - 12:53:17.157 [qtp385337537-15] INFO  com.revature.MainDriver - GET request received to the /clients/1/accounts/a endpoint
+14 Nov 2021 - 12:53:17.157 [qtp385337537-15] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:53:17.157 [qtp385337537-15] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:53:17.191 [qtp385337537-15] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+14 Nov 2021 - 12:53:17.192 [qtp385337537-15] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+14 Nov 2021 - 12:53:28.400 [qtp385337537-18] INFO  com.revature.MainDriver - GET request received to the /clients/a/accounts/1 endpoint
+14 Nov 2021 - 12:53:28.400 [qtp385337537-18] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:53:28.400 [qtp385337537-18] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+14 Nov 2021 - 12:53:33.995 [qtp385337537-19] INFO  com.revature.MainDriver - GET request received to the /clients/1/accounts/1 endpoint
+14 Nov 2021 - 12:53:33.995 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:53:33.996 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:53:34.037 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+14 Nov 2021 - 12:53:34.037 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+14 Nov 2021 - 12:53:41.464 [qtp385337537-18] INFO  com.revature.MainDriver - PUT request received to the /clients/1/accounts/a endpoint
+14 Nov 2021 - 12:53:41.464 [qtp385337537-18] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:53:41.465 [qtp385337537-18] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:53:41.501 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+14 Nov 2021 - 12:53:41.502 [qtp385337537-18] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+14 Nov 2021 - 12:53:47.219 [qtp385337537-19] INFO  com.revature.MainDriver - PUT request received to the /clients/a/accounts/a endpoint
+14 Nov 2021 - 12:53:47.220 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:53:47.220 [qtp385337537-19] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+14 Nov 2021 - 12:53:50.747 [qtp385337537-18] INFO  com.revature.MainDriver - PUT request received to the /clients/a/accounts/1 endpoint
+14 Nov 2021 - 12:53:50.747 [qtp385337537-18] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:53:50.748 [qtp385337537-18] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+14 Nov 2021 - 12:54:09.371 [qtp385337537-19] INFO  com.revature.MainDriver - PUT request received to the /clients/1/accounts/1 endpoint
+14 Nov 2021 - 12:54:09.371 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:54:09.371 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:54:09.406 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+14 Nov 2021 - 12:54:09.406 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+14 Nov 2021 - 12:54:09.441 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+14 Nov 2021 - 12:54:09.441 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:54:09.441 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - updateBankAccount() invoked
+14 Nov 2021 - 12:54:25.561 [qtp385337537-18] INFO  com.revature.MainDriver - PUT request received to the /clients/1/accounts/1 endpoint
+14 Nov 2021 - 12:54:25.562 [qtp385337537-18] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:54:25.562 [qtp385337537-18] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:54:25.594 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+14 Nov 2021 - 12:54:25.594 [qtp385337537-18] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+14 Nov 2021 - 12:54:25.629 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+14 Nov 2021 - 12:54:25.629 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:54:25.629 [qtp385337537-18] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Amount can only be of int or double value!
+14 Nov 2021 - 12:54:34.567 [qtp385337537-19] INFO  com.revature.MainDriver - PUT request received to the /clients/1/accounts/1 endpoint
+14 Nov 2021 - 12:54:34.568 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:54:34.568 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:54:34.605 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+14 Nov 2021 - 12:54:34.606 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+14 Nov 2021 - 12:54:34.642 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+14 Nov 2021 - 12:54:34.642 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:54:34.642 [qtp385337537-19] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account No/Bank Account Type/Amount cannot be empty!
+14 Nov 2021 - 12:54:43.151 [qtp385337537-18] INFO  com.revature.MainDriver - PUT request received to the /clients/1/accounts/1 endpoint
+14 Nov 2021 - 12:54:43.152 [qtp385337537-18] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:54:43.152 [qtp385337537-18] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:54:43.184 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+14 Nov 2021 - 12:54:43.186 [qtp385337537-18] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+14 Nov 2021 - 12:54:43.218 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+14 Nov 2021 - 12:54:43.219 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:54:43.219 [qtp385337537-18] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account Type must be either 'Checkings' OR 'Savings'!
+14 Nov 2021 - 12:54:53.197 [qtp385337537-19] INFO  com.revature.MainDriver - PUT request received to the /clients/1/accounts/1 endpoint
+14 Nov 2021 - 12:54:53.197 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:54:53.197 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:54:53.238 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+14 Nov 2021 - 12:54:53.238 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+14 Nov 2021 - 12:54:53.275 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+14 Nov 2021 - 12:54:53.276 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:54:53.276 [qtp385337537-19] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Amount must be greater than 0 only!
+14 Nov 2021 - 12:54:57.163 [qtp385337537-18] INFO  com.revature.MainDriver - PUT request received to the /clients/1/accounts/1 endpoint
+14 Nov 2021 - 12:54:57.163 [qtp385337537-18] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:54:57.163 [qtp385337537-18] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:54:57.200 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+14 Nov 2021 - 12:54:57.200 [qtp385337537-18] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+14 Nov 2021 - 12:54:57.237 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+14 Nov 2021 - 12:54:57.237 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:54:57.237 [qtp385337537-18] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Amount can only be of int or double value!
+14 Nov 2021 - 12:55:01.585 [qtp385337537-19] INFO  com.revature.MainDriver - PUT request received to the /clients/1/accounts/1 endpoint
+14 Nov 2021 - 12:55:01.585 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:55:01.585 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:55:01.618 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+14 Nov 2021 - 12:55:01.618 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+14 Nov 2021 - 12:55:01.653 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+14 Nov 2021 - 12:55:01.654 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+14 Nov 2021 - 12:55:01.654 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - updateBankAccount() invoked
+14 Nov 2021 - 12:55:10.389 [qtp385337537-18] INFO  com.revature.MainDriver - DELETE request received to the /clients/1/accounts/a endpoint
+14 Nov 2021 - 12:55:10.389 [qtp385337537-18] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:55:10.389 [qtp385337537-18] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:55:10.424 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+14 Nov 2021 - 12:55:10.424 [qtp385337537-18] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+14 Nov 2021 - 12:55:21.439 [qtp385337537-19] INFO  com.revature.MainDriver - DELETE request received to the /clients/a/accounts/1 endpoint
+14 Nov 2021 - 12:55:21.439 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:55:21.439 [qtp385337537-19] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+14 Nov 2021 - 12:55:27.912 [qtp385337537-18] INFO  com.revature.MainDriver - DELETE request received to the /clients/10000/accounts/1 endpoint
+14 Nov 2021 - 12:55:27.913 [qtp385337537-18] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:55:27.914 [qtp385337537-18] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:55:28.061 [qtp385337537-18] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Client id does not exist!
+14 Nov 2021 - 12:55:32.610 [qtp385337537-19] INFO  com.revature.MainDriver - DELETE request received to the /clients/1/accounts/11231 endpoint
+14 Nov 2021 - 12:55:32.611 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:55:32.611 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:55:32.755 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+14 Nov 2021 - 12:55:32.756 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+14 Nov 2021 - 12:55:32.789 [qtp385337537-19] WARN  c.r.service.BankAccountsService - BankAccountNotFoundException was thrown: Client doesn't have any existing bank account id
+14 Nov 2021 - 12:55:41.620 [qtp385337537-18] INFO  com.revature.MainDriver - DELETE request received to the /clients/1/accounts/5 endpoint
+14 Nov 2021 - 12:55:41.620 [qtp385337537-18] INFO  com.revature.service.ClientsService - invoked getClientById() method
+14 Nov 2021 - 12:55:41.620 [qtp385337537-18] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+14 Nov 2021 - 12:55:41.653 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+14 Nov 2021 - 12:55:41.653 [qtp385337537-18] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+14 Nov 2021 - 12:55:41.687 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked removeBankAccount() method
+14 Nov 2021 - 12:55:41.688 [qtp385337537-18] INFO  com.revature.dao.BankAccountsDAO - deleteBankAccount() invoked
