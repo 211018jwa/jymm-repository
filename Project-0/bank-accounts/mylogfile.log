@@ -542,3 +542,141 @@
 15 Nov 2021 - 15:18:26.978 [main] INFO  com.revature.service.ClientsService - invoked addNewClient() method
 15 Nov 2021 - 18:29:40.990 [main] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
 15 Nov 2021 - 18:33:35.962 [main] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+15 Nov 2021 - 20:33:11.094 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 20:33:11.096 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account No/Bank Account Type/Amount cannot be empty!
+16 Nov 2021 - 13:39:03.216 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+16 Nov 2021 - 13:39:03.237 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @483ms to org.eclipse.jetty.util.log.Slf4jLog
+16 Nov 2021 - 13:39:03.238 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+16 Nov 2021 - 13:39:03.281 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+16 Nov 2021 - 13:39:03.709 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+16 Nov 2021 - 13:39:03.709 [main] INFO  io.javalin.Javalin - Javalin started in 472ms \o/
+16 Nov 2021 - 13:39:39.745 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+16 Nov 2021 - 13:39:39.758 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @457ms to org.eclipse.jetty.util.log.Slf4jLog
+16 Nov 2021 - 13:39:39.759 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+16 Nov 2021 - 13:39:39.777 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+16 Nov 2021 - 13:39:40.172 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+16 Nov 2021 - 13:39:40.172 [main] INFO  io.javalin.Javalin - Javalin started in 413ms \o/
+16 Nov 2021 - 13:39:48.479 [qtp385337537-25] INFO  com.revature.MainDriver - GET request received to the /clients endpoint
+16 Nov 2021 - 13:39:48.482 [qtp385337537-25] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+16 Nov 2021 - 13:39:48.482 [qtp385337537-25] INFO  com.revature.dao.ClientsDAO - invoked selectAllClients() method
+16 Nov 2021 - 13:47:15.655 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+16 Nov 2021 - 13:47:15.672 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @494ms to org.eclipse.jetty.util.log.Slf4jLog
+16 Nov 2021 - 13:47:15.673 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+16 Nov 2021 - 13:47:15.695 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+16 Nov 2021 - 13:47:16.094 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+16 Nov 2021 - 13:47:16.094 [main] INFO  io.javalin.Javalin - Javalin started in 422ms \o/
+16 Nov 2021 - 15:56:12.906 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+16 Nov 2021 - 15:56:12.915 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @675ms to org.eclipse.jetty.util.log.Slf4jLog
+16 Nov 2021 - 15:56:12.916 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+16 Nov 2021 - 15:56:12.935 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+16 Nov 2021 - 15:56:13.343 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+16 Nov 2021 - 15:56:13.344 [main] INFO  io.javalin.Javalin - Javalin started in 429ms \o/
+16 Nov 2021 - 15:56:16.748 [qtp385337537-25] INFO  com.revature.MainDriver - GET request received to the /clients endpoint
+16 Nov 2021 - 15:56:16.748 [qtp385337537-25] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+16 Nov 2021 - 15:56:16.748 [qtp385337537-25] INFO  com.revature.dao.ClientsDAO - invoked selectAllClients() method
+16 Nov 2021 - 15:57:17.972 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+16 Nov 2021 - 15:57:17.981 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @392ms to org.eclipse.jetty.util.log.Slf4jLog
+16 Nov 2021 - 15:57:17.982 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+16 Nov 2021 - 15:57:17.999 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+16 Nov 2021 - 15:57:18.347 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+16 Nov 2021 - 15:57:18.347 [main] INFO  io.javalin.Javalin - Javalin started in 366ms \o/
+16 Nov 2021 - 15:57:22.585 [qtp385337537-26] INFO  com.revature.MainDriver - GET request received to the /clients endpoint
+16 Nov 2021 - 15:57:22.585 [qtp385337537-26] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+16 Nov 2021 - 15:57:22.585 [qtp385337537-26] INFO  com.revature.dao.ClientsDAO - invoked selectAllClients() method
+16 Nov 2021 - 15:57:36.504 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+16 Nov 2021 - 15:57:36.516 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @395ms to org.eclipse.jetty.util.log.Slf4jLog
+16 Nov 2021 - 15:57:36.517 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+16 Nov 2021 - 15:57:36.534 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+16 Nov 2021 - 15:57:36.868 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+16 Nov 2021 - 15:57:36.868 [main] INFO  io.javalin.Javalin - Javalin started in 352ms \o/
+16 Nov 2021 - 15:57:40.442 [qtp385337537-26] INFO  com.revature.MainDriver - GET request received to the /clients endpoint
+16 Nov 2021 - 15:57:40.443 [qtp385337537-26] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+16 Nov 2021 - 15:57:40.443 [qtp385337537-26] INFO  com.revature.dao.ClientsDAO - invoked selectAllClients() method
+16 Nov 2021 - 16:26:32.176 [main] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 16:30:44.322 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+16 Nov 2021 - 16:30:44.349 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @531ms to org.eclipse.jetty.util.log.Slf4jLog
+16 Nov 2021 - 16:30:44.352 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+16 Nov 2021 - 16:30:44.409 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+16 Nov 2021 - 16:30:44.841 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+16 Nov 2021 - 16:30:44.842 [main] INFO  io.javalin.Javalin - Javalin started in 491ms \o/
+16 Nov 2021 - 16:31:06.599 [qtp385337537-25] INFO  com.revature.MainDriver - GET request received to the /clients/1/accounts endpoint
+16 Nov 2021 - 16:31:06.600 [qtp385337537-25] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 16:31:06.601 [qtp385337537-25] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 16:31:07.035 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 16:31:07.036 [qtp385337537-25] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 16:31:22.967 [qtp385337537-14] INFO  com.revature.MainDriver - GET request received to the /clients/1/accounts endpoint
+16 Nov 2021 - 16:31:22.968 [qtp385337537-14] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 16:31:22.968 [qtp385337537-14] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 16:31:23.193 [qtp385337537-14] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 16:31:23.194 [qtp385337537-14] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 16:31:28.259 [qtp385337537-19] INFO  com.revature.MainDriver - GET request received to the /clients/1/accounts endpoint
+16 Nov 2021 - 16:31:28.260 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 16:31:28.260 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 16:31:28.298 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 16:31:28.298 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 16:31:35.169 [qtp385337537-23] INFO  com.revature.MainDriver - GET request received to the /clients/1/accounts endpoint
+16 Nov 2021 - 16:31:35.169 [qtp385337537-23] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 16:31:35.169 [qtp385337537-23] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 16:31:35.283 [qtp385337537-23] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 16:31:35.283 [qtp385337537-23] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 16:31:44.658 [qtp385337537-19] INFO  com.revature.MainDriver - GET request received to the /clients/1/accounts endpoint
+16 Nov 2021 - 16:31:44.659 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 16:31:44.659 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 16:31:44.764 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 16:31:44.765 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked

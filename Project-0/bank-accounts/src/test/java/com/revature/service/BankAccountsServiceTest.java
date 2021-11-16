@@ -305,34 +305,67 @@ public class BankAccountsServiceTest {
 
 	// Happy Path
 	@Test
-	public void testGetAccountsWithSpecificAmountPositive() throws SQLException, InvalidInputException {
-		
+	public void testGetAccountsWithSpecificAmountNoGreaterThanAndNoLessThanPositive()
+			throws SQLException, InvalidInputException {
+
 		// ARRANGE
 		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
-		
-		JoinTableForClientAndBankAccountDTO joinClientAndBankAccount = new JoinTableForClientAndBankAccountDTO(1, "Jymm", "Enriquez", "1234567890", 
-			"Savings", "2000");
-		JoinTableForClientAndBankAccountDTO joinClientAndBankAccount1 = new JoinTableForClientAndBankAccountDTO(1, "Jymm", "Enriquez", "1234567891", 
-				"Checkings", "3000");
-		
-		
+
+		JoinTableForClientAndBankAccountDTO joinClientAndBankAccount = new JoinTableForClientAndBankAccountDTO(1,
+				"Jymm", "Enriquez", "1234567890", "Savings", "2000");
+		JoinTableForClientAndBankAccountDTO joinClientAndBankAccount1 = new JoinTableForClientAndBankAccountDTO(1,
+				"Jymm", "Enriquez", "1234567891", "Checkings", "3000");
+
 		List<JoinTableForClientAndBankAccountDTO> clientAndBankAccountDto = new ArrayList<>();
 		clientAndBankAccountDto.add(joinClientAndBankAccount);
 		clientAndBankAccountDto.add(joinClientAndBankAccount1);
-		
-		when(mockBankAccountsDao.selectAccountsWithSpecificAmount(eq(1), eq(0), eq(1000000))).thenReturn(clientAndBankAccountDto);
+
+		when(mockBankAccountsDao.selectAccountsWithSpecificAmount(eq(1), eq(0), eq(1000000)))
+				.thenReturn(clientAndBankAccountDto);
 		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
-		
+
 		// ACT
-		List<JoinTableForClientAndBankAccountDTO> actual = bankAccountsService.getAccountsWithSpecificAmount("1", "0", "1000000");
-		
+		List<JoinTableForClientAndBankAccountDTO> actual = bankAccountsService.getAccountsWithSpecificAmount("1", "0",
+				"1000000");
+
 		// ASSERT
 		List<JoinTableForClientAndBankAccountDTO> expected = new ArrayList<>();
-		expected.add(new JoinTableForClientAndBankAccountDTO(1, "Jymm", "Enriquez", "1234567890", 
-			"Savings", "2000"));
-		expected.add( new JoinTableForClientAndBankAccountDTO(1, "Jymm", "Enriquez", "1234567891", 
-				"Checkings", "3000"));
-		Assertions.assertEquals(expected, actual);		
+		expected.add(new JoinTableForClientAndBankAccountDTO(1, "Jymm", "Enriquez", "1234567890", "Savings", "2000"));
+		expected.add(new JoinTableForClientAndBankAccountDTO(1, "Jymm", "Enriquez", "1234567891", "Checkings", "3000"));
+		Assertions.assertEquals(expected, actual);
+	}
+
+	// Happy Path
+	@Test
+	public void testGetAccountWithSpecificAmountWithGreaterThanAndLessThanPositive()
+			throws SQLException, InvalidInputException {
+		
+		// ARRANGE
+		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
+
+		JoinTableForClientAndBankAccountDTO joinClientAndBankAccount = new JoinTableForClientAndBankAccountDTO(1,
+				"Jymm", "Enriquez", "1234567890", "Savings", "400");
+		JoinTableForClientAndBankAccountDTO joinClientAndBankAccount1 = new JoinTableForClientAndBankAccountDTO(1,
+				"Jymm", "Enriquez", "1234567891", "Checkings", "2000");
+
+		List<JoinTableForClientAndBankAccountDTO> clientAndBankAccountDto = new ArrayList<>();
+		clientAndBankAccountDto.add(joinClientAndBankAccount);
+		clientAndBankAccountDto.add(joinClientAndBankAccount1);
+
+		when(mockBankAccountsDao.selectAccountsWithSpecificAmount(eq(1), eq(400), eq(2000)))
+				.thenReturn(clientAndBankAccountDto);
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+
+		// ACT
+		List<JoinTableForClientAndBankAccountDTO> actual = bankAccountsService.getAccountsWithSpecificAmount("1", "400",
+				"2000");
+
+		// ASSERT
+		List<JoinTableForClientAndBankAccountDTO> expected = new ArrayList<>();
+		expected.add(new JoinTableForClientAndBankAccountDTO(1, "Jymm", "Enriquez", "1234567890", "Savings", "400"));
+		expected.add(new JoinTableForClientAndBankAccountDTO(1, "Jymm", "Enriquez", "1234567891", "Checkings", "2000"));
+		Assertions.assertEquals(expected, actual);
+
 	}
 
 	/*

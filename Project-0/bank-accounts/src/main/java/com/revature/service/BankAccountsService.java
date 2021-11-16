@@ -134,10 +134,19 @@ public class BankAccountsService {
 				int amountLess = Integer.parseInt(amountLessThan);
 				bankAccount = this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, amountGreater,
 						amountLess);
+			} else if (amountGreaterThan != null) {
+				int amountGreater = Integer.parseInt(amountGreaterThan);
+				bankAccount = this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, amountGreater,
+						1000000);
+			} else if (amountLessThan != null) {
+				int amountLess = Integer.parseInt(amountLessThan);
+				bankAccount = this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, 0,
+						amountLess);
 			} else {
 				bankAccount = this.bankAccountsDao.selectAccountsWithSpecificAmount(clientsId, 0, 1000000);
 			}
 			return bankAccount;
+			
 		} catch (NumberFormatException e) {
 			logger.warn("InvalidInputException was thrown: "
 					+ "Amount Greater Than or Amount Less Than must be a convertable int type!");
