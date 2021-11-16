@@ -680,3 +680,155 @@
 16 Nov 2021 - 16:31:44.659 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
 16 Nov 2021 - 16:31:44.764 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
 16 Nov 2021 - 16:31:44.765 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 16:58:00.995 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+16 Nov 2021 - 16:58:01.004 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @564ms to org.eclipse.jetty.util.log.Slf4jLog
+16 Nov 2021 - 16:58:01.005 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+16 Nov 2021 - 16:58:01.024 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+16 Nov 2021 - 16:58:01.409 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+16 Nov 2021 - 16:58:01.410 [main] INFO  io.javalin.Javalin - Javalin started in 405ms \o/
+16 Nov 2021 - 16:58:04.263 [qtp385337537-26] INFO  com.revature.MainDriver - POST request received to the /clients endpoint
+16 Nov 2021 - 16:58:04.491 [qtp385337537-26] INFO  com.revature.service.ClientsService - invoked addNewClient() method
+16 Nov 2021 - 16:58:04.491 [qtp385337537-26] INFO  com.revature.dao.ClientsDAO - invoked inserClients() method
+16 Nov 2021 - 16:58:11.803 [qtp385337537-15] INFO  com.revature.MainDriver - GET request received to the /clients endpoint
+16 Nov 2021 - 16:58:11.803 [qtp385337537-15] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+16 Nov 2021 - 16:58:11.803 [qtp385337537-15] INFO  com.revature.dao.ClientsDAO - invoked selectAllClients() method
+16 Nov 2021 - 16:58:21.702 [qtp385337537-19] INFO  com.revature.MainDriver - GET request received to the /clients/1 endpoint
+16 Nov 2021 - 16:58:21.703 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 16:58:21.703 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 16:59:39.487 [qtp385337537-17] INFO  com.revature.MainDriver - PUT request received to the /clients/4 endpoint
+16 Nov 2021 - 16:59:39.488 [qtp385337537-17] INFO  com.revature.service.ClientsService - invoked modifyClientById() method
+16 Nov 2021 - 16:59:39.488 [qtp385337537-17] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 16:59:39.523 [qtp385337537-17] INFO  com.revature.dao.ClientsDAO - invoked updateClientsById() method
+16 Nov 2021 - 16:59:46.849 [qtp385337537-27] INFO  com.revature.MainDriver - GET request received to the /clients/4 endpoint
+16 Nov 2021 - 16:59:46.850 [qtp385337537-27] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 16:59:46.850 [qtp385337537-27] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 16:59:54.683 [qtp385337537-16] INFO  com.revature.MainDriver - GET request received to the /clients endpoint
+16 Nov 2021 - 16:59:54.683 [qtp385337537-16] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+16 Nov 2021 - 16:59:54.683 [qtp385337537-16] INFO  com.revature.dao.ClientsDAO - invoked selectAllClients() method
+16 Nov 2021 - 17:00:41.760 [qtp385337537-13] INFO  com.revature.MainDriver - GET request received to the /clients endpoint
+16 Nov 2021 - 17:00:41.761 [qtp385337537-13] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+16 Nov 2021 - 17:00:41.762 [qtp385337537-13] INFO  com.revature.dao.ClientsDAO - invoked selectAllClients() method
+16 Nov 2021 - 17:00:48.785 [qtp385337537-25] INFO  com.revature.MainDriver - DELETE request received to the /clients/2 endpoint
+16 Nov 2021 - 17:00:48.785 [qtp385337537-25] INFO  com.revature.service.ClientsService - invoked removeClientById() method
+16 Nov 2021 - 17:00:48.785 [qtp385337537-25] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:00:48.821 [qtp385337537-25] INFO  com.revature.dao.ClientsDAO - invoked deleteClientsById() method
+16 Nov 2021 - 17:00:53.979 [qtp385337537-18] INFO  com.revature.MainDriver - DELETE request received to the /clients/0 endpoint
+16 Nov 2021 - 17:00:53.979 [qtp385337537-18] INFO  com.revature.service.ClientsService - invoked removeClientById() method
+16 Nov 2021 - 17:00:53.979 [qtp385337537-18] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:00:54.023 [qtp385337537-18] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Can't delete a client because the client does not exist
+16 Nov 2021 - 17:01:09.984 [qtp385337537-25] INFO  com.revature.MainDriver - POST request received to the /clients/4/accounts endpoint
+16 Nov 2021 - 17:01:09.984 [qtp385337537-25] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:01:09.984 [qtp385337537-25] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:01:10.023 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+16 Nov 2021 - 17:01:10.024 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+16 Nov 2021 - 17:01:10.025 [qtp385337537-25] INFO  com.revature.dao.BankAccountsDAO - insertBankAccount() invoked
+16 Nov 2021 - 17:01:30.453 [qtp385337537-18] INFO  com.revature.MainDriver - POST request received to the /clients/4/accounts endpoint
+16 Nov 2021 - 17:01:30.453 [qtp385337537-18] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:01:30.454 [qtp385337537-18] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:01:30.495 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+16 Nov 2021 - 17:01:30.495 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+16 Nov 2021 - 17:01:30.496 [qtp385337537-18] INFO  com.revature.dao.BankAccountsDAO - insertBankAccount() invoked
+16 Nov 2021 - 17:01:43.096 [qtp385337537-25] INFO  com.revature.MainDriver - GET request received to the /clients endpoint
+16 Nov 2021 - 17:01:43.096 [qtp385337537-25] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+16 Nov 2021 - 17:01:43.096 [qtp385337537-25] INFO  com.revature.dao.ClientsDAO - invoked selectAllClients() method
+16 Nov 2021 - 17:01:57.121 [qtp385337537-18] INFO  com.revature.MainDriver - GET request received to the /clients/1/accounts endpoint
+16 Nov 2021 - 17:01:57.122 [qtp385337537-18] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:01:57.122 [qtp385337537-18] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:01:57.160 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 17:01:57.160 [qtp385337537-18] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 17:02:02.783 [qtp385337537-25] INFO  com.revature.MainDriver - GET request received to the /clients/4/accounts endpoint
+16 Nov 2021 - 17:02:02.784 [qtp385337537-25] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:02:02.784 [qtp385337537-25] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:02:02.826 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 17:02:02.827 [qtp385337537-25] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 17:02:39.455 [qtp385337537-19] INFO  com.revature.MainDriver - GET request received to the /clients/4/accounts endpoint
+16 Nov 2021 - 17:02:39.455 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:02:39.455 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:02:39.491 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 17:02:39.492 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 17:02:59.519 [qtp385337537-13] INFO  com.revature.MainDriver - GET request received to the /clients/1/accounts/1 endpoint
+16 Nov 2021 - 17:02:59.520 [qtp385337537-13] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:02:59.520 [qtp385337537-13] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:02:59.663 [qtp385337537-13] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+16 Nov 2021 - 17:02:59.664 [qtp385337537-13] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+16 Nov 2021 - 17:02:59.703 [qtp385337537-13] WARN  c.r.service.BankAccountsService - BankAccountNotFoundException was thrown: Client doesn't have any existing bank account id
+16 Nov 2021 - 17:03:06.374 [qtp385337537-19] INFO  com.revature.MainDriver - GET request received to the /clients/4/accounts/1 endpoint
+16 Nov 2021 - 17:03:06.374 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:03:06.374 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:03:06.519 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+16 Nov 2021 - 17:03:06.519 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+16 Nov 2021 - 17:03:14.061 [qtp385337537-13] INFO  com.revature.MainDriver - GET request received to the /clients/4/accounts/2 endpoint
+16 Nov 2021 - 17:03:14.063 [qtp385337537-13] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:03:14.064 [qtp385337537-13] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:03:14.106 [qtp385337537-13] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+16 Nov 2021 - 17:03:14.106 [qtp385337537-13] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+16 Nov 2021 - 17:03:16.872 [qtp385337537-19] INFO  com.revature.MainDriver - GET request received to the /clients/4/accounts/3 endpoint
+16 Nov 2021 - 17:03:16.872 [qtp385337537-19] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:03:16.872 [qtp385337537-19] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:03:17.012 [qtp385337537-19] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+16 Nov 2021 - 17:03:17.012 [qtp385337537-19] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+16 Nov 2021 - 17:03:17.052 [qtp385337537-19] WARN  c.r.service.BankAccountsService - BankAccountNotFoundException was thrown: Client doesn't have any existing bank account id
+16 Nov 2021 - 17:03:48.323 [qtp385337537-16] INFO  com.revature.MainDriver - GET request received to the /clients/1/accounts endpoint
+16 Nov 2021 - 17:03:48.323 [qtp385337537-16] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:03:48.323 [qtp385337537-16] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:03:48.462 [qtp385337537-16] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 17:03:48.462 [qtp385337537-16] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 17:04:06.711 [qtp385337537-29] INFO  com.revature.MainDriver - GET request received to the /clients/4/accounts endpoint
+16 Nov 2021 - 17:04:06.711 [qtp385337537-29] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:04:06.711 [qtp385337537-29] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:04:06.746 [qtp385337537-29] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 17:04:06.746 [qtp385337537-29] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 17:04:19.158 [qtp385337537-16] INFO  com.revature.MainDriver - GET request received to the /clients/4/accounts endpoint
+16 Nov 2021 - 17:04:19.160 [qtp385337537-16] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:04:19.160 [qtp385337537-16] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:04:19.199 [qtp385337537-16] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 17:04:19.200 [qtp385337537-16] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 17:04:28.116 [qtp385337537-29] INFO  com.revature.MainDriver - GET request received to the /clients/4/accounts endpoint
+16 Nov 2021 - 17:04:28.118 [qtp385337537-29] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:04:28.119 [qtp385337537-29] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:04:28.160 [qtp385337537-29] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 17:04:28.160 [qtp385337537-29] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 17:04:46.141 [qtp385337537-16] INFO  com.revature.MainDriver - GET request received to the /clients/4/accounts endpoint
+16 Nov 2021 - 17:04:46.141 [qtp385337537-16] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:04:46.141 [qtp385337537-16] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:04:46.287 [qtp385337537-16] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 17:04:46.287 [qtp385337537-16] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 17:05:02.856 [qtp385337537-29] INFO  com.revature.MainDriver - POST request received to the /clients/4/accounts endpoint
+16 Nov 2021 - 17:05:02.856 [qtp385337537-29] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:05:02.856 [qtp385337537-29] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:05:02.897 [qtp385337537-29] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+16 Nov 2021 - 17:05:02.897 [qtp385337537-29] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+16 Nov 2021 - 17:05:02.897 [qtp385337537-29] INFO  com.revature.dao.BankAccountsDAO - insertBankAccount() invoked
+16 Nov 2021 - 17:05:06.710 [qtp385337537-16] INFO  com.revature.MainDriver - GET request received to the /clients/4/accounts endpoint
+16 Nov 2021 - 17:05:06.710 [qtp385337537-16] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:05:06.710 [qtp385337537-16] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:05:06.752 [qtp385337537-16] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 17:05:06.752 [qtp385337537-16] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 17:06:25.958 [qtp385337537-25] INFO  com.revature.MainDriver - PUT request received to the /clients/4/accounts/1 endpoint
+16 Nov 2021 - 17:06:25.959 [qtp385337537-25] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:06:25.959 [qtp385337537-25] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:06:26.005 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+16 Nov 2021 - 17:06:26.005 [qtp385337537-25] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+16 Nov 2021 - 17:06:26.043 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+16 Nov 2021 - 17:06:26.043 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+16 Nov 2021 - 17:06:26.044 [qtp385337537-25] INFO  com.revature.dao.BankAccountsDAO - updateBankAccount() invoked
+16 Nov 2021 - 17:06:30.966 [qtp385337537-27] INFO  com.revature.MainDriver - GET request received to the /clients/4/accounts endpoint
+16 Nov 2021 - 17:06:30.966 [qtp385337537-27] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:06:30.966 [qtp385337537-27] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:06:31.006 [qtp385337537-27] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+16 Nov 2021 - 17:06:31.007 [qtp385337537-27] INFO  com.revature.dao.BankAccountsDAO - selectAccountsWithSpecificAmount() invoked
+16 Nov 2021 - 17:06:55.268 [qtp385337537-25] INFO  com.revature.MainDriver - DELETE request received to the /clients/4/accounts/1 endpoint
+16 Nov 2021 - 17:06:55.268 [qtp385337537-25] INFO  com.revature.service.ClientsService - invoked getClientById() method
+16 Nov 2021 - 17:06:55.268 [qtp385337537-25] INFO  com.revature.dao.ClientsDAO - invoked selectClientsById() method
+16 Nov 2021 - 17:06:55.304 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+16 Nov 2021 - 17:06:55.304 [qtp385337537-25] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
+16 Nov 2021 - 17:06:55.340 [qtp385337537-25] INFO  c.r.service.BankAccountsService - invoked removeBankAccount() method
+16 Nov 2021 - 17:06:55.340 [qtp385337537-25] INFO  com.revature.dao.BankAccountsDAO - deleteBankAccount() invoked
