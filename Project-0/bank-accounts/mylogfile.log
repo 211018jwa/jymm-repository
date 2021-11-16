@@ -324,3 +324,221 @@
 14 Nov 2021 - 12:55:41.653 [qtp385337537-18] INFO  com.revature.dao.BankAccountsDAO - selectBankAccountsById() invoked
 14 Nov 2021 - 12:55:41.687 [qtp385337537-18] INFO  c.r.service.BankAccountsService - invoked removeBankAccount() method
 14 Nov 2021 - 12:55:41.688 [qtp385337537-18] INFO  com.revature.dao.BankAccountsDAO - deleteBankAccount() invoked
+15 Nov 2021 - 11:33:18.442 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+15 Nov 2021 - 11:33:18.452 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @454ms to org.eclipse.jetty.util.log.Slf4jLog
+15 Nov 2021 - 11:33:18.453 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+15 Nov 2021 - 11:33:18.471 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+15 Nov 2021 - 11:33:18.854 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+15 Nov 2021 - 11:33:18.855 [main] INFO  io.javalin.Javalin - Javalin started in 402ms \o/
+15 Nov 2021 - 11:33:52.913 [qtp1883840933-26] INFO  com.revature.MainDriver - GET request received to the /clients endpoint
+15 Nov 2021 - 11:33:52.913 [qtp1883840933-26] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+15 Nov 2021 - 11:33:52.913 [qtp1883840933-26] INFO  com.revature.dao.ClientsDAO - invoked selectAllClients() method
+15 Nov 2021 - 11:34:28.698 [qtp1883840933-19] INFO  com.revature.MainDriver - POST request received to the /clients endpoint
+15 Nov 2021 - 11:34:28.814 [qtp1883840933-19] INFO  com.revature.service.ClientsService - invoked addNewClient() method
+15 Nov 2021 - 11:34:28.815 [qtp1883840933-19] INFO  com.revature.dao.ClientsDAO - invoked inserClients() method
+15 Nov 2021 - 12:35:45.453 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 12:35:45.455 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:35:45.491 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:35:45.493 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:35:45.494 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account No/Bank Account Type/Amount cannot be empty!
+15 Nov 2021 - 12:35:45.495 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:35:45.495 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Amount must be greater than 0 only!
+15 Nov 2021 - 12:35:45.496 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:35:45.496 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account Type must be either 'Checkings' OR 'Savings'!
+15 Nov 2021 - 12:35:45.497 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:35:45.497 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account Type must be either 'Checkings' OR 'Savings'!
+15 Nov 2021 - 12:35:45.498 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:35:45.498 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:35:45.500 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:35:45.500 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:35:45.501 [main] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+15 Nov 2021 - 12:35:45.501 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:35:45.503 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:35:45.503 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:35:45.505 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 12:35:45.506 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:35:45.506 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:35:45.509 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:35:45.509 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Amount must be greater than 0 only!
+15 Nov 2021 - 12:35:45.511 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 12:35:45.511 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:35:45.512 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:35:45.514 [main] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+15 Nov 2021 - 12:35:45.514 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:35:45.516 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:35:45.516 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:35:45.517 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 12:35:45.517 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:35:45.518 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:35:45.519 [main] WARN  c.r.service.BankAccountsService - BankAccountNotFoundException was thrown: Client doesn't have any existing bank account id
+15 Nov 2021 - 12:35:45.520 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 12:35:45.520 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:35:45.520 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:35:45.522 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:35:45.522 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:35:45.523 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:35:45.523 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Amount can only be of int or double value!
+15 Nov 2021 - 12:35:45.524 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:35:45.524 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account No/Bank Account Type/Amount cannot be empty!
+15 Nov 2021 - 12:35:45.525 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:35:45.525 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:35:45.551 [main] INFO  com.revature.service.ClientsService - invoked getClientById() method
+15 Nov 2021 - 12:35:45.551 [main] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Client id does not exist!
+15 Nov 2021 - 12:35:45.553 [main] INFO  com.revature.service.ClientsService - invoked addNewClient() method
+15 Nov 2021 - 12:35:45.556 [main] INFO  com.revature.service.ClientsService - invoked modifyClientById() method
+15 Nov 2021 - 12:35:45.556 [main] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Can't modify a client because the client does not exist
+15 Nov 2021 - 12:35:45.558 [main] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+15 Nov 2021 - 12:35:45.560 [main] INFO  com.revature.service.ClientsService - invoked getClientById() method
+15 Nov 2021 - 12:35:45.560 [main] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:35:45.562 [main] INFO  com.revature.service.ClientsService - invoked modifyClientById() method
+15 Nov 2021 - 12:35:45.562 [main] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:35:45.563 [main] INFO  com.revature.service.ClientsService - invoked getClientById() method
+15 Nov 2021 - 12:35:45.565 [main] INFO  com.revature.service.ClientsService - invoked removeClientById() method
+15 Nov 2021 - 12:35:45.567 [main] INFO  com.revature.service.ClientsService - invoked removeClientById() method
+15 Nov 2021 - 12:35:45.568 [main] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Can't delete a client because the client does not exist
+15 Nov 2021 - 12:35:45.572 [main] INFO  com.revature.service.ClientsService - invoked modifyClientById() method
+15 Nov 2021 - 12:35:45.573 [main] INFO  com.revature.service.ClientsService - invoked removeClientById() method
+15 Nov 2021 - 12:35:45.574 [main] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:35:45.575 [main] INFO  com.revature.service.ClientsService - invoked addNewClient() method
+15 Nov 2021 - 12:35:45.575 [main] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: All fields cannot be empty!
+15 Nov 2021 - 12:58:02.376 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 12:58:02.378 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:58:02.417 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:58:02.419 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:58:02.419 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account No/Bank Account Type/Amount cannot be empty!
+15 Nov 2021 - 12:58:02.421 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:58:02.422 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Amount must be greater than 0 only!
+15 Nov 2021 - 12:58:02.424 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:58:02.424 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account Type must be either 'Checkings' OR 'Savings'!
+15 Nov 2021 - 12:58:02.425 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:58:02.425 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account Type must be either 'Checkings' OR 'Savings'!
+15 Nov 2021 - 12:58:02.426 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:58:02.426 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:58:02.428 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:58:02.428 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:58:02.430 [main] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+15 Nov 2021 - 12:58:02.430 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:58:02.431 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:58:02.431 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:58:02.433 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 12:58:02.433 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:58:02.433 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:58:02.435 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:58:02.435 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Amount must be greater than 0 only!
+15 Nov 2021 - 12:58:02.437 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 12:58:02.437 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:58:02.437 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:58:02.439 [main] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+15 Nov 2021 - 12:58:02.439 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:58:02.440 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:58:02.441 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:58:02.443 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 12:58:02.443 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:58:02.445 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:58:02.445 [main] WARN  c.r.service.BankAccountsService - BankAccountNotFoundException was thrown: Client doesn't have any existing bank account id
+15 Nov 2021 - 12:58:02.447 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 12:58:02.447 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:58:02.447 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:58:02.448 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:58:02.449 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:58:02.450 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:58:02.451 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Amount can only be of int or double value!
+15 Nov 2021 - 12:58:02.452 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 12:58:02.452 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account No/Bank Account Type/Amount cannot be empty!
+15 Nov 2021 - 12:58:02.453 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 12:58:02.454 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:58:02.482 [main] INFO  com.revature.service.ClientsService - invoked getClientById() method
+15 Nov 2021 - 12:58:02.482 [main] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Client id does not exist!
+15 Nov 2021 - 12:58:02.485 [main] INFO  com.revature.service.ClientsService - invoked addNewClient() method
+15 Nov 2021 - 12:58:02.488 [main] INFO  com.revature.service.ClientsService - invoked modifyClientById() method
+15 Nov 2021 - 12:58:02.488 [main] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Can't modify a client because the client does not exist
+15 Nov 2021 - 12:58:02.490 [main] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+15 Nov 2021 - 12:58:02.491 [main] INFO  com.revature.service.ClientsService - invoked getClientById() method
+15 Nov 2021 - 12:58:02.491 [main] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:58:02.493 [main] INFO  com.revature.service.ClientsService - invoked modifyClientById() method
+15 Nov 2021 - 12:58:02.493 [main] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:58:02.494 [main] INFO  com.revature.service.ClientsService - invoked getClientById() method
+15 Nov 2021 - 12:58:02.495 [main] INFO  com.revature.service.ClientsService - invoked removeClientById() method
+15 Nov 2021 - 12:58:02.497 [main] INFO  com.revature.service.ClientsService - invoked removeClientById() method
+15 Nov 2021 - 12:58:02.497 [main] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Can't delete a client because the client does not exist
+15 Nov 2021 - 12:58:02.502 [main] INFO  com.revature.service.ClientsService - invoked modifyClientById() method
+15 Nov 2021 - 12:58:02.503 [main] INFO  com.revature.service.ClientsService - invoked removeClientById() method
+15 Nov 2021 - 12:58:02.503 [main] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 12:58:02.504 [main] INFO  com.revature.service.ClientsService - invoked addNewClient() method
+15 Nov 2021 - 12:58:02.504 [main] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: All fields cannot be empty!
+15 Nov 2021 - 14:19:30.316 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 14:19:30.318 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 14:19:30.355 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 14:19:30.358 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 14:19:30.359 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account No/Bank Account Type/Amount cannot be empty!
+15 Nov 2021 - 14:19:30.360 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 14:19:30.360 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Amount must be greater than 0 only!
+15 Nov 2021 - 14:19:30.361 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 14:19:30.362 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account Type must be either 'Checkings' OR 'Savings'!
+15 Nov 2021 - 14:19:30.362 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 14:19:30.362 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account Type must be either 'Checkings' OR 'Savings'!
+15 Nov 2021 - 14:19:30.363 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 14:19:30.363 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 14:19:30.365 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 14:19:30.365 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 14:19:30.367 [main] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+15 Nov 2021 - 14:19:30.367 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 14:19:30.370 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 14:19:30.371 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 14:19:30.373 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 14:19:30.374 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 14:19:30.374 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 14:19:30.377 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 14:19:30.378 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Amount must be greater than 0 only!
+15 Nov 2021 - 14:19:30.380 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 14:19:30.380 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 14:19:30.380 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 14:19:30.381 [main] INFO  c.r.service.BankAccountsService - invoked addBankAccount() method
+15 Nov 2021 - 14:19:30.381 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 14:19:30.383 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 14:19:30.384 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 14:19:30.385 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 14:19:30.386 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 14:19:30.387 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 14:19:30.388 [main] WARN  c.r.service.BankAccountsService - BankAccountNotFoundException was thrown: Client doesn't have any existing bank account id
+15 Nov 2021 - 14:19:30.389 [main] INFO  c.r.service.BankAccountsService - invoked editBankAccount() method
+15 Nov 2021 - 14:19:30.390 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 14:19:30.390 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 14:19:30.391 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 14:19:30.391 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 14:19:30.392 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 14:19:30.392 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Amount can only be of int or double value!
+15 Nov 2021 - 14:19:30.393 [main] INFO  c.r.service.BankAccountsService - invoked validateFields() method
+15 Nov 2021 - 14:19:30.394 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Bank Account No/Bank Account Type/Amount cannot be empty!
+15 Nov 2021 - 14:19:30.395 [main] INFO  c.r.service.BankAccountsService - invoked getBankAccount() method
+15 Nov 2021 - 14:19:30.395 [main] WARN  c.r.service.BankAccountsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 14:19:30.441 [main] INFO  com.revature.service.ClientsService - invoked getClientById() method
+15 Nov 2021 - 14:19:30.441 [main] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Client id does not exist!
+15 Nov 2021 - 14:19:30.443 [main] INFO  com.revature.service.ClientsService - invoked addNewClient() method
+15 Nov 2021 - 14:19:30.445 [main] INFO  com.revature.service.ClientsService - invoked modifyClientById() method
+15 Nov 2021 - 14:19:30.446 [main] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Can't modify a client because the client does not exist
+15 Nov 2021 - 14:19:30.448 [main] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+15 Nov 2021 - 14:19:30.450 [main] INFO  com.revature.service.ClientsService - invoked getClientById() method
+15 Nov 2021 - 14:19:30.451 [main] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 14:19:30.454 [main] INFO  com.revature.service.ClientsService - invoked modifyClientById() method
+15 Nov 2021 - 14:19:30.454 [main] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 14:19:30.455 [main] INFO  com.revature.service.ClientsService - invoked getClientById() method
+15 Nov 2021 - 14:19:30.456 [main] INFO  com.revature.service.ClientsService - invoked removeClientById() method
+15 Nov 2021 - 14:19:30.458 [main] INFO  com.revature.service.ClientsService - invoked removeClientById() method
+15 Nov 2021 - 14:19:30.458 [main] WARN  com.revature.service.ClientsService - ClientNotFoundException was thrown: Can't delete a client because the client does not exist
+15 Nov 2021 - 14:19:30.462 [main] INFO  com.revature.service.ClientsService - invoked modifyClientById() method
+15 Nov 2021 - 14:19:30.463 [main] INFO  com.revature.service.ClientsService - invoked removeClientById() method
+15 Nov 2021 - 14:19:30.463 [main] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: Entered id cannot be converted to int value!
+15 Nov 2021 - 14:19:30.464 [main] INFO  com.revature.service.ClientsService - invoked addNewClient() method
+15 Nov 2021 - 14:19:30.464 [main] WARN  com.revature.service.ClientsService - InvalidInputException was thrown: All fields cannot be empty!
+15 Nov 2021 - 15:18:26.978 [main] INFO  com.revature.service.ClientsService - invoked addNewClient() method
+15 Nov 2021 - 18:29:40.990 [main] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method
+15 Nov 2021 - 18:33:35.962 [main] INFO  c.r.service.BankAccountsService - invoked getAccountsWithSpecificAmount() method

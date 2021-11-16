@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 
 import com.revature.controller.ClientsController;
 import com.revature.controller.ExceptionMappingController;
+import com.revature.dao.ClientsDAO;
+import com.revature.service.ClientsService;
 
 import io.javalin.Javalin;
 
@@ -39,6 +41,8 @@ public class MainDriver {
 		});
 
 		ClientsController clientsController = new ClientsController();
+		
+		ClientsService clientsService = new ClientsService(new ClientsDAO());
 
 		clientsController.registerEndpoint(app);
 

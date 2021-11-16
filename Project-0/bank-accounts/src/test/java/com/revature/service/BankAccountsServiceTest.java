@@ -1,18 +1,19 @@
 package com.revature.service;
 
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.doAnswer;
-import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import com.revature.dao.BankAccountsDAO;
 import com.revature.dto.AddOrUpdateBankAccountDTO;
+import com.revature.dto.JoinTableForClientAndBankAccountDTO;
 import com.revature.exceptions.BankAccountNotFoundException;
 import com.revature.exceptions.InvalidInputException;
 import com.revature.models.BankAccounts;
@@ -299,6 +300,42 @@ public class BankAccountsServiceTest {
 	}
 
 	/*
+	 * BankAccountsService's getAccountsWithSpecificAmount() test
+	 */
+
+	// Happy Path
+	@Test
+	public void testGetAccountsWithSpecificAmountPositive() throws SQLException, InvalidInputException {
+		
+		// ARRANGE
+		BankAccountsDAO mockBankAccountsDao = mock(BankAccountsDAO.class);
+		
+		JoinTableForClientAndBankAccountDTO joinClientAndBankAccount = new JoinTableForClientAndBankAccountDTO(1, "Jymm", "Enriquez", "1234567890", 
+			"Savings", "2000");
+		JoinTableForClientAndBankAccountDTO joinClientAndBankAccount1 = new JoinTableForClientAndBankAccountDTO(1, "Jymm", "Enriquez", "1234567891", 
+				"Checkings", "3000");
+		
+		
+		List<JoinTableForClientAndBankAccountDTO> clientAndBankAccountDto = new ArrayList<>();
+		clientAndBankAccountDto.add(joinClientAndBankAccount);
+		clientAndBankAccountDto.add(joinClientAndBankAccount1);
+		
+		when(mockBankAccountsDao.selectAccountsWithSpecificAmount(eq(1), eq(0), eq(1000000))).thenReturn(clientAndBankAccountDto);
+		BankAccountsService bankAccountsService = new BankAccountsService(mockBankAccountsDao);
+		
+		// ACT
+		List<JoinTableForClientAndBankAccountDTO> actual = bankAccountsService.getAccountsWithSpecificAmount("1", "0", "1000000");
+		
+		// ASSERT
+		List<JoinTableForClientAndBankAccountDTO> expected = new ArrayList<>();
+		expected.add(new JoinTableForClientAndBankAccountDTO(1, "Jymm", "Enriquez", "1234567890", 
+			"Savings", "2000"));
+		expected.add( new JoinTableForClientAndBankAccountDTO(1, "Jymm", "Enriquez", "1234567891", 
+				"Checkings", "3000"));
+		Assertions.assertEquals(expected, actual);		
+	}
+
+	/*
 	 * BankAccountsService's editBankAccount() test
 	 */
 
@@ -385,7 +422,7 @@ public class BankAccountsServiceTest {
 			bankAccountsService.editBankAccount("1", "1", updateDto);
 		});
 	}
-	
+
 //	/*
 //	 * BankAccountsService's removeBankAccount() test
 //	 */
@@ -407,6 +444,5 @@ public class BankAccountsServiceTest {
 //		
 //
 //	}
-	
-	
+
 }

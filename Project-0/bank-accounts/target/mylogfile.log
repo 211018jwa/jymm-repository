@@ -1,0 +1,91 @@
+15 Nov 2021 - 12:58:23.834 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+15 Nov 2021 - 12:58:23.845 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @394ms to org.eclipse.jetty.util.log.Slf4jLog
+15 Nov 2021 - 12:58:23.846 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+15 Nov 2021 - 12:58:23.889 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+15 Nov 2021 - 12:58:24.330 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+15 Nov 2021 - 12:58:24.330 [main] INFO  io.javalin.Javalin - Javalin started in 485ms \o/
+15 Nov 2021 - 12:59:04.632 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+15 Nov 2021 - 12:59:04.651 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @332ms to org.eclipse.jetty.util.log.Slf4jLog
+15 Nov 2021 - 12:59:04.652 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+15 Nov 2021 - 12:59:04.665 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+15 Nov 2021 - 12:59:04.804 [main] ERROR io.javalin.Javalin - Failed to start Javalin
+15 Nov 2021 - 12:59:04.804 [main] INFO  io.javalin.Javalin - Stopping Javalin ...
+15 Nov 2021 - 12:59:04.808 [main] INFO  io.javalin.Javalin - Javalin has stopped
+15 Nov 2021 - 12:59:41.451 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+15 Nov 2021 - 12:59:41.468 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @339ms to org.eclipse.jetty.util.log.Slf4jLog
+15 Nov 2021 - 12:59:41.469 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+15 Nov 2021 - 12:59:41.483 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+15 Nov 2021 - 12:59:41.625 [main] ERROR io.javalin.Javalin - Failed to start Javalin
+15 Nov 2021 - 12:59:41.625 [main] INFO  io.javalin.Javalin - Stopping Javalin ...
+15 Nov 2021 - 12:59:41.630 [main] INFO  io.javalin.Javalin - Javalin has stopped
+15 Nov 2021 - 13:00:41.947 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+15 Nov 2021 - 13:00:41.964 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @316ms to org.eclipse.jetty.util.log.Slf4jLog
+15 Nov 2021 - 13:00:41.965 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+15 Nov 2021 - 13:00:41.979 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+15 Nov 2021 - 13:00:42.142 [main] ERROR io.javalin.Javalin - Failed to start Javalin
+15 Nov 2021 - 13:00:42.142 [main] INFO  io.javalin.Javalin - Stopping Javalin ...
+15 Nov 2021 - 13:00:42.147 [main] INFO  io.javalin.Javalin - Javalin has stopped
+15 Nov 2021 - 13:09:05.428 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+15 Nov 2021 - 13:09:05.436 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @333ms to org.eclipse.jetty.util.log.Slf4jLog
+15 Nov 2021 - 13:09:05.437 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+15 Nov 2021 - 13:09:05.455 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+15 Nov 2021 - 13:09:05.584 [main] ERROR io.javalin.Javalin - Failed to start Javalin
+15 Nov 2021 - 13:09:05.584 [main] INFO  io.javalin.Javalin - Stopping Javalin ...
+15 Nov 2021 - 13:09:05.588 [main] INFO  io.javalin.Javalin - Javalin has stopped
+15 Nov 2021 - 13:09:35.288 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+15 Nov 2021 - 13:09:35.305 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @322ms to org.eclipse.jetty.util.log.Slf4jLog
+15 Nov 2021 - 13:09:35.306 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+15 Nov 2021 - 13:09:35.319 [main] INFO  io.javalin.Javalin - You are running Javalin 4.0.1 (released September 25, 2021).
+15 Nov 2021 - 13:09:35.547 [main] INFO  io.javalin.Javalin - Listening on http://localhost:8080/
+15 Nov 2021 - 13:09:35.547 [main] INFO  io.javalin.Javalin - Javalin started in 242ms \o/
+15 Nov 2021 - 13:09:41.346 [qtp858952163-30] INFO  com.revature.MainDriver - GET request received to the /clients endpoint
+15 Nov 2021 - 13:09:41.347 [qtp858952163-30] INFO  com.revature.service.ClientsService - invoked getAllClients() method
+15 Nov 2021 - 13:09:41.347 [qtp858952163-30] INFO  com.revature.dao.ClientsDAO - invoked selectAllClients() method
